@@ -1,0 +1,104 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="firebase/crud/listing"></ion-back-button>
+    </ion-buttons>
+    <ion-title>User Details</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openFirebaseUpdateModal()">
+        Edit
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="user-content">
+  <ion-row class="user-info-row">
+    <ion-col class="user-image-col" size="5">
+      <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+        <app-image-shell [display]="'cover'" class="user-image" animation="spinner" [src]="user?.avatar" [alt]="'item image'">
+        </app-image-shell>
+      </app-aspect-ratio>
+    </ion-col>
+    <ion-col class="user-details-col" size="12">
+      <h2 class="user-name">
+        <app-text-shell animation="bouncing" [data]="user?.name?.concat(' ').concat(user?.lastname)"></app-text-shell>
+      </h2>
+      <span class="user-age">
+        <app-text-shell animation="bouncing" [data]="user?.age?.toString().concat(' years young')"></app-text-shell>
+      </span>
+    </ion-col>
+    <ion-col class="actions-col" size="12">
+      <ion-row>
+        <ion-col size="3">
+          <ion-button class="action-btn" color="secondary">
+            <ion-icon class="btn-icon" slot="icon-only" name="mail"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button class="action-btn" color="secondary">
+            <ion-icon class="btn-icon" slot="icon-only" name="call"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button class="action-btn" color="secondary">
+            <ion-icon class="btn-icon" slot="icon-only" name="videocam"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col size="3">
+          <ion-button class="action-btn" color="secondary">
+            <ion-icon class="btn-icon" slot="icon-only" name="text"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+
+  <section class="content-section user-languages-wrapper">
+    <h5 class="section-header">Languages</h5>
+    <ion-row class="language-item-row">
+      <ion-col class="language-item">
+        <span class="language-name">English</span>
+        <ion-progress-bar class="language-score" type="determinate" [value]="(user?.languages?.english / 10)"></ion-progress-bar>
+      </ion-col>
+    </ion-row>
+    <ion-row class="language-item-row">
+      <ion-col class="language-item">
+        <span class="language-name">Spanish</span>
+        <ion-progress-bar class="language-score" type="determinate" [value]="(user?.languages?.spanish / 10)"></ion-progress-bar>
+      </ion-col>
+    </ion-row>
+    <ion-row class="language-item-row">
+      <ion-col class="language-item">
+        <span class="language-name">French</span>
+        <ion-progress-bar class="language-score" type="determinate" [value]="(user?.languages?.french / 10)"></ion-progress-bar>
+      </ion-col>
+    </ion-row>
+  </section>
+
+  <section class="content-section user-experience-wrapper">
+    <h5 class="section-header">Skills</h5>
+    <ion-list class="experience-list" lines="none">
+      <ion-item class="experience-item" *ngFor="let skill of user?.skills">
+        <label class="experience-label">
+          <app-text-shell animation="bouncing" [data]="skill?.name"></app-text-shell>
+        </label>
+        <ion-icon class="experience-list-icon" slot="start" name="checkmark" color="secondary"></ion-icon>
+      </ion-item>
+    </ion-list>
+  </section>
+
+  <section class="content-section related-users-wrapper" *ngIf="relatedUsers?.length > 0">
+    <h5 class="section-header">Users with similar skills</h5>
+    <ion-row class="related-users-row">
+      <ion-col class="related-user-item" *ngFor="let user of relatedUsers">
+        <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+          <app-image-shell [display]="'cover'" class="related-user-picture" [src]="user.avatar" [routerLink]="['/firebase/crud/details', user.id]"></app-image-shell>
+        </app-aspect-ratio>
+        <span class="related-user-name">
+          <app-text-shell [data]="user.name"></app-text-shell>
+        </span>
+      </ion-col>
+    </ion-row>
+  </section>
+</ion-content>

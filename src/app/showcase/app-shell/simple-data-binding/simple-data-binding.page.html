@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Simple Data Binding
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <b>Back to basics ...</b>
+    <p>
+      We can tweak our data stream with some RxJs operators and achieve an app shell loading interaction
+    </p>
+    <p>
+      Let's set a timeout and fetch data using the <code>HttpClient</code>
+    </p>
+    <p>
+      Data coming in <b>{{ simpleFetchCountdown }} seconds</b>
+    </p>
+    <ion-row style="background-color: #FFF; padding: 10px; margin: 20px;">
+      <ion-col size="12">
+        <app-image-shell animation="gradient" class="add-overlay" [display]="'cover'" [src]="simpleFetchData?.cover" [alt]="'Sample Image Cover'">
+          <app-aspect-ratio [ratio]="{w:2, h:1}">
+            <h4 style="margin: 10px; text-align: center; color: #FFF;">Heading on top of a cover image</h4>
+          </app-aspect-ratio>
+        </app-image-shell>
+      </ion-col>
+      <ion-col size="4">
+        <app-aspect-ratio [ratio]="{w:1, h:1}">
+          <app-image-shell animation="gradient" [src]="simpleFetchData?.image" [alt]="'Sample Image'"></app-image-shell>
+        </app-aspect-ratio>
+      </ion-col>
+      <ion-col size="8">
+        <h3 style="margin-top: 0px;">
+          <app-text-shell animation="gradient" [data]="simpleFetchData?.title"></app-text-shell>
+        </h3>
+        <p>
+          <app-text-shell animation="gradient" [data]="simpleFetchData?.description" lines="3"></app-text-shell>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-button (click)="showcaseShellSimpleFetch(3)" [disabled]="simpleFetchButtonDisabled">Fetch more Data</ion-button>
+  </section>
+</ion-content>

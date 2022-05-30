@@ -1,0 +1,10 @@
+:host-context(.md) {
+  .radio-list {
+    .radio-item {
+      // When this bug (https://github.com/ionic-team/ionic-framework/issues/22118) gets fixed, remove these styles
+      ion-radio {
+        margin-inline-end: 32px;
+      }
+    }
+  }
+}

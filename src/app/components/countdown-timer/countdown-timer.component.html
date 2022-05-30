@@ -1,0 +1,26 @@
+<ion-row class="countdown">
+  <ion-col class="time" *ngIf="_initialUnit === 'day'">
+    <span class="time-unit">D</span>
+    <div class="inner-time">
+      <span class="time-value">{{ _daysLeft }}</span>
+    </div>
+  </ion-col>
+  <ion-col class="time" *ngIf="(_initialUnit === 'day' && _endingUnit !== 'day') || _initialUnit === 'hour' || _endingUnit === 'hour'">
+    <span class="time-unit">H</span>
+    <div class="inner-time">
+      <span class="time-value">{{ _hoursLeft }}</span>
+    </div>
+  </ion-col>
+  <ion-col class="time" *ngIf="(_initialUnit === 'day' && (_endingUnit !== 'day' && _endingUnit !== 'hour')) || (_initialUnit === 'hour' && _endingUnit !== 'hour') || _initialUnit === 'minute'">
+    <span class="time-unit">M</span>
+    <div class="inner-time">
+      <span class="time-value">{{ _minutesLeft }}</span>
+    </div>
+  </ion-col>
+  <ion-col class="time" *ngIf="_endingUnit === 'second'">
+    <span class="time-unit">S</span>
+    <div class="inner-time">
+      <span class="time-value">{{ _secondsLeft }}</span>
+    </div>
+  </ion-col>
+</ion-row>

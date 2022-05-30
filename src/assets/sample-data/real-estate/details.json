@@ -1,0 +1,56 @@
+{
+  "id": 1,
+  "picture": "./assets/sample-images/real-estate/RealEstate1-64.25.png",
+  "location": {
+    "address": "1805 Powell Street",
+    "city": "San Fransisco, CA, United States",
+    "latlng": "37.8383976,-122.3019787",
+    "mapImage": "./assets/sample-images/real-estate/real-estate-map.png"
+  },
+  "description": "Enjoy luxury living like a local in the heart of the City, Hayes Valley District. Stroll, shop and eat at the best restaurants and boutiques within in blocks. Fitness center to stay fit & landscaped rooftop terraces with outdoor seating and bbq to lounge.",
+  "price": "1900",
+  "accommodations": {
+    "guests": 5,
+    "bedrooms": 2,
+    "bathrooms": 2,
+    "patios": 1
+  },
+  "amenities": [
+    {
+      "name": "Air conditioning",
+      "icon": "./assets/custom-icons/real-estate/air-conditioner.svg"
+    },
+    {
+      "name": "Refrigerator",
+      "icon": "./assets/custom-icons/real-estate/refrigerator.svg"
+    },
+    {
+      "name": "Cable TV",
+      "icon": "./assets/custom-icons/real-estate/television.svg"
+    },
+    {
+      "name": "Washer",
+      "icon": "./assets/custom-icons/real-estate/washing-machine.svg"
+    },
+    {
+      "name": "Microwave",
+      "icon": "./assets/custom-icons/real-estate/microwave.svg"
+    },
+    {
+      "name": "Elevator in Building",
+      "icon": ""
+    },
+    {
+      "name": "Iron",
+      "icon": ""
+    },
+    {
+      "name": "Gym",
+      "icon": ""
+    },
+    {
+      "name": "Pet friendly",
+      "icon": ""
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-broad-margin);
+  --page-background: var(--app-background);
+
+  --page-amenity-vertical-gutter: 6px;
+  --page-amenity-horizontal-gutter: 4px;
+
+  --page-color: #d9453a;
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.real-estate-listing-content {
+  --background: var(--page-background);
+}
+
+.listing-item {
+  .image-row {
+    --ion-grid-column-padding: 0px;
+
+    .image-anchor {
+      display: block;
+    }
+  }
+
+  .description-row {
+    --ion-grid-column-padding: 0px;
+
+    padding-bottom: var(--page-margin);
+
+    .details-col {
+      padding: calc(var(--page-margin) / 2) var(--page-margin) 0px;
+
+      .details-wrapper {
+        justify-content: space-between;
+
+        .item-price {
+          margin: 0px 0px 5px;
+    			font-weight: 500;
+          color: var(--ion-color-dark-tint);
+          display: flex;
+          align-items: center;
+
+          .price-icon {
+            margin-right: 5px;
+          }
+        }
+
+        .item-address {
+          margin: 0px;
+          font-size: 14px;
+          color: var(--ion-color-medium-tint);
+        }
+
+        .bookmark-col {
+          display: flex;
+          justify-content: flex-end;
+
+          .like-icon {
+            font-size: 32px;
+            color: var(--page-color);
+          }
+        }
+      }
+    }
+
+    .accommodations-col {
+      padding: 0px var(--page-margin) var(--page-margin);
+
+      .accommodations-wrapper {
+        padding-top: calc(var(--page-margin));
+      }
+
+      .item-accommodation {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        max-width: fit-content;
+
+        & + .item-accommodation {
+          padding-left: calc((var(--page-margin) / 2) * 3);
+        }
+
+        .accommodation-property {
+          font-size: 12px;
+          color: var(--ion-color-medium-tint);
+        }
+
+        .accommodation-value {
+          display: inline-block;
+          font-weight: 400;
+          font-size: 14px;
+          color: var(--ion-color-medium-tint);
+          margin-top: 4px;
+        }
+
+        .accommodation-name {
+          display: inline-block;
+          font-size: 12px;
+          color: var(--ion-color-medium-tint);
+        }
+
+        .accommodation-icon {
+          color: var(--ion-color-medium-tint);
+          font-size: 30px;
+        }
+      }
+    }
+
+    .amenities-col {
+      padding: 0px var(--page-margin) calc(var(--page-margin) / 2);
+      background: var(--app-background-shade);
+
+      .amenities-title {
+        margin: var(--page-margin) 0px calc(var(--page-margin) / 2);
+        font-size: 12px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--ion-color-medium-shade);
+      }
+
+      .amenities-wrapper {
+        margin: 0px calc(var(--page-amenity-horizontal-gutter) * -1);
+
+        .item-amenity {
+          padding: var(--page-amenity-vertical-gutter) var(--page-amenity-horizontal-gutter);
+          display: flex;
+          align-items: center;
+          justify-content: center;
+
+          .amenity-icon {
+            color: var(--ion-color-medium-tint);
+            font-size: 30px;
+            flex-shrink: 0;
+          }
+
+          .amenity-value {
+            display: block;
+            font-weight: 300;
+            font-size: 12px;
+            color: var(--ion-color-medium-tint);
+            margin-left: calc(var(--page-amenity-horizontal-gutter) * 2);
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+        }
+      }
+    }
+  }
+}

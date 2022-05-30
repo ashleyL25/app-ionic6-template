@@ -1,0 +1,30 @@
+{
+  "id": 1,
+  "showcaseImages": [
+    "./assets/sample-images/deals/Deal-Details-showcase-1.jpg",
+    "./assets/sample-images/deals/Deal-Details-showcase-2.jpg"
+  ],
+  "previewImage": "./assets/sample-images/deals/Deal-Details-preview.png",
+  "logo": "./assets/sample-images/deals/Deals1-4.1.png",
+  "name": "50% OFF Lindt",
+  "code": "CHOC4LIFE",
+  "description": "Lindt Excellence 70% Cocoa Chocolate Diamonds 60ct Box with Lancaster for $10.26",
+  "expirationDate": "12/01/2018",
+  "relatedDeals": [
+    {
+      "logo": "./assets/sample-images/deals/Deal-Details-related-1.jpg",
+      "name": "35% off",
+      "description": "Candy buffet!"
+    },
+    {
+      "logo": "./assets/sample-images/deals/Deal-Details-related-2.jpg",
+      "name": "15% off",
+      "description": "Breakfast"
+    },
+    {
+      "logo": "./assets/sample-images/deals/Deal-Details-related-3.jpg",
+      "name": "60% off",
+      "description": "Speciality bars"
+    }
+  ]
+}

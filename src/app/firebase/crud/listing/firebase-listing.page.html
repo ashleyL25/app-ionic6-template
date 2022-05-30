@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button color="light"></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Firebase</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="openFirebaseCreateModal()">
+        <ion-icon slot="icon-only" name="add"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+
+  <ion-toolbar class="filters-toolbar">
+    <ion-row class="searchbar-row" align-items-center>
+      <ion-col>
+        <ion-searchbar class="items-searchbar" animated [(ngModel)]="searchQuery" (ionChange)="searchList()" placeholder="Filter by name..."></ion-searchbar>
+      </ion-col>
+      <ion-col class="call-to-action-col">
+        <ion-button fill="clear" color="secondary" class="filters-btn" (click)="showAgeFilter = !showAgeFilter">
+          <ion-icon slot="icon-only" name="options"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+    <form [formGroup]="rangeForm" [hidden]="!showAgeFilter">
+      <ion-row class="range-item-row">
+        <ion-col size="12">
+          <div class="range-header">
+            <span class="range-value">{{ rangeForm.controls.dual.value.lower }}</span>
+            <span class="range-label">Filter by age</span>
+            <span class="range-value">{{ rangeForm.controls.dual.value.upper }}</span>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <ion-range class="range-control" formControlName="dual" color="secondary" pin="true" dualKnobs="true" (ionChange)="searchList()" min="1" max="100" step="1" debounce="400"></ion-range>
+        </ion-col>
+      </ion-row>
+    </form>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="firebase-listing-content">
+  <ion-list class="items-list" *ngIf="items?.length > 0">
+    <ion-item class="list-item" *ngFor="let item of items" [routerLink]="['/firebase/crud/details', item.id]">
+      <ion-row class="user-row">
+        <ion-col size="3" class="user-image-wrapper">
+          <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+            <app-image-shell class="user-image" animation="spinner" [src]="item.avatar" [alt]="'item image'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col class="user-data-wrapper">
+          <div class="user-info">
+            <h3 class="user-name">
+              <app-text-shell animation="bouncing" [data]="item.name?.concat(' ').concat(item.lastname)"></app-text-shell>
+            </h3>
+            <h5 class="user-age">
+              <app-text-shell animation="bouncing" [data]="item.age?.toString().concat(' years old')"></app-text-shell>
+            </h5>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-item>
+  </ion-list>
+  <h3 *ngIf="items?.length === 0" class="empty-list-message">
+    No users found for the selected filters.
+  </h3>
+</ion-content>

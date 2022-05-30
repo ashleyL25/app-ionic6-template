@@ -1,0 +1,58 @@
+app-image-shell.user-image {
+  --image-shell-border-radius: var(--page-border-radius);
+}
+
+.user-name > app-text-shell {
+  --text-shell-line-height: 20px;
+  max-width: 50%;
+
+  &.text-loaded {
+    max-width: unset;
+  }
+}
+
+.user-title > app-text-shell {
+  --text-shell-line-height: 16px;
+  max-width: 70%;
+
+  &.text-loaded {
+    max-width: unset;
+  }
+}
+
+.user-membership > app-text-shell {
+  --text-shell-line-color: rgba(var(--ion-color-secondary-rgb), 0.4);
+  --text-shell-line-height: 14px;
+  min-width: 30px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.stat-value > app-text-shell {
+  --text-shell-line-height: 18px;
+  max-width: 50%;
+  margin: 0px auto;
+
+  &.text-loaded {
+    max-width: unset;
+    margin: initial;
+  }
+}
+
+.user-description > app-text-shell {
+  --text-shell-line-height: 14px;
+}
+
+app-image-shell.friend-picture {
+  --image-shell-border-radius: var(--page-border-radius);
+}
+
+.friend-name > app-text-shell {
+  --text-shell-line-height: 14px;
+}
+
+app-image-shell.user-photo-image {
+  --image-shell-border-radius: var(--page-border-radius);
+}

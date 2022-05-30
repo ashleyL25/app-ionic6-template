@@ -1,0 +1,148 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "slug": "4-guests-2-bedrooms-powell-street-san-francisco",
+      "picture": "./assets/sample-images/real-estate/RealEstate1-64.25.png",
+      "address": "1805 Powell Street, SF",
+      "price": "1900",
+      "liked": true,
+      "accommodations": {
+        "guests": 5,
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "patios": 1
+      },
+      "amenities": [
+        {
+          "name": "Air conditioning",
+          "icon": "./assets/custom-icons/real-estate/air-conditioner.svg"
+        },
+        {
+          "name": "Refrigerator",
+          "icon": "./assets/custom-icons/real-estate/refrigerator.svg"
+        },
+        {
+          "name": "Cable TV",
+          "icon": "./assets/custom-icons/real-estate/television.svg"
+        }
+      ]
+    }, {
+      "id": 2,
+      "slug": "4-guests-2-bedrooms-california-street-san-francisco",
+      "picture": "./assets/sample-images/real-estate/RealEstate2-64.25.png",
+      "address": "555 California Street Suite 4700, SF",
+      "price": "2500",
+      "liked": false,
+      "accommodations": {
+        "guests": 4,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "patios": 1
+      },
+      "amenities": [
+        {
+          "name": "Washer",
+          "icon": "./assets/custom-icons/real-estate/washing-machine.svg"
+        },
+        {
+          "name": "Air conditioning",
+          "icon": "./assets/custom-icons/real-estate/air-conditioner.svg"
+        },
+        {
+          "name": "Refrigerator",
+          "icon": "./assets/custom-icons/real-estate/refrigerator.svg"
+        }
+      ]
+    }, {
+      "id": 3,
+      "slug": "6-guests-3-bedrooms-harrison-street-san-francisco",
+      "picture": "./assets/sample-images/real-estate/RealEstate3-64.25.png",
+      "address": "2 Harrison Street Suite 175, SF",
+      "price": "3000",
+      "liked": true,
+      "accommodations": {
+        "guests": 6,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "patios": 1
+      },
+      "amenities": [
+        {
+          "name": "Air conditioning",
+          "icon": "./assets/custom-icons/real-estate/air-conditioner.svg"
+        },
+        {
+          "name": "Washer",
+          "icon": "./assets/custom-icons/real-estate/washing-machine.svg"
+        },
+        {
+          "name": "Microwave",
+          "icon": "./assets/custom-icons/real-estate/microwave.svg"
+        },
+        {
+          "name": "Refrigerator",
+          "icon": "./assets/custom-icons/real-estate/refrigerator.svg"
+        },
+        {
+          "name": "Cable TV",
+          "icon": "./assets/custom-icons/real-estate/television.svg"
+        }
+      ]
+    }, {
+      "id": 4,
+      "slug": "4-guests-3-bedrooms-mcdonnell-road-san-francisco",
+      "picture": "./assets/sample-images/real-estate/RealEstate4-64.25.png",
+      "address": "780 McDonnell Road, SF",
+      "price": "1500",
+      "liked": false,
+      "accommodations": {
+        "guests": 8,
+        "bedrooms": 4,
+        "bathrooms": 2,
+        "patios": 2
+      },
+      "amenities": [
+        {
+          "name": "Microwave",
+          "icon": "./assets/custom-icons/real-estate/microwave.svg"
+        },
+        {
+          "name": "Refrigerator",
+          "icon": "./assets/custom-icons/real-estate/refrigerator.svg"
+        },
+        {
+          "name": "Cable TV",
+          "icon": "./assets/custom-icons/real-estate/television.svg"
+        }
+      ]
+    }, {
+      "id": 5,
+      "slug": "8-guests-4-bedrooms-clay-street-san-francisco",
+      "picture": "./assets/sample-images/real-estate/RealEstate5-64.25.png",
+      "address": "1515 Clay Street, SF",
+      "price": "2000",
+      "liked": false,
+      "accommodations": {
+        "guests": 10,
+        "bedrooms": 4,
+        "bathrooms": 3,
+        "patios": 2
+      },
+      "amenities": [
+        {
+          "name": "Air conditioning",
+          "icon": "./assets/custom-icons/real-estate/air-conditioner.svg"
+        },
+        {
+          "name": "Refrigerator",
+          "icon": "./assets/custom-icons/real-estate/refrigerator.svg"
+        },
+        {
+          "name": "Cable TV",
+          "icon": "./assets/custom-icons/real-estate/television.svg"
+        }
+      ]
+    }
+  ]
+}

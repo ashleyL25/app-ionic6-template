@@ -1,0 +1,16 @@
+@import "../app-shell.page";
+
+.item-name {
+  font-weight: 500;
+}
+.item-name > app-text-shell {
+  --text-shell-line-height: 16px;
+}
+
+.item-price > app-text-shell {
+  --text-shell-line-height: 14px;
+  max-width: 80px;
+  &.text-loaded {
+    max-width: inherit;
+  }
+}

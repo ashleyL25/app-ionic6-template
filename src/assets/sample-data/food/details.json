@@ -1,0 +1,597 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "slug": "la-olla",
+      "icon": "./assets/sample-images/food/food-details-icon.png",
+      "showcaseImage": "./assets/sample-images/food/food-details-showcase.png",
+      "name": "La Olla Rincón Gourmet",
+      "shortName": "La Olla",
+      "style": "Homemade style",
+      "priceRange": 3,
+      "avgRating": 4.2,
+      "ratings": [
+        {
+          "concept": "food",
+          "rate": 4.2
+        },
+        {
+          "concept": "service",
+          "rate": 4.4
+        },
+        {
+          "concept": "ambient",
+          "rate": 3.8
+        }
+      ],
+      "reviewsCount": 8,
+      "openHours": [
+        {
+          "day": "Monday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "22:00"
+        },
+        {
+          "day": "Tuesday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "22:00"
+        },
+        {
+          "day": "Wednesday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "22:00"
+        },
+        {
+          "day": "Thursday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "24:00"
+        },
+        {
+          "day": "Friday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "24:00"
+        },
+        {
+          "day": "Saturday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "24:00"
+        },
+        {
+          "day": "Sunday",
+          "open": false,
+          "hourFrom": "00:00",
+          "hourTo": "00:00"
+        }
+      ],
+      "location": {
+        "address": "1900 Powell Street",
+        "city": "San Fransisco, CA, United States",
+        "latlng": "37.8021216,-122.4134178",
+        "mapImage": "./assets/sample-images/food/food-details-map.png"
+      },
+      "tags": [
+        "Gluten free",
+        "Vegetarian",
+        "Vegan",
+        "Drinks Bar",
+        "Shows",
+        "Air Conditioning",
+        "Romantic",
+        "Wifi"
+      ],
+      "usersPictures": [
+        "./assets/sample-images/food/Cat1Foto2-1.1.png",
+        "./assets/sample-images/food/Cat1Foto3-1.1.png",
+        "./assets/sample-images/food/Cat1Foto4-1.1.png",
+        "./assets/sample-images/food/Cat1Foto5-1.1.png",
+        "./assets/sample-images/food/Cat1Foto1-1.1.png",
+        "./assets/sample-images/food/Cat1Foto2-1.1.png",
+        "./assets/sample-images/food/Cat1Foto3-1.1.png"
+      ],
+      "popularDishes": [
+        {
+          "name": "Sanduche pull pork",
+          "rate": 4,
+          "votesCount": 10
+        },
+        {
+          "name": "Bahmin",
+          "rate": 3,
+          "votesCount": 8
+        }
+      ],
+      "reviews": [
+        {
+          "user": {
+            "image": "./assets/sample-images/food/user-image-1.png",
+            "name": "John Smith",
+            "reviewsCount": 2,
+            "points": 26
+          },
+          "avgRating": 4.2,
+          "ratings": [
+            {
+              "concept": "food",
+              "rate": 4.2
+            },
+            {
+              "concept": "service",
+              "rate": 4.4
+            },
+            {
+              "concept": "ambient",
+              "rate": 3.8
+            }
+          ],
+          "publishedAt": "2018, May 6",
+          "message": "This review is long overdue but memories still vivid. We were at La Olla for a wedding. I had only thought of it as a great restaurant but never thought of it as an event space. The wedding was on a Sunday and we had the entire use of the space."
+        },
+        {
+          "user": {
+            "image": "./assets/sample-images/food/user-image-2.png",
+            "name": "Clair James",
+            "reviewsCount": 1,
+            "points": 4
+          },
+          "avgRating": 1.5,
+          "ratings": [
+            {
+              "concept": "food",
+              "rate": 2.0
+            },
+            {
+              "concept": "service",
+              "rate": 0.5
+            },
+            {
+              "concept": "ambient",
+              "rate": 1.5
+            }
+          ],
+          "publishedAt": "2018, Apr 22",
+          "message": "Had a horrible stomach upset after the visit which costed me over $400 per person! Everything was good during the dinner but I did not like the attitude they showed after I told them that I had an upset stomach. Will probably not visit them again."
+        },
+        {
+          "user": {
+            "image": "./assets/sample-images/food/user-image-3.png",
+            "name": "Tina Johnson",
+            "reviewsCount": 5,
+            "points": 30
+          },
+          "avgRating": 5,
+          "ratings": [
+            {
+              "concept": "food",
+              "rate": 5.0
+            },
+            {
+              "concept": "service",
+              "rate": 5.0
+            },
+            {
+              "concept": "ambient",
+              "rate": 4.9
+            }
+          ],
+          "publishedAt": "2018, Jan 10",
+          "message": "We came here with my husband. All I can say is The food was all very nice and the service was excellent."
+        }
+      ],
+      "popularRecipes": [
+        {
+          "showcaseImage": "./assets/sample-images/food/recipe-showcase-image.png",
+          "name": "Indian Pumkin Soup",
+          "chef": {
+            "name": "Rocío Lazarczuk",
+            "image": "./assets/sample-images/food/recipe-chef-image.png"
+          },
+          "difficulty": "easy",
+          "time": "45'",
+          "calories": "355 kcal.",
+          "chefExtract": "It’s the perfect appetizer for a lovely dinner: sweet and spice."
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "slug": "salad-heaven",
+      "icon": "./assets/sample-images/food/salad-heaven-icon.svg",
+      "showcaseImage": "./assets/sample-images/food/salad-heaven.jpg",
+      "name": "Salad Heaven",
+      "shortName": "Salad Heaven",
+      "style": "Salad Bar",
+      "priceRange": 1,
+      "avgRating": 3.9,
+      "ratings": [
+        {
+          "concept": "food",
+          "rate": 3.9
+        },
+        {
+          "concept": "service",
+          "rate": 5
+        },
+        {
+          "concept": "ambient",
+          "rate": 4.2
+        }
+      ],
+      "reviewsCount": 3,
+      "openHours": [
+        {
+          "day": "Monday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "22:00"
+        },
+        {
+          "day": "Tuesday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "22:00"
+        },
+        {
+          "day": "Wednesday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "22:00"
+        },
+        {
+          "day": "Thursday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "24:00"
+        },
+        {
+          "day": "Friday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "24:00"
+        },
+        {
+          "day": "Saturday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "24:00"
+        },
+        {
+          "day": "Sunday",
+          "open": false,
+          "hourFrom": "00:00",
+          "hourTo": "00:00"
+        }
+      ],
+      "location": {
+        "address": "1 Buhler Parkway",
+        "city": "San Fransisco, CA, United States",
+        "latlng": "37.8021216,-122.4134178",
+        "mapImage": "./assets/sample-images/food/food-details-map.png"
+      },
+      "tags": [
+        "Salads",
+        "Sushi",
+        "Vegetarian",
+        "Desserts",
+        "Tapas",
+        "Wifi",
+        "Vegan"
+      ],
+      "usersPictures": [
+        "./assets/sample-images/food/Cat2Foto1-1.1.png",
+        "./assets/sample-images/food/Cat2Foto2-1.1.png",
+        "./assets/sample-images/food/Cat2Foto3-1.1.png",
+        "./assets/sample-images/food/Cat2Foto4-1.1.png",
+        "./assets/sample-images/food/Cat2Foto5-1.1.png",
+        "./assets/sample-images/food/Cat2Foto1-1.1.png",
+        "./assets/sample-images/food/Cat2Foto2-1.1.png"
+      ],
+      "popularDishes": [
+        {
+          "name": "Sanduche pull pork",
+          "rate": 4,
+          "votesCount": 10
+        },
+        {
+          "name": "Bahmin",
+          "rate": 3,
+          "votesCount": 8
+        }
+      ],
+      "reviews": [
+        {
+          "user": {
+            "image": "./assets/sample-images/food/user-image-1.png",
+            "name": "John Smith",
+            "reviewsCount": 2,
+            "points": 26
+          },
+          "avgRating": 4.2,
+          "ratings": [
+            {
+              "concept": "food",
+              "rate": 4.2
+            },
+            {
+              "concept": "service",
+              "rate": 4.4
+            },
+            {
+              "concept": "ambient",
+              "rate": 3.8
+            }
+          ],
+          "publishedAt": "2018, May 6",
+          "message": "This review is long overdue but memories still vivid. We were at La Olla for a wedding. I had only thought of it as a great restaurant but never thought of it as an event space. The wedding was on a Sunday and we had the entire use of the space."
+        },
+        {
+          "user": {
+            "image": "./assets/sample-images/food/user-image-2.png",
+            "name": "Clair James",
+            "reviewsCount": 1,
+            "points": 4
+          },
+          "avgRating": 1.5,
+          "ratings": [
+            {
+              "concept": "food",
+              "rate": 2.0
+            },
+            {
+              "concept": "service",
+              "rate": 0.5
+            },
+            {
+              "concept": "ambient",
+              "rate": 1.5
+            }
+          ],
+          "publishedAt": "2018, Apr 22",
+          "message": "Had a horrible stomach upset after the visit which costed me over $400 per person! Everything was good during the dinner but I did not like the attitude they showed after I told them that I had an upset stomach. Will probably not visit them again."
+        },
+        {
+          "user": {
+            "image": "./assets/sample-images/food/user-image-3.png",
+            "name": "Tina Johnson",
+            "reviewsCount": 5,
+            "points": 30
+          },
+          "avgRating": 5,
+          "ratings": [
+            {
+              "concept": "food",
+              "rate": 5.0
+            },
+            {
+              "concept": "service",
+              "rate": 5.0
+            },
+            {
+              "concept": "ambient",
+              "rate": 4.9
+            }
+          ],
+          "publishedAt": "2018, Jan 10",
+          "message": "We came here with my husband. All I can say is The food was all very nice and the service was excellent."
+        }
+      ],
+      "popularRecipes": [
+        {
+          "showcaseImage": "./assets/sample-images/food/recipe-showcase-image.png",
+          "name": "Indian Pumkin Soup",
+          "chef": {
+            "name": "Rocío Lazarczuk",
+            "image": "./assets/sample-images/food/recipe-chef-image.png"
+          },
+          "difficulty": "easy",
+          "time": "45'",
+          "calories": "355 kcal.",
+          "chefExtract": "It’s the perfect appetizer for a lovely dinner: sweet and spice."
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "slug": "les-miserables",
+      "icon": "./assets/sample-images/food/les-miserables-icon.svg",
+      "showcaseImage": "./assets/sample-images/food/les-miserables.jpg",
+      "name": "Les Miserables Burgers",
+      "shortName": "Les Miserables",
+      "style": "Fast Food",
+      "priceRange": 2,
+      "avgRating": 2.5,
+      "ratings": [
+        {
+          "concept": "food",
+          "rate": 3
+        },
+        {
+          "concept": "service",
+          "rate": 3.1
+        },
+        {
+          "concept": "ambient",
+          "rate": 4
+        }
+      ],
+      "reviewsCount": 2,
+      "openHours": [
+        {
+          "day": "Monday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "22:00"
+        },
+        {
+          "day": "Tuesday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "22:00"
+        },
+        {
+          "day": "Wednesday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "22:00"
+        },
+        {
+          "day": "Thursday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "24:00"
+        },
+        {
+          "day": "Friday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "24:00"
+        },
+        {
+          "day": "Saturday",
+          "open": true,
+          "hourFrom": "12:00",
+          "hourTo": "24:00"
+        },
+        {
+          "day": "Sunday",
+          "open": false,
+          "hourFrom": "00:00",
+          "hourTo": "00:00"
+        }
+      ],
+      "location": {
+        "address": "7104 Burning Wood Park",
+        "city": "San Fransisco, CA, United States",
+        "latlng": "37.8021216,-122.4134178",
+        "mapImage": "./assets/sample-images/food/food-details-map.png"
+      },
+      "tags": [
+        "Meats",
+        "Burgers",
+        "Tacos",
+        "Desserts",
+        "Cafe",
+        "Sandwiches",
+        "Fast Food",
+        "Vegetarian",
+        "Air Conditioning",
+        "Wifi"
+      ],
+      "usersPictures": [
+        "./assets/sample-images/food/Cat4Foto1-1.1.png",
+        "./assets/sample-images/food/Cat4Foto2-1.1.png",
+        "./assets/sample-images/food/Cat4Foto3-1.1.png",
+        "./assets/sample-images/food/Cat4Foto4-1.1.png",
+        "./assets/sample-images/food/Cat4Foto5-1.1.png"
+      ],
+      "popularDishes": [
+        {
+          "name": "Sanduche pull pork",
+          "rate": 4,
+          "votesCount": 10
+        },
+        {
+          "name": "Bahmin",
+          "rate": 3,
+          "votesCount": 8
+        }
+      ],
+      "reviews": [
+        {
+          "user": {
+            "image": "./assets/sample-images/food/user-image-1.png",
+            "name": "John Smith",
+            "reviewsCount": 2,
+            "points": 26
+          },
+          "avgRating": 4.2,
+          "ratings": [
+            {
+              "concept": "food",
+              "rate": 4.2
+            },
+            {
+              "concept": "service",
+              "rate": 4.4
+            },
+            {
+              "concept": "ambient",
+              "rate": 3.8
+            }
+          ],
+          "publishedAt": "2018, May 6",
+          "message": "This review is long overdue but memories still vivid. We were at La Olla for a wedding. I had only thought of it as a great restaurant but never thought of it as an event space. The wedding was on a Sunday and we had the entire use of the space."
+        },
+        {
+          "user": {
+            "image": "./assets/sample-images/food/user-image-2.png",
+            "name": "Clair James",
+            "reviewsCount": 1,
+            "points": 4
+          },
+          "avgRating": 1.5,
+          "ratings": [
+            {
+              "concept": "food",
+              "rate": 2.0
+            },
+            {
+              "concept": "service",
+              "rate": 0.5
+            },
+            {
+              "concept": "ambient",
+              "rate": 1.5
+            }
+          ],
+          "publishedAt": "2018, Apr 22",
+          "message": "Had a horrible stomach upset after the visit which costed me over $400 per person! Everything was good during the dinner but I did not like the attitude they showed after I told them that I had an upset stomach. Will probably not visit them again."
+        },
+        {
+          "user": {
+            "image": "./assets/sample-images/food/user-image-3.png",
+            "name": "Tina Johnson",
+            "reviewsCount": 5,
+            "points": 30
+          },
+          "avgRating": 5,
+          "ratings": [
+            {
+              "concept": "food",
+              "rate": 5.0
+            },
+            {
+              "concept": "service",
+              "rate": 5.0
+            },
+            {
+              "concept": "ambient",
+              "rate": 4.9
+            }
+          ],
+          "publishedAt": "2018, Jan 10",
+          "message": "We came here with my husband. All I can say is The food was all very nice and the service was excellent."
+        }
+      ],
+      "popularRecipes": [
+        {
+          "showcaseImage": "./assets/sample-images/food/recipe-showcase-image.png",
+          "name": "Indian Pumkin Soup",
+          "chef": {
+            "name": "Rocío Lazarczuk",
+            "image": "./assets/sample-images/food/recipe-chef-image.png"
+          },
+          "difficulty": "easy",
+          "time": "45'",
+          "calories": "355 kcal.",
+          "chefExtract": "It’s the perfect appetizer for a lovely dinner: sweet and spice."
+        }
+      ]
+    }
+  ]
+}

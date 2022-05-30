@@ -1,0 +1,123 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      App Shell
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section" style="margin-bottom: 20px;">
+    <p>
+      After analyzing multiple use cases, we realized most UIs can be deconstructed into two data bindable element primitives: <b>text</b> and <b>images</b>.
+    </p>
+    <p>
+      These <b>Shell Elements</b> are the building blocks to display loading states.
+    </p>
+  </section>
+  <ion-item-divider sticky="true">
+    <ion-label>Shell Elements</ion-label>
+  </ion-item-divider>
+  <ion-list>
+    <ion-item [routerLink]="['/showcase/app-shell/aspect-ratio']" detail="true">
+      <ion-label>Aspect Ratio</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/showcase/app-shell/image-shell']" detail="true">
+      <ion-label>Image Shell</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/showcase/app-shell/text-shell']" detail="true">
+      <ion-label>Text Shell</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <section class="showcase-section">
+    <p>
+      You can combine the different shell elements in multiple ways to fit your needs
+    </p>
+    <ion-row style="background-color: #FFF; padding: 10px; margin: 20px;">
+      <ion-col size="12">
+        <app-image-shell animation="spinner" class="add-overlay" [display]="'cover'" [src]="">
+          <app-aspect-ratio [ratio]="{w:2, h:1}">
+            <h4 style="margin: 10px; text-align: center;">Text on top of a background-image container</h4>
+          </app-aspect-ratio>
+        </app-image-shell>
+      </ion-col>
+      <ion-col size="4">
+        <app-aspect-ratio [ratio]="{w:1, h:1}">
+          <app-image-shell animation="spinner" [src]="" [alt]="'Sample Image'"></app-image-shell>
+        </app-aspect-ratio>
+      </ion-col>
+      <ion-col size="8">
+        <h3 style="margin-top: 0px;">
+          <app-text-shell [data]=""></app-text-shell>
+        </h3>
+        <p>
+          <app-text-shell [data]="" lines="3"></app-text-shell>
+        </p>
+      </ion-col>
+    </ion-row>
+  </section>
+
+  <section class="showcase-section" style="margin-bottom: 20px;">
+    <p>
+      By following the reactive programming paradigm to handle asynchronous data streams, we can use <b>Observables</b> to manage the different states (loading / loaded) of the data binded to our shell elements.
+    </p>
+    <p>
+      <b>Note:</b> If you are new to reactive programming in Javascript, I strongly recommend you to read <a href="https://dev.to/sagar/reactive-programming-in-javascript-with-rxjs-4jom" target="_blank">this guide</a>.
+    </p>
+  </section>
+  <ion-item-divider sticky="true">
+    <ion-label>Simple Data Binding</ion-label>
+  </ion-item-divider>
+  <ion-list>
+    <ion-item [routerLink]="['/showcase/app-shell/simple-data-binding']" detail="true">
+      <ion-label>Data Binding using plain Observables</ion-label>
+    </ion-item>
+  </ion-list>
+
+  <section class="showcase-section" style="margin-bottom: 20px;">
+    <p>
+      You can go a step further and use our <b>DataStore</b> class which provides extra functionalities to plain Observables.
+    </p>
+    <p>
+      The main responsability of the <b>DataStore</b> is to store the data stream in a <code>timeline</code> property and append shell values to the Observable data sources through the <code>AppendShell</code> static method.
+    </p>
+  </section>
+  <ion-item-divider sticky="true">
+    <ion-label>Data Binding with DataStore</ion-label>
+  </ion-item-divider>
+  <ion-list>
+    <ion-item [routerLink]="['/showcase/app-shell/data-store-basic']" detail="true">
+      <ion-label>Basic</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/showcase/app-shell/data-store-list']" detail="true">
+      <ion-label>List</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/showcase/app-shell/data-store-subset']" detail="true">
+      <ion-label>Filtered Data Source</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/showcase/app-shell/data-store-combined']" detail="true">
+      <ion-label>Combined Data Sources</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/showcase/app-shell/data-store-multiple']" detail="true">
+      <ion-label>Multiple Data Stores</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/showcase/app-shell/data-store-dependant']" detail="true">
+      <ion-label>Dependant Data Sources</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/showcase/app-shell/data-store-pagination']" detail="true">
+      <ion-label>Pagination</ion-label>
+    </ion-item>
+    <ion-item [routerLink]="['/showcase/app-shell/data-store-stacked']" detail="true">
+      <ion-label>Stacked Shells</ion-label>
+    </ion-item>
+  </ion-list>
+  <section class="showcase-section" style="margin-bottom: 20px;">
+    <p>
+      We double down on adding as many examples as possible on how to use the <b>App Shell</b>. However, if you have a use case that doesn't fall under the examples list, please let us know so we can keep improving the product.
+    </p>
+  </section>
+</ion-content>

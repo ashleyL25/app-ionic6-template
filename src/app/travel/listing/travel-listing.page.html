@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Travel Listing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ng-container *ngIf="listing?.items">
+    <div class="listing-item" *ngFor="let item of listing?.items">
+      <ion-row class="image-row">
+        <ion-col size="12">
+          <a [routerLink]="['/app/categories/travel/', item.slug]">
+            <app-image-shell [display]="'cover'" class="add-overlay item-image" [src]="item.image" [routerLink]="['/app/categories/travel/', item.slug]">
+              <app-aspect-ratio [ratio]="{w:3, h:2}">
+                <div class="content-inside-item-image">
+                  <div class="item-icon">
+                    <app-aspect-ratio [ratio]="{w:1, h:1}">
+                      <app-image-shell [src]="item.icon" class="icon-image"></app-image-shell>
+                    </app-aspect-ratio>
+                  </div>
+                  <div class="item-cta">
+                    <span>Explore</span>
+                    <ion-icon class="cta-icon" name="arrow-forward"></ion-icon>
+                  </div>
+                </div>
+              </app-aspect-ratio>
+            </app-image-shell>
+          </a>
+        </ion-col>
+      </ion-row>
+      <ion-row class="info-row">
+        <ion-col class="main-info-col">
+          <h3 class="item-name">
+            <a class="name-anchor" [routerLink]="['/app/categories/travel/', item.slug]">
+              <app-text-shell animation="bouncing" [data]="(item?.name && item?.category) ? (item.name + ' - ' + item.category) : (item.name)"></app-text-shell>
+            </a>
+          </h3>
+          <p class="item-description">
+            <app-text-shell animation="bouncing" [data]="item.description" lines="3"></app-text-shell>
+          </p>
+          <p class="item-address">
+            <app-text-shell animation="bouncing" [data]="item.address"></app-text-shell>
+          </p>
+        </ion-col>
+      </ion-row>
+      <ion-row class="stats-row">
+        <ion-col size="2" class="item-rating">
+          <span class="rating-value">
+            <app-text-shell [data]="item.rating"></app-text-shell>
+          </span>
+          <ion-icon class="stats-icon" src="./assets/custom-icons/travel/star.svg"></ion-icon>
+        </ion-col>
+        <ion-col size="2" class="item-reviews">
+          <span class="reviews-count">
+            <app-text-shell [data]="item.reviewsCount"></app-text-shell>
+          </span>
+          <ion-icon class="stats-icon" src="./assets/custom-icons/travel/comments.svg"></ion-icon>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ng-container>
+</ion-content>

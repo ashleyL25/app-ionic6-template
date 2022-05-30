@@ -1,0 +1,21 @@
+/* To learn more about this file see: https://angular.io/config/tsconfig. */
+{
+  "extends": "./tsconfig.app.json",
+  "compilerOptions": {
+    "outDir": "../out-tsc/server",
+    "target": "es2016",
+    // For SSR we need to include googlemaps typings
+    // (see: https://developers.google.com/maps/documentation/javascript/using-typescript#compiler_options_in_tsconfigjson_recommended)
+    "types": [
+      "node",
+      "googlemaps"
+    ]
+  },
+  "files": [
+    "main.server.ts",
+    "../server.ts"
+  ],
+  "angularCompilerOptions": {
+    "entryModule": "./app/app.server.module#AppServerModule"
+  }
+}

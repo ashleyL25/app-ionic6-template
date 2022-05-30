@@ -1,0 +1,48 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      DataStore - Dependant Data Sources
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      This example kinda mixes the two previous examples (<a [routerLink]="['/showcase/app-shell/data-store-multiple']">multiple data stores</a>, <a [routerLink]="['/showcase/app-shell/data-store-combined']">one depending on the other</a>).
+    </p>
+    <p>
+      The uses cases in which to use this approach would be if you have different data sources that depend on each other, but you want the different sections of the view to 're-load' independently one from the other.
+    </p>
+    <p>
+      This contrasts the use case of the <a [routerLink]="['/showcase/app-shell/data-store-combined']">Combined Data Source</a> where you transform multiple data sources into one, causing the hole view to be 're-loaded' as it's binded to just one combined Observable.
+    </p>
+    <p>
+      A good example can be a post and its comments. The comments depend on the post but you want them to 're-load' independently from the post.
+    </p>
+  </section>
+  <div class="post">
+    <h4>
+      <app-text-shell [data]="post?.title" animation="bouncing" style="--text-shell-line-color: #FFF;"></app-text-shell>
+    </h4>
+    <p>
+      <app-text-shell [data]="post?.body" animation="bouncing" lines="3" style="--text-shell-line-color: #fffdfd;"></app-text-shell>
+    </p>
+    <h6>Comments</h6>
+    <ion-list lines="full" style="--background: transparent">
+      <ion-item *ngFor="let comment of comments | slice:0:5">
+        <ion-label>
+          <h2>
+            <app-text-shell [data]="comment?.name" animation="bouncing" style="--text-shell-line-height: 16px;"></app-text-shell>
+          </h2>
+          <p>
+            <app-text-shell [data]="comment?.body" animation="bouncing"></app-text-shell>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </div>
+</ion-content>

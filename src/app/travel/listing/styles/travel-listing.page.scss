@@ -1,0 +1,132 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+
+  --page-color: #00AFFF;
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.listing-item {
+  padding: 0px 0px var(--page-margin);
+  background-color: var(--page-background);
+  border-bottom: calc(var(--page-margin) / 2) solid var(--page-color);
+
+  .image-row {
+    --ion-grid-column-padding: 0px;
+
+    .item-image {
+      cursor: pointer;
+
+      &:focus {
+        outline: none;
+      }
+    }
+
+    .content-inside-item-image {
+      padding: 0px 12%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      flex-direction: column;
+
+      .item-icon {
+        width: 54px;
+        align-self: center;
+        margin-bottom: 24px;
+      }
+
+      .item-cta {
+        margin: 0px auto;
+        padding: calc(var(--page-margin) / 2) calc(var(--page-margin));
+        text-transform: uppercase;
+        font-size: 20px;
+        font-weight: 700;
+        text-align: center;
+        color: var(--ion-color-light);
+        display: flex;
+        align-items: center;
+        background-color: var(--page-color);
+        border-radius: var(--app-fair-radius);
+
+        .cta-icon {
+          font-size: 26px;
+          margin-left: calc(var(--page-margin) / 2);
+        }
+      }
+    }
+  }
+
+  .info-row {
+    --ion-grid-column-padding: 0px;
+
+    padding: var(--page-margin);
+    padding-bottom: calc(var(--page-margin) / 2);
+
+    .main-info-col {
+      padding-right: calc(var(--page-margin) / 2);
+    }
+
+    .item-name {
+      margin: 0px 0px var(--page-margin);
+      text-transform: capitalize;
+      font-size: 16px;
+
+      .name-anchor {
+        color: var(--ion-color-dark);
+        display: block;
+        text-decoration: none;
+      }
+    }
+
+    .item-description {
+      margin: 0px 0px calc(var(--page-margin) / 2);
+      color: var(--ion-color-dark-shade);
+      font-size: 14px;
+      line-height: 1.3;
+    }
+
+    .item-address {
+      margin: 0px;
+      color: var(--ion-color-dark-tint);
+      font-size: 12px;
+    }
+  }
+
+  .stats-row {
+    --ion-grid-column-padding: 0px;
+
+    padding: 0px var(--page-margin);
+    justify-content: flex-end;
+
+    .stats-icon {
+      font-size: 24px;
+    }
+
+    .item-rating {
+      display: inline-flex;
+      text-align: center;
+      justify-content: flex-end;
+      margin-right: 10px;
+
+      .rating-value {
+        font-size: 16px;
+        margin-right: 5px;
+        margin: auto;
+      }
+    }
+
+    .item-reviews {
+      display: inline-flex;
+      text-align: center;
+      justify-content: flex-end;
+
+      .reviews-count {
+        font-size: 16px;
+        margin-right: 5px;
+        margin: auto;
+      }
+    }
+  }
+}

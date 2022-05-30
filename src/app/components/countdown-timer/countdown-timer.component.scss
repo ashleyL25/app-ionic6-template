@@ -1,0 +1,92 @@
+@mixin fill-container(){
+  border: var(--countdown-fill-border);
+  border-radius: var(--countdown-fill-border-radius);
+  background-color: var(--countdown-fill-background);
+  box-shadow: var(--countdown-fill-shadow);
+}
+
+:host {
+  --countdown-margin: 0px;
+  --countdown-padding: 0px;
+  --countdown-time-margin: 0px;
+  --countdown-time-padding: 0px;
+  --countdown-inner-time-margin: 2px;
+  --countdown-inner-time-padding: 0px;
+
+  --countdown-fill-border: none;
+  --countdown-fill-border-radius: 0px;
+  --countdown-fill-background: transparent;
+  --countdown-fill-shadow: none;
+
+  --countdown-value-color: #CCC;
+  --countdown-unit-color: #CCC;
+
+  --countdown-time-flex-direction: row-reverse;
+
+  display: block;
+
+  .countdown {
+    margin: var(--countdown-margin);
+    padding: var(--countdown-padding);
+
+    justify-content: center;
+    flex-wrap: nowrap;
+  }
+
+  .time {
+    padding: var(--countdown-time-padding);
+    margin: var(--countdown-time-margin);
+
+    display: flex;
+    flex-direction: var(--countdown-time-flex-direction);
+    align-items: center;
+    justify-content: center;
+
+    .time-unit {
+      display: block;
+      color: var(--countdown-unit-color);
+      font-size: 0.7em;
+      text-align: center;
+      text-transform: uppercase;
+      width: 2ex;
+    }
+
+    .time-value {
+      display: block;
+      color: var(--countdown-value-color);
+      text-align: center;
+      font-size: 1em;
+      line-height: 1em;
+      min-height: 1em;
+
+      // Make sure we always have space for two characters
+      // As ch (width of the character '0') unit is not 100% supported, we will use ex (height of the 'x' character) as a fallback
+      // See: https://www.quirksmode.org/css/units-values/
+      min-width: 2.2ex; // The 'x' character is semi-square char, that's why we set 2.2ex
+      min-width: 2.1ch; // ch is the only font unit based on the width of characters
+    }
+  }
+
+  .inner-time {
+    margin: var(--countdown-inner-time-margin);
+    padding: var(--countdown-inner-time-padding);
+  }
+}
+
+:host([fill="countdown"]) {
+  .countdown {
+    @include fill-container();
+  }
+}
+
+:host([fill="time"]) {
+  .time {
+    @include fill-container();
+  }
+}
+
+:host([fill="inner-time"]) {
+  .inner-time {
+    @include fill-container();
+  }
+}

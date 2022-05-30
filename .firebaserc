@@ -1,0 +1,7 @@
+{
+  "projects": {
+    "dev": "dev-ion4fullpwa",
+    "prod": "ion4fullpwa",
+    "pro": "pro-ion4fullpwa"
+  }
+}

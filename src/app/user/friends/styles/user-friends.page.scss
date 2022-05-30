@@ -1,0 +1,103 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-narrow-margin);
+  --page-border-radius: var(--app-fair-radius);
+  --page-segment-background: var(--app-background);
+  --page-segment-indicator-height: 2px;
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.user-friends-segment {
+  --background: var(--page-segment-background);
+  position: sticky;
+  top: 0;
+  z-index: 8;
+
+  ion-segment-button {
+    --padding-end: var(--page-margin);
+    --padding-start: var(--page-margin);
+    --color: rgba(var(--ion-color-dark-rgb), 0.4);
+    --indicator-color: var(--ion-color-dark);
+
+    text-transform: capitalize;
+    min-height: calc((var(--page-margin) * 3) - var(--page-segment-indicator-height));
+  }
+}
+
+ion-searchbar.friends-searchbar {
+  padding: calc(var(--page-margin) * 1.5) var(--page-margin);
+}
+
+.friends-list {
+  padding: 0px var(--page-margin);
+  margin-bottom: calc(var(--page-margin) * 3);
+}
+
+.empty-list-message {
+  margin: calc(var(--page-margin) * 3);
+  color: rgba(var(--ion-color-dark-rgb), 0.4);
+  text-align: center;
+}
+
+ion-item.friend-item {
+  --inner-padding-start: 0px;
+  --inner-padding-end: 0px;
+  --padding-start: 0px;
+  --padding-end: 0px;
+  --padding-bottom: var(--page-margin);
+  --inner-padding-bottom: var(--page-margin);
+
+  &:last-child {
+    --border-style: none;
+    --padding-bottom: 0px;
+    --inner-padding-bottom: 0px;
+  }
+
+  .user-details-section {
+    --ion-grid-column-padding: 0px;
+
+    width: 100%;
+    align-items: center;
+
+    .user-data-wrapper {
+      padding-left: var(--page-margin);
+      padding-right: calc(var(--page-margin) / 2);
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+
+      .user-info {
+        &:not(:last-child) {
+          margin-bottom: calc(var(--page-margin) / 2);
+        }
+
+        .user-name {
+          margin: 0px;
+          margin-bottom: 4px;
+          font-size: 16px;
+        }
+
+        .user-job {
+          margin: 0px;
+          color: rgba(var(--ion-color-dark-rgb), 0.4);
+          font-size: 14px;
+        }
+      }
+    }
+
+    .user-actions-wrapper {
+      font-size: 14px;
+
+      // Make sure we always have space for 10 characters
+      // As ch (width of the character '0') unit is not 100% supported, we will use ex (height of the 'x' character) as a fallback
+      // See: https://www.quirksmode.org/css/units-values/
+      max-width: 10ex; // The 'x' character is semi-square char
+      max-width: 10ch; // ch is the only font unit based on the width of characters
+
+      .user-action {
+        margin: 0px;
+      }
+    }
+  }
+}

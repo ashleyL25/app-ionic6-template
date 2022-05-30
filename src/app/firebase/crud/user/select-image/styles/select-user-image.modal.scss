@@ -1,0 +1,16 @@
+// // Custom variables
+// // Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+}
+
+.select-image-content {
+  --background: var(--page-background);
+
+  .images-wrapper {
+    --ion-grid-column-padding: calc(var(--page-margin) / 2);
+
+    padding: calc(var(--page-margin) / 2);
+  }
+}

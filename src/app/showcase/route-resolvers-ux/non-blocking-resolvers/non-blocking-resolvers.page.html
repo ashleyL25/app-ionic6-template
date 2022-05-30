@@ -1,0 +1,50 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/route-resolvers-ux"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      NON Blocking Resovler Showcase
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      With Non-Blocking Resolvers, page transition is immediate. However UX degrades because you are showing a static loading indicator while the server sends data back to the client.
+    </p>
+    <ng-container *ngIf="!routeResolveData">
+      <div style="margin: 20px 40px; text-align: center;">
+        <ion-spinner></ion-spinner>
+        <p>
+          <b>You can show a static shell while fetching data from the backend</b>
+        </p>
+      </div>
+    </ng-container>
+    <ng-container *ngIf="routeResolveData">
+      <ion-row style="background-color: #FFF; padding: 10px;">
+        <ion-col size="12">
+          <div [ngStyle]="{'background-image': 'url(' + routeResolveData?.cover + ')'}" style="background-size: cover; background-repeat: no-repeat;">
+            <app-aspect-ratio [ratio]="{w:2, h:1}">
+              <h4 style="margin: 10px; text-align: center; color: #FFF;">Heading on top of a cover image</h4>
+            </app-aspect-ratio>
+          </div>
+        </ion-col>
+        <ion-col size="4">
+          <app-aspect-ratio [ratio]="{w:1, h:1}">
+            <img [src]="routeResolveData?.image" alt="Sample Image" style="width: 100%; height: 100%;"/>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col size="8">
+          <h3 style="margin-top: 0px;">
+            {{ routeResolveData?.title }}
+          </h3>
+          <p>
+            {{ routeResolveData?.description }}
+          </p>
+        </ion-col>
+      </ion-row>
+    </ng-container>
+  </section>
+</ion-content>

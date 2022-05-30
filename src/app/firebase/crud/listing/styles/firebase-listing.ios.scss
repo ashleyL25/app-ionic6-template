@@ -1,0 +1,15 @@
+:host-context(.ios) {
+  // Custom platform styles here
+  .list-item {
+    .user-data-wrapper {
+      padding-inline-end: calc(var(--page-margin) / 2);
+    }
+  }
+
+  .searchbar-row {
+    ion-searchbar.items-searchbar {
+      padding-top: var(--padding-top);
+      padding-bottom: var(--padding-bottom);
+    }
+  }
+}

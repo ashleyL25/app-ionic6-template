@@ -1,0 +1,252 @@
+@import "theme/mixins/scrollbars";
+
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-broad-margin);
+  --page-background: var(--app-background-alt);
+
+  --page-swiper-pagination-space: 40px;
+  --page-swiper-pagination-height: 18px;
+  --page-pagination-bullet-size: 10px;
+
+  --page-max-heading-height: 16%;
+  --page-max-call-to-actions-height: 10%;
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+:host {
+  // To fix half pixel line between ion-header and  ion-content
+  background-color: var(--page-background);
+}
+
+ion-header {
+  ion-toolbar {
+    --background: var(--page-background);
+
+    // For the skip button
+    ion-button {
+      --color: var(--ion-color-lightest);
+    }
+  }
+}
+
+ion-content {
+  --background: var(--page-background);
+}
+
+.getting-started-form {
+  height: 100%;
+}
+
+.getting-started-slides {
+  --bullet-background: var(--ion-color-light);
+  --bullet-background-active: var(--ion-color-light);
+
+  height: 100%;
+
+  .slide-inner-row {
+    --ion-grid-column-padding: 0px;
+
+    height: 100%;
+    width: 100%;
+    padding: var(--page-margin);
+    // .swiper-pagination space
+    border-bottom: var(--page-swiper-pagination-space) solid transparent;
+    background-clip: padding-box;
+  }
+}
+
+.question-slide {
+  .slide-title {
+    color: var(--ion-color-lightest);
+    text-align: center;
+    margin: calc(var(--page-margin) / 2) calc(var(--page-margin) * 2) 0px;
+    font-size: 22px;
+    font-weight: 400;
+    line-height: 30px;
+  }
+
+  .slide-subtitle {
+    color: var(--ion-color-lightest);
+    text-align: center;
+    margin: calc(var(--page-margin) / 2) var(--page-margin);
+    font-size: 14px;
+    font-weight: 300;
+    line-height: 28px;
+  }
+}
+
+.browsing-categories-slide {
+  .slide-inner-row {
+    flex-flow: column;
+    justify-content: space-between;
+  }
+
+  .question-options-col {
+    overflow: scroll;
+
+    @include hide-scrollbars();
+
+    .question-options-list {
+      margin: var(--page-margin) 0px 0px;
+      background: transparent;
+
+      .question-option {
+        --padding-start: 0px;
+        --ion-item-background: var(--ion-color-lightest);
+        --ion-item-color: var(--ion-color-dark);
+        --inner-border-width: 0px;
+        --inner-padding-end: 0px;
+
+        text-align: center;
+
+        &:not(:last-child) {
+          margin-bottom: var(--page-margin);
+        }
+
+        &.item-radio-checked {
+          --ion-item-background: var(--ion-color-secondary);
+          --ion-item-color: var(--ion-color-lightest);
+        }
+
+        ion-label {
+          margin: calc(var(--page-margin) / 2) 0px;
+        }
+
+        ion-radio {
+          margin: 0px;
+          // To hide the .radio-icon
+          width: 0px;
+          --border-width: 0px;
+          height: 0px;
+          // We cant set width and height for .radio-icon .radio-inner, so lets hide it changing its color
+          --color-checked: transparent;
+        }
+      }
+    }
+  }
+}
+
+.interests-to-follow-slide {
+  .slide-inner-row {
+    flex-flow: column;
+    justify-content: space-between;
+
+    // In the last slide .swiper-pagination is hidden
+    border-width: 0px;
+  }
+
+  .heading-col {
+    flex: 0 1 auto;
+    max-height: var(--page-max-heading-height);
+    max-height: fit-content;
+  }
+
+  .question-options-col {
+    overflow: scroll;
+
+    @include hide-scrollbars();
+
+    .options-list-row {
+      --ion-grid-column-padding: 0px;
+
+      padding-top: calc(var(--page-margin) / 4);
+      padding-bottom: calc(var(--page-margin) / 4);
+
+      ion-col {
+        transform: translateZ(0px);
+        padding-top: calc(var(--page-margin) / 4);
+        padding-bottom: calc(var(--page-margin) / 4);
+
+        &:nth-child(odd) {
+          padding-right: calc(var(--page-margin) / 4);
+        }
+
+        &:nth-child(even) {
+          padding-left: calc(var(--page-margin) / 4);
+        }
+      }
+    }
+  }
+
+  .call-to-action-col {
+    flex: 0 1 auto;
+    max-height: var(--page-max-call-to-actions-height);
+    max-height: fit-content;
+
+    display: flex;
+    align-items: flex-end;
+
+    padding-top: calc(var(--page-margin) / 2);
+
+    .signup-button {
+      margin: 0px;
+      flex: 1 0 100%;
+    }
+  }
+
+  .custom-checkbox {
+    .checkbox-title {
+      font-weight: 600;
+      text-transform: uppercase;
+      font-size: 22px;
+      color: var(--ion-color-lightest);
+      text-align: center;
+      word-break: break-word;
+      overflow: visible;
+
+      position: absolute;
+      width: 70%;
+      left: 15%;
+      // vertically centered
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    ion-checkbox {
+      --border-radius: 0px;
+      --border-width: 10vw;
+      --border-color: transparent;
+      --border-color-checked: transparent;
+      --background: transparent;
+      --background-checked: rgba(var(--ion-color-secondary-rgb), .4);
+
+      height: 100%;
+      width: 100%;
+      // Note: We cannote change the styles of the .checkbox-icon because it's inside the shadow dom.
+      // An alternative would be to set --width and --height to 0px and add a custom overlay and icon in the <custom-checkbox> html
+    }
+
+    &.checkbox-checked {
+      .checkbox-title {
+        display: none;
+      }
+    }
+  }
+}
+
+:host(.last-slide-active) {
+  ::ng-deep .getting-started-slides {
+    .swiper-pagination {
+      display: none;
+    }
+  }
+}
+
+// ISSUE: .swiper-paggination gets rendered dynamically. That prevents styling the elements when using the default Angular ViewEncapsulation.None
+//        (Angular doesn't add an '_ngcontent' attribute to the .swiper-paggination because it's dynamically rendered)
+// FIX:   See: https://stackoverflow.com/a/36265072/1116959
+:host ::ng-deep .getting-started-slides {
+  .swiper-pagination {
+    height: var(--page-swiper-pagination-height);
+    line-height: 1;
+    // .swiper-pagination is 18px height, .slide-inner-row has 40px of padding-bottom => bottom = (40px - 18px)/2 = 11px
+    bottom: calc((var(--page-swiper-pagination-space) - var(--page-swiper-pagination-height) ) / 2);
+
+    .swiper-pagination-bullet {
+      width: var(--page-pagination-bullet-size);
+      height: var(--page-pagination-bullet-size);
+    }
+  }
+}

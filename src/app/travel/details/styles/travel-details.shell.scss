@@ -1,0 +1,157 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --shell-color: #00AFFF;
+  --shell-color-rgb: 0,175,255;
+}
+
+// You can also apply sheel styles to the entire page
+:host(.is-shell) {
+  // ion-content {
+  //   opacity: 0.8;
+  // }
+}
+
+app-image-shell.details-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-overlay-background: rgba(var(--ion-color-dark-rgb), .40);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+}
+
+app-image-shell.details-icon {
+  --image-shell-loading-background: transparent;
+}
+
+.details-name > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+  --text-shell-line-height: 20px;
+}
+
+.details-short-description > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  max-width: 80%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.score-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+  min-width: 30px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.item-tag > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+  min-width: 50px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.details-description > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+}
+
+.schedule-day > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  max-width: 90%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.schedule-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  max-width: 100%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.location-address > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  max-width: 60%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+app-image-shell.location-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+}
+
+app-image-shell.place-picture {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .05);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .15);
+}
+
+.place-name > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 12px;
+}
+
+.rating-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .05);
+  --text-shell-line-height: 14px;
+  min-width: 30px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+app-image-shell.related-activity-picture {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .05);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .15);
+}
+
+.activity-name > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+  --text-shell-line-height: 14px;
+  max-width: 25%;
+  margin: 0px auto;
+
+  &.text-loaded {
+    max-width: inherit;
+    margin: 0px;
+  }
+}
+
+.activity-category > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 12px;
+  max-width: 45%;
+  margin: 0px auto;
+
+  &.text-loaded {
+    max-width: inherit;
+    margin: 0px;
+  }
+}
+
+.rating-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+  min-width: 30px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}

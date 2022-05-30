@@ -1,0 +1,32 @@
+// Need to add :root to take precedence over angular encapsulation of the app-text-shell component
+:root {
+  h1 > app-text-shell {
+    --font-size: 32px;
+    --text-shell-line-height: calc(var(--font-size) * 1.2);
+    --text-shell-line-color: #CCC;
+  }
+
+  h2 > app-text-shell {
+    --font-size: 28px;
+    --text-shell-line-height: calc(var(--font-size) * 1.2);
+    --text-shell-line-color: #DDD;
+  }
+
+  h3 > app-text-shell {
+    --font-size: 24px;
+    --text-shell-line-height: calc(var(--font-size) * 1.2);
+    --text-shell-line-color: #DDD;
+  }
+
+  h4 > app-text-shell {
+    --font-size: 20px;
+    --text-shell-line-height: calc(var(--font-size) * 1.2);
+    --text-shell-line-color: #DDD;
+  }
+
+  h5 > app-text-shell {
+    --font-size: 18px;
+    --text-shell-line-height: calc(var(--font-size) * 1.2);
+    --text-shell-line-color: #DDD;
+  }
+}

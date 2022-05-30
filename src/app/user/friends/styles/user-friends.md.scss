@@ -1,0 +1,13 @@
+:host-context(.md) {
+  .user-details-section {
+    .user-actions-wrapper {
+      max-width: 12ex;
+      max-width: 12ch;
+    }
+  }
+  .user-friends-segment {
+    ion-segment-button {
+      --color-checked: var(--ion-color-dark);
+    }
+  }
+}

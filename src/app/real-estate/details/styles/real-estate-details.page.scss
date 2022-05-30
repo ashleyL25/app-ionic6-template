@@ -1,0 +1,210 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-broad-margin);
+  --page-background: var(--app-background-shade);
+
+  --page-amenity-vertical-gutter: 2px;
+  --page-amenity-horizontal-gutter: 4px;
+
+  --page-color: #d9453a;
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.real-estate-details-content {
+  --background: var(--page-background);
+
+  .image-row {
+    --ion-grid-column-padding: 0px;
+
+    .bookmark-icon {
+      position: absolute;
+      right: var(--page-margin);
+      top: var(--page-margin);
+      font-size: 32px;
+      color: var(--page-color);
+    }
+  }
+
+  .description-row {
+    --ion-grid-column-padding: 0px;
+
+    padding: var(--page-margin);
+
+    .details-price {
+      margin: 0px 0px calc(var(--page-margin) / 2);
+			font-size: 18px;
+			font-weight: 600;
+      color: var(--ion-color-dark-tint);
+      display: flex;
+
+      .price-icon {
+        margin-right: 5px;
+      }
+    }
+
+    .details-address {
+      margin: 0px;
+      font-size: 14px;
+      color: var(--ion-color-medium-tint);
+
+      & + .details-address {
+        margin-top: 5px;
+      }
+    }
+
+    .details-description {
+      margin: var(--page-margin) 0px 0px;
+      font-size: 14px;
+      color: var(--ion-color-medium-shade);
+    }
+  }
+
+  .detail-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ion-color-dark-tint);
+    margin: 0px 0px var(--page-margin);
+  }
+
+  .accommodations-wrapper {
+    padding: var(--page-margin);
+    padding-top: calc(var(--page-margin) / 2);
+
+    .accommodation-row {
+      --ion-grid-column-padding: 0px;
+
+      align-items: center;
+
+      & + .accommodation-row {
+        padding-top: calc(var(--page-margin) / 2);
+      }
+
+      .icon-wrapper {
+        display: flex;
+        align-items: center;
+        flex-grow: 0;
+        padding-right: 20px;
+      }
+
+      .accommodation-icon {
+        font-size: 30px;
+        color: var(--ion-color-medium-shade);
+      }
+
+      .accommodation-name {
+        display: block;
+        font-size: 14px;
+        color: var(--ion-color-medium-tint);
+      }
+
+      .accommodation-value {
+        display: block;
+        font-size: 16px;
+        color: var(--ion-color-medium-tint);
+      }
+    }
+  }
+
+  .location-wrapper {
+    padding: calc(var(--page-margin) / 2) 0px var(--page-margin);
+
+    .location-header {
+      padding: 0px var(--page-margin) 0px;
+      margin-bottom: calc(var(--page-margin) / 2);
+    }
+
+    .detail-title {
+      margin-bottom: 5px;
+    }
+
+    .location-address {
+      display: block;
+      font-size: 14px;
+      color: var(--ion-color-medium-tint);
+    }
+  }
+
+  .amenities-wrapper {
+    padding: calc(var(--page-margin) / 2) var(--page-margin) var(--page-margin);
+
+    .amenities-tags {
+      --ion-grid-column-padding: 0px;
+
+      justify-content: center;
+      margin-top: calc(var(--page-amenity-vertical-gutter) * -1);
+
+      .tag-wrapper {
+        padding: var(--page-amenity-vertical-gutter) var(--page-amenity-horizontal-gutter) var(--page-amenity-vertical-gutter) 0px;
+        flex-grow: 0;
+        min-width: fit-content;
+
+        &:last-child {
+          padding-right: 0px;
+        }
+      }
+
+      .amenity-tag {
+        display: block;
+        border-radius: var(--app-narrow-radius);
+        border: 1px solid var(--ion-color-light-shade);
+        padding: var(--page-amenity-vertical-gutter) var(--page-amenity-horizontal-gutter);
+        font-size: 14px;
+        color: var(--ion-color-medium-tint);
+      }
+    }
+  }
+
+  .safety-features-wrapper {
+    padding: calc(var(--page-margin) / 2) var(--page-margin) var(--page-margin);
+
+    .features-list {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+
+      .feature-item {
+        font-size: 14px;
+        color: var(--ion-color-medium-tint);
+
+        & + .feature-item {
+          margin-top: calc(var(--page-margin) / 2);
+        }
+      }
+    }
+  }
+
+  .availability-wrapper {
+    padding: calc(var(--page-margin) / 2) var(--page-margin) var(--page-margin);
+
+    .availability-row {
+      --ion-grid-column-padding: 0px;
+
+      justify-content: space-between;
+      align-items: center;
+
+      .availability-description,
+      .availability-value {
+        font-size: 14px;
+        color: var(--ion-color-medium-tint);
+        display: block;
+        flex: 1;
+        display: flex;
+      }
+
+      .availability-description {
+        color: var(--ion-color-medium-tint);
+        justify-content: flex-start;
+      }
+
+      .availability-value {
+        color: var(--page-color);
+        justify-content: flex-end;
+      }
+    }
+
+    .book-now-btn {
+      margin: var(--page-margin) 0px 0px;
+    }
+  }
+}

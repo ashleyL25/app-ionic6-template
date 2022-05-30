@@ -1,0 +1,57 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Notifications
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="notifications-content">
+  <ng-container *ngIf="notifications">
+    <ion-item-group>
+      <ion-item-divider sticky>
+        <ion-label>Today</ion-label>
+      </ion-item-divider>
+      <ion-item class="notification-item" lines="none" *ngFor="let notification of notifications.today">
+        <ion-row class="notification-item-wrapper">
+          <ion-col size="2">
+            <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+              <app-image-shell class="notification-image" [src]="notification.image" [alt]="'user image'"></app-image-shell>
+            </app-aspect-ratio>
+          </ion-col>
+          <ion-col class="details-wrapper">
+            <h2 class="details-name">{{ notification.name }}</h2>
+            <p class="details-description">{{ notification.message }}</p>
+          </ion-col>
+          <ion-col size="2" class="date-wrapper">
+            <h3 class="notification-date">{{ notification.date }}</h3>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-item-group>
+    <ion-item-group>
+      <ion-item-divider sticky>
+        <ion-label>Yesterday</ion-label>
+      </ion-item-divider>
+      <ion-item class="notification-item" lines="none" *ngFor="let notification of notifications.yesterday">
+        <ion-row class="notification-item-wrapper">
+          <ion-col size="2">
+            <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+              <app-image-shell class="notification-image" [src]="notification.image" [alt]="'user image'"></app-image-shell>
+            </app-aspect-ratio>
+          </ion-col>
+          <ion-col class="details-wrapper">
+            <h2 class="details-name">{{ notification.name }}</h2>
+            <p class="details-description">{{ notification.message }}</p>
+          </ion-col>
+          <ion-col size="2" class="date-wrapper">
+            <h3 class="notification-date">{{ notification.date }}</h3>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-item-group>
+  </ng-container>
+</ion-content>

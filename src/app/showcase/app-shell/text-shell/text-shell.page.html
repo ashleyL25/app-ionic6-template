@@ -1,0 +1,354 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Text Shell
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section" style="margin-bottom: 40px;">
+    <p>
+      This component is useful when you want to show a loading indicator while fetching text data from the server.
+    </p>
+    <p>
+      The <code>&lt;app-text-shell&gt;</code> basically works by wrapping the text node with a loading indicator while you are fetching data.
+    </p>
+    <p>
+      While there are empty values the component adds some 'loading' styles and animations. Whereas while there are non empty values, the loading state is removed.
+    </p>
+    <p>
+      Try toggling the loading state of the text shells below by changing the value of this textarea.
+    </p>
+  </section>
+  <div class="loading-state-demo">
+    <section class="showcase-section sticky-section">
+      <ion-textarea style="--background: #FFF;" placeholder="When this text is empty the text-shell will show the loading state." clearOnEdit="true" [(ngModel)]="sampleTextShellData"></ion-textarea>
+      <p>
+        You can reset the 'loading' state by clearing the textarea value.
+      </p>
+    </section>
+    <section class="showcase-section">
+      <h4>No animation (default)</h4>
+      <p>
+        Single line example
+      </p>
+      <div style="background-color: #FFF; padding: 20px;">
+        <app-text-shell [data]="sampleTextShellData"></app-text-shell>
+      </div>
+      <p>
+        Multi-line example
+      </p>
+      <div style="background-color: #FFF; padding: 20px;">
+        <p>
+          <app-text-shell [data]="sampleTextShellData" lines="3"></app-text-shell>
+        </p>
+      </div>
+      <p>
+        On top of another element (with transparent background)
+      </p>
+      <div style="background-color: #FFF; padding: 20px; color: #FFF; font-weight: 500;">
+        <app-image-shell animation="spinner" class="add-overlay" [display]="'cover'" [src]="'./assets/sample-images/getting-started/category5-1.1.png'">
+          <app-aspect-ratio [ratio]="{w:2, h:1}">
+            <p style="margin: 20px 40px;">
+              <app-text-shell [data]="sampleTextShellData" lines="3"></app-text-shell>
+            </p>
+          </app-aspect-ratio>
+        </app-image-shell>
+      </div>
+    </section>
+    <section class="showcase-section">
+      <h4>Bouncing animation</h4>
+      <p>
+        Single line example
+      </p>
+      <div style="background-color: #FFF; padding: 20px;">
+        <app-text-shell [data]="sampleTextShellData" animation="bouncing"></app-text-shell>
+      </div>
+      <p>
+        Multi-line example
+      </p>
+      <div style="background-color: #FFF; padding: 20px;">
+        <p>
+          <app-text-shell [data]="sampleTextShellData" animation="bouncing" lines="3"></app-text-shell>
+        </p>
+      </div>
+      <p>
+        On top of another element (with transparent background)
+      </p>
+      <div style="background-color: #FFF; padding: 20px; color: #FFF; font-weight: 500;">
+        <app-image-shell animation="spinner" class="add-overlay" [display]="'cover'" [src]="'./assets/sample-images/getting-started/category5-1.1.png'">
+          <app-aspect-ratio [ratio]="{w:2, h:1}">
+            <p style="margin: 20px 40px;">
+              <app-text-shell [data]="sampleTextShellData" animation="bouncing" lines="3"></app-text-shell>
+            </p>
+          </app-aspect-ratio>
+        </app-image-shell>
+      </div>
+      <p>
+        <b>Note:</b> As we don’t use masks, this approach works well with use cases that require transparent backgrounds.
+      </p>
+    </section>
+    <section class="showcase-section">
+      <h4>Gradient animation</h4>
+      <p>
+        Single line example
+      </p>
+      <div style="background-color: #FFF; padding: 20px;">
+        <app-text-shell [data]="sampleTextShellData" animation="gradient"></app-text-shell>
+      </div>
+      <p>
+        Multi-line example
+      </p>
+      <div style="background-color: #FFF; padding: 20px;">
+        <p>
+          <app-text-shell [data]="sampleTextShellData" animation="gradient" lines="3"></app-text-shell>
+        </p>
+      </div>
+      <p>
+        On top of another element (with transparent background)
+      </p>
+      <div style="background-color: #FFF; padding: 20px; color: #FFF; font-weight: 500;">
+        <app-image-shell animation="spinner" class="add-overlay" [display]="'cover'" [src]="'./assets/sample-images/getting-started/category5-1.1.png'">
+          <app-aspect-ratio [ratio]="{w:2, h:1}">
+            <p style="margin: 20px 40px;">
+              <app-text-shell [data]="sampleTextShellData" animation="gradient" lines="3"></app-text-shell>
+            </p>
+          </app-aspect-ratio>
+        </app-image-shell>
+      </div>
+      <p>
+        <b>Side effect:</b> This solution doesn’t play well if you require the <code>&lt;app-text-shell&gt;</code> to have a transparent background as the masks need a solid color to work properly.
+      </p>
+    </section>
+    <section class="showcase-section">
+      <h5>Prepend and Append text to the data binded</h5>
+      <p>
+        There are cases where we need to add some text before or after the value binded to the <code>&lt;app-text-shell&gt;</code>. For example if we are loading a price value and we want to put the '$' before the price.
+      </p>
+  <pre>
+  &lt;app-text-shell [data]="<b>(sampleTextShellData) ? '$'.concat(' ', sampleTextShellData) : null</b>"&gt;&lt;/app-text-shell&gt;
+  </pre>
+      <div style="background-color: #FFF; padding: 20px;">
+        <app-text-shell [data]="(sampleTextShellData) ? '$'.concat(' ', sampleTextShellData) : null"></app-text-shell>
+      </div>
+<pre>
+&lt;app-text-shell [data]="<b>(sampleTextShellData) ? sampleTextShellData.concat(' years old') : null</b>"&gt;&lt;/app-text-shell&gt;
+</pre>
+      <div style="background-color: #FFF; padding: 20px;">
+        <app-text-shell [data]="(sampleTextShellData) ? sampleTextShellData.concat(' years old') : null"></app-text-shell>
+      </div>
+    </section>
+  </div>
+  <section class="showcase-section">
+    <h4>Other use cases</h4>
+    <p>
+      The <code>&lt;app-text-shell&gt;</code> element can be used alone or wrapped with a text tag (<b>h1</b>, <b>h2</b>, <b>h3</b>, <b>p</b>, etc).
+    </p>
+    <p>
+      In case you wrap it with a heading element, we included basic styles (<code>src/theme/shell-defaults.scss</code>) to match the different heading styles (mainly line-height associated to each heading).
+    </p>
+<pre>
+:root &#123;
+  h1 > app-text-shell &#123;
+    --text-shell-line-height: 32px;
+    --text-shell-line-color: #CCC;
+  &#125;
+&#125;
+</pre>
+    <p>
+      By matching the line-height of the text-shell with the line-height of the wrapper element, we avoid page height bumps after the data gets loaded into the shells.
+    </p>
+<pre>
+&lt;h1&gt;
+  &lt;app-text-shell [data]=""&gt;&lt;/app-text-shell&gt;
+&lt;/h1&gt;
+
+&lt;h2&gt;
+  &lt;app-text-shell [data]=""&gt;&lt;/app-text-shell&gt;
+&lt;/h2&gt;
+
+&lt;h3&gt;
+  &lt;app-text-shell [data]=""&gt;&lt;/app-text-shell&gt;
+&lt;/h3&gt;
+
+&lt;h4&gt;
+  &lt;app-text-shell [data]=""&gt;&lt;/app-text-shell&gt;
+&lt;/h4&gt;
+
+&lt;h5&gt;
+  &lt;app-text-shell [data]=""&gt;&lt;/app-text-shell&gt;
+&lt;/h5&gt;
+</pre>
+    <h1>
+      <app-text-shell [data]=""></app-text-shell>
+    </h1>
+    <h2>
+      <app-text-shell [data]=""></app-text-shell>
+    </h2>
+    <h3>
+      <app-text-shell [data]=""></app-text-shell>
+    </h3>
+    <h4>
+      <app-text-shell [data]=""></app-text-shell>
+    </h4>
+    <h5>
+      <app-text-shell [data]=""></app-text-shell>
+    </h5>
+  </section>
+  <section class="showcase-section">
+    <p>
+      You can add/remove the following <b>Attributes</b> to adjust the shell element behavior
+    </p>
+    <h5>Multi-line support</h5>
+    <p>
+      You can set up-to 6 lines
+    </p>
+<pre>
+&lt;p&gt;
+  &lt;app-text-shell <b>lines="6"</b> [data]=""&gt;&lt;/app-text-shell&gt;
+&lt;/p&gt;
+</pre>
+    <p>
+      <app-text-shell style="--text-shell-line-color: #DDD;" [data]="" lines="6"></app-text-shell>
+    </p>
+    <h5>Set different animation options</h5>
+    <p>
+      You can choose between <b>no animation</b> (default), <b>bouncing animation</b>, and <b>gradient background with line masks on top</b>
+    </p>
+<pre>
+&lt;p&gt;
+  &lt;app-text-shell <b>animation="bouncing"</b> lines="2" [data]=""&gt;&lt;/app-text-shell&gt;
+&lt;/p&gt;
+</pre>
+    <p>
+      <app-text-shell style="--text-shell-line-color: #DDD;" [data]="" animation="bouncing" lines="2"></app-text-shell>
+    </p>
+<pre>
+&lt;p&gt;
+  &lt;app-text-shell <b>animation="gradient"</b> lines="2" [data]=""&gt;&lt;/app-text-shell&gt;
+&lt;/p&gt;
+</pre>
+<pre>
+app-text-shell &#123;
+  --text-shell-background: #FFF;
+  --text-shell-line-color: transparent;
+&#125;
+</pre>
+    <p style="padding: 5px; background: #FFF;">
+      <app-text-shell style="--text-shell-line-color: transparent; --text-shell-background: #FFF;" [data]="" animation="gradient" lines="2"></app-text-shell>
+    </p>
+    <p>
+      In this mode, the <code>--text-shell-background</code> property refers to the masks colors.
+    </p>
+    <p>
+      <b>Note:</b> When using a <code>gradient</code> animation, make sure you set the line-color to transparent so the background animation that's beneath the masks can be seen.
+    </p>
+  </section>
+  <section class="showcase-section">
+    <p>
+      You can also override these <b>CSS 4 variables</b> to adjust the shell element style
+    </p>
+    <h5>Line color</h5>
+<pre>
+app-text-shell &#123;
+  --text-shell-line-color: rgba(233, 30, 99, .25);
+&#125;
+</pre>
+    <h3>
+      <app-text-shell style="--text-shell-line-color: rgba(233, 30, 99, .25);" [data]=""></app-text-shell>
+    </h3>
+    <h5>Background</h5>
+    <p>
+      Background by default is set to <b>transparent</b>.
+    </p>
+<pre>
+app-text-shell &#123;
+  --text-shell-line-color: #FFFFFF;
+  --text-shell-background: #000000;
+&#125;
+</pre>
+    <p style="padding: 5px; background: #000000;">
+      <app-text-shell style="--text-shell-line-color: #FFFFFF; --text-shell-background: #000000;" [data]="" lines="3"></app-text-shell>
+    </p>
+    <h5>Background Animation</h5>
+    <p>
+      <b>Note:</b> These properties are only applied when using <code>animation="gradient"</code>.
+    </p>
+<pre>
+app-text-shell &#123;
+  --text-shell-line-color: transparent;
+  --text-shell-background: #000000;
+  --text-shell-animation-background: rgba(255, 3, 109, 0.6);
+  --text-shell-animation-color: rgba(156, 4, 68, 0.7);
+&#125;
+</pre>
+    <p style="padding: 5px; background: #000000;">
+      <app-text-shell style="
+        --text-shell-line-color: transparent;
+        --text-shell-background: #000000;
+        --text-shell-animation-background: rgba(255, 3, 109, 0.6);
+        --text-shell-animation-color: rgba(156, 4, 68, 0.7);
+      " [data]="" lines="3" animation="gradient"></app-text-shell>
+    </p>
+    <h5>Line height</h5>
+<pre>
+app-text-shell &#123;
+  --text-shell-line-height: 40px;
+&#125;
+</pre>
+    <h3>
+      <app-text-shell style="--text-shell-line-height: 40px;" [data]=""></app-text-shell>
+    </h3>
+    <h5>Line gutter</h5>
+<pre>
+app-text-shell &#123;
+  --text-shell-line-gutter: 10px;
+&#125;
+</pre>
+    <p>
+      <app-text-shell style="--text-shell-line-gutter: 10px; --text-shell-line-color: #CCC;" [data]="" lines="4"></app-text-shell>
+    </p>
+  </section>
+  <section class="showcase-section">
+    <h5>Max-width</h5>
+    <p>
+      By default, the <code>&lt;app-text-shell&gt;</code> element will fill it's container width. You can adjust this by setting a temporary <code>max-width</code> while the shell loading state is present.
+    </p>
+<pre>
+.sample-text-max-width &gt; app-text-shell &#123;
+  <b>max-width: 50%;</b>
+
+  &.text-loaded &#123;
+    <b>max-width: unset;</b>
+  &#125;
+&#125;
+</pre>
+    <div class="sample-text-max-width">
+      <app-text-shell [data]="sampleTextShellData"></app-text-shell>
+    </div>
+    <h5>Min-width</h5>
+    <p>
+      When the <code>&lt;app-text-shell&gt;</code> parent container doesn't have a width defined, it may happen that the <code>&lt;app-text-shell&gt;</code> inherits an undefined width and thus it's not shown.
+    </p>
+    <p>In these cases setting a temporary <code>min-width</code> fixes the issue.</p>
+    <p>
+      <b>Note:</b> If the parent doesn't have a defined width, it will fail to set a min-width based on a percentage of it's parents width. You will have to use absolute units (px, ch, etc).
+    </p>
+<pre>
+.sample-text-min-width &gt; app-text-shell &#123;
+  <b>min-width: 80px;</b>
+
+  &.text-loaded &#123;
+    <b>min-width: 0px;</b>
+  &#125;
+&#125;
+</pre>
+    <span class="sample-text-min-width" style="display: inline-block;">
+      <app-text-shell [data]="sampleTextShellData"></app-text-shell>
+    </span>
+  </section>
+</ion-content>

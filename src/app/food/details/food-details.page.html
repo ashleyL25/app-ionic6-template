@@ -1,0 +1,252 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories/food"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Food Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="food-details-content">
+  <ion-row class="image-row">
+    <ion-col size="12">
+      <app-image-shell [display]="'cover'" animation="spinner" class="add-overlay showcase-image" [src]="details?.showcaseImage">
+        <app-aspect-ratio [ratio]="{w:64, h:40}">
+          <div class="icon-wrapper">
+            <app-aspect-ratio [ratio]="{w: 40, h: 20}">
+              <app-image-shell class="icon-image" [src]="details?.icon"></app-image-shell>
+            </app-aspect-ratio>
+          </div>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+  </ion-row>
+  <ion-row class="description-row">
+    <ion-col size="9">
+      <h3 class="details-name">
+        <app-text-shell [data]="details?.name"></app-text-shell>
+      </h3>
+      <p class="details-style">
+        <app-text-shell [data]="details?.style"></app-text-shell>
+      </p>
+    </ion-col>
+    <ion-col size="3">
+      <div class="details-price-range">
+        <span class="price" *ngFor="let price of [].constructor(details?.priceRange)">$</span>
+        <span class="no-price" *ngFor="let price of [].constructor(5 - (details?.priceRange || 1))">$</span>
+      </div>
+    </ion-col>
+    <ion-col size="12">
+      <ion-row class="details-scores restaurant-scores">
+        <div class="restaurant-rating" [attr.ratingBase]="details?.avgRating | floor">
+          <app-text-shell [data]="details?.avgRating"></app-text-shell>
+        </div>
+        <ion-col class="score-item restaurant-score" *ngFor="let rating of details?.ratings">
+          <ion-icon *ngIf="rating.concept" class="score-icon" [src]="(rating.concept) ? './assets/custom-icons/food/' + rating.concept + '-rate.svg' : ''"></ion-icon>
+          <div class="score-value">
+            <app-text-shell [data]="rating.rate"></app-text-shell>
+          </div>
+        </ion-col>
+        <ion-col class="score-item restaurant-score reviews-count">
+          <ion-icon class="score-icon" src="./assets/custom-icons/food/reviews.svg"></ion-icon>
+          <div class="score-value">
+            <app-text-shell [data]="details?.reviewsCount"></app-text-shell>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <div class="open-hours-wrapper">
+    <h3 class="detail-title">Schedules</h3>
+    <ul class="schedules-list">
+      <li class="open-hour-item" *ngFor="let schedule of details?.openHours">
+        <div class="schedule-outer">
+          <span class="schedule-day">
+            <app-text-shell [data]="schedule.day"></app-text-shell>
+          </span>
+          <div class="schedule-hours">
+            <ng-container *ngIf="schedule.open">
+              <span class="schedule-value">
+                <app-text-shell [data]="schedule.hourFrom"></app-text-shell>
+              </span>
+              <span class="schedule-separator">to</span>
+              <span class="schedule-value">
+                <app-text-shell [data]="schedule.hourTo"></app-text-shell>
+              </span>
+            </ng-container>
+            <ng-container *ngIf="!schedule.open">
+              <ion-badge class="schedule-closed" color="medium">closed</ion-badge>
+            </ng-container>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="location-wrapper">
+    <div class="location-header">
+      <h3 class="detail-title">Address</h3>
+      <span class="location-address">
+        <app-text-shell [data]="details?.location?.address"></app-text-shell>
+      </span>
+    </div>
+    <!-- <app-aspect-ratio [ratio]="{w: 64, h: 20}">
+      <app-image-shell [src]="'https://maps.googleapis.com/maps/api/staticmap?center=' + details.location?.latlng + '&zoom=15&size=640x200&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xd9453a%7C' + details.location?.latlng + '&key=YOUR_KEY_HERE'">
+      </app-image-shell>
+    </app-aspect-ratio> -->
+    <app-aspect-ratio [ratio]="{w: 64, h: 20}">
+      <app-image-shell class="location-image" animation="spinner" [src]="details?.location?.mapImage" [alt]="'location map'"></app-image-shell>
+    </app-aspect-ratio>
+  </div>
+  <ion-row class="details-tags">
+    <ion-col class="tag-wrapper" *ngFor="let tag of details?.tags">
+      <span class="item-tag">
+        <app-text-shell [data]="tag"></app-text-shell>
+      </span>
+    </ion-col>
+  </ion-row>
+  <hr class="details-divider">
+  <div class="users-pictures-wrapper">
+    <h3 class="detail-title">User's photos</h3>
+    <ion-row class="pictures-row">
+      <ion-col class="picture-wrapper" *ngFor="let picture of details?.usersPictures?.slice(0, 5); let i = index">
+        <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+          <app-image-shell class="user-picture-image" [src]="picture" [alt]="'user image'"></app-image-shell>
+        </app-aspect-ratio>
+        <a class="has-more-pictures" *ngIf="i === 4 && details?.usersPictures?.length > 5">
+          <span class="pictures-count">{{ details?.usersPictures?.length - 5 }}</span>
+        </a>
+      </ion-col>
+    </ion-row>
+    <ion-button class="upload-picture-btn" color="dark" expand="block" fill="outline">Upload photo</ion-button>
+  </div>
+  <div class="popular-dishes-wrapper">
+    <h3 class="detail-title">Popular dishes</h3>
+    <ion-row class="popular-dish" *ngFor="let dish of details?.popularDishes">
+      <ion-col size="9">
+        <span class="dish-name">
+          <app-text-shell [data]="dish.name"></app-text-shell>
+        </span>
+        <ion-progress-bar class="dish-score" type="determinate" [value]="(dish.rate / 5)"></ion-progress-bar>
+      </ion-col>
+      <ion-col size="3" class="dish-votes-count">
+        <div class="dish-votes-value">
+          <app-text-shell [data]="dish.votesCount"></app-text-shell>
+        </div>
+        <ion-icon class="dish-votes-icon" name="heart-outline"></ion-icon>
+      </ion-col>
+    </ion-row>
+  </div>
+  <hr class="details-divider">
+  <div class="reviews-wrapper">
+    <h3 class="detail-title">Reviews</h3>
+    <div class="reviews-list">
+      <div class="review-item" *ngFor="let review of details?.reviews">
+        <ion-row class="review-user">
+          <ion-col class="user-image-wrapper">
+            <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+              <app-image-shell class="review-user-image" [src]="review.user.image" [alt]="'review user image'"></app-image-shell>
+            </app-aspect-ratio>
+          </ion-col>
+          <ion-col class="user-brief-wrapper">
+            <h5 class="review-user-name">
+              <app-text-shell [data]="review.user.name"></app-text-shell>
+            </h5>
+            <ion-row class="details-scores user-scores">
+              <ion-col class="score-item user-score">
+                <ion-icon class="score-icon" src="./assets/custom-icons/food/reviews.svg"></ion-icon>
+                <div class="score-value">
+                  <app-text-shell [data]="review.user.reviewsCount"></app-text-shell>
+                </div>
+                <span class="score-title">Reviews</span>
+              </ion-col>
+              <ion-col class="score-item user-score">
+                <ion-icon class="score-icon" src="./assets/custom-icons/food/points.svg"></ion-icon>
+                <div class="score-value">
+                  <app-text-shell [data]="review.user.points"></app-text-shell>
+                </div>
+                <span class="score-title">Points</span>
+              </ion-col>
+            </ion-row>
+          </ion-col>
+          <ion-col class="review-info-wrapper">
+            <span class="review-date">
+              <app-text-shell [data]="review.publishedAt"></app-text-shell>
+            </span>
+            <div class="review-rating" [attr.ratingBase]="review.avgRating | floor">
+              <app-text-shell [data]="review.avgRating"></app-text-shell>
+            </div>
+          </ion-col>
+        </ion-row>
+        <p class="review-message">
+          <app-text-shell [data]="review.message" lines="5"></app-text-shell>
+        </p>
+        <ion-row class="details-scores review-scores">
+          <ion-col class="score-item review-score" *ngFor="let rating of review.ratings">
+            <ion-icon *ngIf="rating.concept" class="score-icon" [src]="(rating.concept) ? './assets/custom-icons/food/' + rating.concept + '-rate.svg' : ''"></ion-icon>
+            <div class="score-value">
+              <app-text-shell [data]="rating.rate"></app-text-shell>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+    <hr class="details-divider">
+    <ion-button class="all-reviews-btn" color="dark" expand="block" fill="clear">READ ALL REVIEWS ({{ details?.reviews?.length }})</ion-button>
+    <hr class="details-divider">
+    <ion-button class="write-reviews-btn" color="dark" expand="block" fill="solid">Write a review</ion-button>
+  </div>
+  <div class="recipes-wrapper">
+    <div class="recipes-header">
+      <h3 class="detail-title">
+        {{ details?.shortName }} famous recipes
+      </h3>
+    </div>
+    <div class="recipes-list">
+      <div class="recipe-item" *ngFor="let recipe of details?.popularRecipes">
+        <app-image-shell class="recipe-cover-image" [display]="'cover'" [src]="recipe.showcaseImage">
+          <app-aspect-ratio [ratio]="{w:64, h:30}">
+          </app-aspect-ratio>
+        </app-image-shell>
+        <div class="chef-picture-wrapper">
+          <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+            <app-image-shell class="chef-picture-image" [src]="recipe?.chef?.image" [alt]="'chef image'"></app-image-shell>
+          </app-aspect-ratio>
+        </div>
+        <h4 class="recipe-title">RECIPE</h4>
+        <hr class="details-divider">
+        <div class="recipe-call-to-action">
+          <span class="recipe-author">
+            <app-text-shell [data]="details?.shortName?.concat(' famous')"></app-text-shell>
+          </span>
+          <h3 class="recipe-name">
+            <app-text-shell [data]="recipe.name"></app-text-shell>
+          </h3>
+          <span class="recipe-chef">
+            <app-text-shell [data]="(recipe.chef) ? 'By chef'.concat(' ', recipe?.chef?.name) : null"></app-text-shell>
+           </span>
+        </div>
+        <hr class="details-divider">
+        <ion-row class="details-scores recipe-attributes">
+          <ion-col class="score-item attribute-score">
+            <ion-icon class="score-icon" src="./assets/custom-icons/food/difficulty.svg"></ion-icon>
+            <div class="score-value">
+              <app-text-shell [data]="recipe.difficulty"></app-text-shell>
+            </div>
+          </ion-col>
+          <ion-col class="score-item attribute-score">
+            <ion-icon class="score-icon" src="./assets/custom-icons/food/cooking-time.svg"></ion-icon>
+            <div class="score-value">
+              <app-text-shell [data]="recipe.time"></app-text-shell>
+            </div>
+          </ion-col>
+          <ion-col class="score-item attribute-score">
+            <ion-icon class="score-icon" src="./assets/custom-icons/food/calories.svg"></ion-icon>
+            <div class="score-value">
+              <app-text-shell [data]="recipe.calories"></app-text-shell>
+            </div>
+          </ion-col>
+        </ion-row>
+      </div>
+    </div>
+  </div>
+</ion-content>

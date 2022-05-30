@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories/fashion"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fashion Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fashion-details-content">
+  <ion-row class="slider-row">
+    <ion-slides class="details-slides" pager="true" [options]="slidesOptions">
+      <ion-slide *ngFor="let image of details?.showcaseImages">
+        <ion-row class="slide-inner-row">
+          <app-image-shell [display]="'cover'" animation="spinner" class="showcase-image" [ngClass]="{'centered-image': (image.type === 'square'), 'fill-image': (image.type === 'fill')}" [src]="image.source">
+            <app-aspect-ratio [ratio]="{w:64, h:50}">
+            </app-aspect-ratio>
+          </app-image-shell>
+        </ion-row>
+      </ion-slide>
+    </ion-slides>
+  </ion-row>
+  <div class="description-wrapper">
+    <h3 class="details-name">
+      <app-text-shell animation="gradient" [data]="details?.name"></app-text-shell>
+    </h3>
+    <span class="details-brand">
+      <app-text-shell animation="gradient" [data]="details?.brand"></app-text-shell>
+    </span>
+    <span class="details-price">
+      <app-text-shell animation="gradient" [data]="details?.price | currency"></app-text-shell>
+    </span>
+    <span class="details-sale-price">
+      <app-text-shell animation="gradient" [data]="details?.salePrice | currency"></app-text-shell>
+    </span>
+  </div>
+  <ion-row class="details-purchase-options-row">
+    <ion-col size="12" class="aux-action-col">
+      <ion-button class="size-chart-btn" color="medium" size="small" fill="clear">Size Chart</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openColorChooser()">Color</ion-button>
+    </ion-col>
+    <ion-col size="6">
+      <ion-button class="select-variant-btn" color="medium" expand="block" fill="outline" (click)="openSizeChooser()">Size</ion-button>
+    </ion-col>
+    <ion-col size="12" class="main-call-to-action-col">
+      <ion-button class="add-to-cart-btn" color="dark" expand="block" fill="solid">Add to cart</ion-button>
+    </ion-col>
+  </ion-row>
+  <div class="details-description-wrapper">
+    <h3 class="detail-title">About me</h3>
+    <p class="details-description">
+      <app-text-shell animation="gradient" [data]="details?.description" lines="5"></app-text-shell>
+    </p>
+  </div>
+  <div class="details-description-wrapper">
+    <h3 class="detail-title">Looking after me</h3>
+    <p class="details-description">
+      <app-text-shell animation="gradient" [data]="details?.careInstructions" lines="3"></app-text-shell>
+    </p>
+  </div>
+  <div class="details-description-wrapper">
+    <h3 class="detail-title">Product code</h3>
+    <span class="details-description product-code">
+      <app-text-shell animation="gradient" [data]="details?.upc"></app-text-shell>
+    </span>
+  </div>
+  <!-- Related Products -->
+  <div class="related-products-wrapper" *ngIf="details?.relatedProducts && details.relatedProducts.length > 0">
+    <h3 class="detail-alt-title">Why Don't you try?</h3>
+    <ion-row class="related-products-list">
+      <ion-col size="6" class="related-product-item" *ngFor="let relatedProduct of details?.relatedProducts">
+        <div class="item-image-wrapper">
+          <a class="image-anchor">
+            <app-aspect-ratio [ratio]="{w: 3, h: 4}">
+              <app-image-shell class="related-product-image" animation="spinner" [src]="relatedProduct.image" [alt]="'related image'"></app-image-shell>
+            </app-aspect-ratio>
+          </a>
+        </div>
+        <div class="item-details-wrapper">
+          <h4 class="item-name">
+            <a class="name-anchor">
+              <app-text-shell animation="gradient" [data]="relatedProduct.name"></app-text-shell>
+            </a>
+          </h4>
+          <span class="item-sale-price">
+            <app-text-shell animation="gradient" [data]="relatedProduct.salePrice | currency"></app-text-shell>
+          </span>
+        </div>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

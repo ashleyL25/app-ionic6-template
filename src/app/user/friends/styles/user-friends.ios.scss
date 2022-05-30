@@ -1,0 +1,14 @@
+:host-context(.ios) {
+  .user-friends-segment {
+    --background: var(--page-segment-background);
+    padding: var(--page-margin);
+
+    ion-segment-button {
+      --color-checked: var(--ion-color-light);
+    }
+  }
+
+  ion-searchbar.friends-searchbar {
+    padding-top: 0px;
+  }
+}

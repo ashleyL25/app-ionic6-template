@@ -1,0 +1,80 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/user"></ion-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="user-friends-content">
+  <ion-segment value="friends" class="user-friends-segment" (ionChange)="segmentChanged($event)">
+    <ion-segment-button value="friends">
+      <ion-label>Friends</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="followers">
+      <ion-label>Followers</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="following">
+      <ion-label>Following</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+  <ion-searchbar class="friends-searchbar" animated [(ngModel)]="searchQuery" (ionChange)="searchList()"></ion-searchbar>
+
+  <ng-template #friendItem let-friend="friend">
+    <ion-row class="user-details-section">
+      <ion-col class="user-image-wrapper" size="2">
+        <app-aspect-ratio [ratio]="{w:1, h:1}">
+          <app-image-shell class="user-image" animation="spinner" [src]="friend.image" [alt]="'friend'"></app-image-shell>
+        </app-aspect-ratio>
+      </ion-col>
+      <ion-col class="user-data-wrapper">
+        <div class="user-info">
+          <h3 class="user-name">
+            <app-text-shell [data]="friend.name"></app-text-shell>
+          </h3>
+          <h5 class="user-job">
+            <app-text-shell [data]="friend.job"></app-text-shell>
+          </h5>
+        </div>
+      </ion-col>
+      <ion-col class="user-actions-wrapper">
+        <ion-button *ngIf="!friend.following" class="user-action" expand="block" size="small" color="primary">Follow</ion-button>
+        <ion-button *ngIf="friend.following" class="user-action" expand="block" size="small" color="light">Following</ion-button>
+      </ion-col>
+    </ion-row>
+  </ng-template>
+
+  <section [hidden]="segmentValue !== 'friends'">
+    <ion-list class="friends-list" *ngIf="friendsList.length > 0">
+      <ion-item class="friend-item" *ngFor="let friend of friendsList">
+        <ng-container *ngTemplateOutlet="friendItem; context: { friend: friend }"></ng-container>
+      </ion-item>
+    </ion-list>
+    <ng-container *ngIf="friendsList.length <= 0">
+      <h3 class="empty-list-message">No Friends</h3>
+    </ng-container>
+  </section>
+
+  <section [hidden]="segmentValue !== 'followers'">
+    <ion-list class="friends-list" *ngIf="followersList.length > 0">
+      <ion-item class="friend-item" *ngFor="let friend of followersList">
+        <ng-container *ngTemplateOutlet="friendItem; context: { friend: friend }"></ng-container>
+      </ion-item>
+    </ion-list>
+    <ng-container *ngIf="followersList.length <= 0">
+      <h3 class="empty-list-message">No Followers</h3>
+    </ng-container>
+  </section>
+
+  <section [hidden]="segmentValue !== 'following'">
+    <ion-list class="friends-list" *ngIf="followingList.length > 0">
+      <ion-item class="friend-item" *ngFor="let friend of followingList">
+        <ng-container *ngTemplateOutlet="friendItem; context: { friend: friend }"></ng-container>
+      </ion-item>
+    </ion-list>
+    <ng-container *ngIf="followingList.length <= 0">
+      <h3 class="empty-list-message">No Following</h3>
+    </ng-container>
+  </section>
+</ion-content>

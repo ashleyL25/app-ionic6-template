@@ -1,0 +1,44 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      DataStore - Basic example
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      Using the <code>DataStore</code> utility you can keep track and append shell values to the data stream.
+    </p>
+    <p>
+      This drastically reduces the boilerplate needed to add app shell loading interactions to your app.
+    </p>
+    <ion-row style="background-color: #FFF; padding: 10px; margin: 20px;">
+      <ion-col size="12">
+        <app-image-shell animation="spinner" class="add-overlay" [display]="'cover'" [src]="dataStoreData?.cover" [alt]="'Sample Image Cover'">
+          <app-aspect-ratio [ratio]="{w:2, h:1}">
+            <h4 style="margin: 10px; text-align: center; color: #FFF;">Heading on top of a cover image</h4>
+          </app-aspect-ratio>
+        </app-image-shell>
+      </ion-col>
+      <ion-col size="4">
+        <app-aspect-ratio [ratio]="{w:1, h:1}">
+          <app-image-shell animation="spinner" [src]="dataStoreData?.image" [alt]="'Sample Image'"></app-image-shell>
+        </app-aspect-ratio>
+      </ion-col>
+      <ion-col size="8">
+        <h3 style="margin-top: 0px;">
+          <app-text-shell [data]="dataStoreData?.title"></app-text-shell>
+        </h3>
+        <p>
+          <app-text-shell [data]="dataStoreData?.description" lines="3"></app-text-shell>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-button (click)="showcaseDataStore()" [disabled]="dataStoreButtonDisabled">Fetch more Data</ion-button>
+  </section>
+</ion-content>

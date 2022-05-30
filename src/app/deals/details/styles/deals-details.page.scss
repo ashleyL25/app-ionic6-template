@@ -1,0 +1,295 @@
+@import "theme/mixins/ion-color";
+
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-broad-margin);
+  --page-background: var(--app-background-shade);
+
+  --page-swiper-pagination-space: 30px;
+  --page-swiper-pagination-height: 18px;
+  --page-pagination-bullet-size: 10px;
+
+  --page-countdown-fill-shadow-color: rgba(var(--ion-color-darkest-rgb), 0.2);
+
+  --page-expired-color: var(--ion-color-medium-tint);
+  --page-ends-soon-color: #FFAB6B;
+  --page-distant-end-color: #70DF70;
+
+  --page-deal-color: var(--ion-color-medium);
+
+  --page-color: #70DF70;
+
+  // Add custom colors to use with [color] property
+  @include ion-color('claim') {
+    --ion-color-claim: #70DF70;
+    --ion-color-claim-rgb: 112,223,112;
+    --ion-color-claim-contrast: #FFFFFF;
+    --ion-color-claim-contrast-rgb: 255,255,255;
+    --ion-color-claim-shade: #63C463;
+    --ion-color-claim-tint: #7EE27E;
+  }
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.deals-details-content {
+  --background: var(--page-background);
+
+  &.ended {
+    --page-deal-color: var(--page-expired-color);
+  }
+  &.imminent-end {
+    --page-deal-color: var(--page-distant-end-color);
+  }
+  &.ends-soon {
+    --page-deal-color: var(--page-ends-soon-color);
+  }
+  &.distant-end {
+    --page-deal-color: var(--page-distant-end-color);
+  }
+
+  .expiration-countdown {
+    color: var(--ion-color-lightest);
+    background-color: var(--ion-color-danger);
+    padding: calc(var(--page-margin) / 2) var(--page-margin);
+
+    position: sticky;
+    top: 0;
+    z-index: 8;
+
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+
+    .expiration-lead {
+      padding: 0px calc(var(--page-margin) / 2);
+      text-transform: uppercase;
+      font-weight: 500;
+      font-size: 14px;
+    }
+
+    app-countdown-timer.item-countdown {
+      --countdown-margin: 0px;
+      --countdown-padding: 0px 3px;
+      --countdown-time-margin: 0px 2px;
+      --countdown-time-padding: 0px 2px;
+      --countdown-inner-time-margin: 0px 2px 0px 0px;
+      --countdown-inner-time-padding: calc(var(--page-margin) / 2) 0px;
+      --countdown-fill-border: none;
+      --countdown-fill-border-radius: var(--app-narrow-radius);
+      --countdown-fill-background: var(--ion-color-lightest);
+      --countdown-fill-shadow: 0px 0px 5px 0px var(--page-countdown-fill-shadow-color);
+      --countdown-value-color: var(--ion-color-darkest);
+      --countdown-unit-color: var(--ion-color-medium-shade);
+
+      padding: 0px calc(var(--page-margin) / 4);
+      font-size: 14px;
+      font-weight: 500;
+    }
+  }
+
+  .details-wrapper {
+    margin: var(--page-margin);
+    border-radius: var(--app-broad-radius);
+    background-color: var(--ion-color-lightest);
+
+    .slider-row {
+      .details-slides {
+        --bullet-background: var(--ion-color-primary);
+        --bullet-background-active: var(--ion-color-primary);
+
+        height: 100%;
+        width: 100%;
+        border-radius: var(--app-broad-radius) var(--app-broad-radius) 0px 0px;
+
+        .slide-inner-row {
+          height: 100%;
+          width: 100%;
+          padding: 0px;
+          // .swiper-pagination space
+          padding-bottom: var(--page-swiper-pagination-space);
+          // As we set ViewEncapsulation.ShadowDom, box-sizing get's resetted to content-box if I don't add this
+          box-sizing: border-box;
+        }
+      }
+    }
+
+    .description-row {
+      --ion-grid-column-padding: 0px;
+
+      padding: calc(var(--page-margin) / 2) var(--page-margin) var(--page-margin);
+      border-bottom: 2px dashed rgba(var(--ion-color-dark-rgb), .1);
+      align-items: center;
+
+      .logo-col {
+        padding-bottom: calc(var(--page-margin) / 2);
+      }
+
+      .info-col {
+        padding-right: calc(var(--page-margin) / 2);
+
+        .details-name {
+          margin: 0px;
+    			margin-bottom: calc(var(--page-margin) / 2);
+          color: var(--ion-color-dark-tint);
+          font-size: 16px;
+        }
+
+        .details-description {
+          margin: 0px;
+          color: var(--ion-color-medium-tint);
+          font-size: 14px;
+        }
+      }
+    }
+
+    .promo-row {
+      --ion-grid-column-padding: 0px;
+
+      padding: var(--page-margin);
+      text-align: center;
+      justify-content: center;
+
+      .promo-title {
+        font-size: 22px;
+        font-weight: 300;
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        color: var(--ion-color-dark-tint);
+        margin: 0px;
+
+        &::before,
+        &::after {
+          content: '·';
+          color: var(--ion-color-dark-tint);
+        }
+      }
+
+      .promo-description {
+        margin: var(--page-margin) 0px;
+        color: var(--ion-color-medium-tint);
+        font-size: 14px;
+      }
+
+      .promo-code-btn {
+        margin: 0px;
+      }
+
+      .promo-code {
+        display: block;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .promo-instructions {
+        margin: var(--page-margin) 0px 0px;
+        color: var(--ion-color-medium-tint);
+        font-size: 12px;
+        line-height: 1.4;
+
+        .instructions-anchor {
+          color: var(--page-color);
+          text-decoration: none;
+        }
+      }
+    }
+
+    .expiration-notice {
+      background-color: var(--page-deal-color);
+      padding: calc(var(--page-margin) / 2) var(--page-margin);
+      color: var(--ion-color-lightest);
+      border-radius: 0px 0px var(--app-broad-radius) var(--app-broad-radius);
+      display: flex;
+      justify-content: space-evenly;
+
+      .notice-message {
+        display: block;
+        margin-right: 5px;
+        text-transform: capitalize;
+      }
+
+      .expiration-value {
+        display: block;
+      }
+    }
+  }
+
+  .related-deals-wrapper {
+    margin: calc(var(--page-margin) * 3) var(--page-margin) calc(var(--page-margin) * 2);
+
+    .related-deals-title {
+      text-align: center;
+      font-size: 20px;
+      font-weight: 400;
+      text-transform: uppercase;
+      color: var(--ion-color-dark-shade);
+      margin: 0px 0px var(--page-margin);
+    }
+
+    .related-deal {
+      --ion-grid-column-padding: 0px;
+
+      border-radius: var(--app-broad-radius);
+      background-color: var(--ion-color-lightest);
+
+      &:not(:last-child) {
+        margin-bottom: calc(var(--page-margin) / 2);
+      }
+
+      .deal-logo-wrapper {
+        padding: calc(var(--page-margin) / 4) var(--page-margin) calc(var(--page-margin) / 4) calc(var(--page-margin) / 2);
+        border-right: 2px dashed rgba(var(--ion-color-dark-rgb), .1);
+      }
+
+      .deal-info-wrapper {
+        padding-left: var(--page-margin);
+        padding-right: calc(var(--page-margin) / 2);
+        padding-top: calc(var(--page-margin) / 4);
+        padding-bottom: calc(var(--page-margin) / 4);
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .related-deal-title {
+          margin: 0px;
+          margin-bottom: 5px;
+          color: var(--ion-color-dark-tint);
+          font-size: 20px;
+        }
+
+        .related-deal-description {
+          margin: 0px;
+          color: var(--ion-color-medium-tint);
+          font-size: 16px;
+        }
+      }
+    }
+  }
+}
+
+
+// ISSUE: .swiper-paggination gets rendered dynamically. That prevents styling the elements when using the default Angular ViewEncapsulation.None
+//        (Angular doesn't add an '_ngcontent' attribute to the .swiper-paggination because it's dynamically rendered)
+// FIX:   See: https://stackoverflow.com/a/36265072/1116959
+:host ::ng-deep {
+  .details-slides {
+    .swiper-pagination {
+      height: var(--page-swiper-pagination-height);
+      line-height: 1;
+      // .swiper-pagination is 18px height, .slide-inner-row has 40px of padding-bottom => bottom = (40px - 18px)/2 = 11px
+      bottom: calc((var(--page-swiper-pagination-space) - var(--page-swiper-pagination-height) ) / 2);
+
+      .swiper-pagination-bullet {
+        width: var(--page-pagination-bullet-size);
+        height: var(--page-pagination-bullet-size);
+      }
+    }
+  }
+
+  app-countdown-timer.item-countdown {
+    .time-unit {
+      // text-transform: lowercase;
+      font-size: 0.8em;
+    }
+  }
+}

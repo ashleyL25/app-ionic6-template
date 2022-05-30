@@ -1,0 +1,21 @@
+app-image-shell.user-image {
+  --image-shell-border-radius: var(--app-fair-radius);
+}
+
+.user-name > app-text-shell {
+  --text-shell-line-height: 16px;
+  max-width: 80%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.user-age > app-text-shell {
+  --text-shell-line-height: 14px;
+  max-width: 40%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}

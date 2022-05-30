@@ -1,0 +1,145 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories/real-estate"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Real Estate Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="real-estate-details-content">
+  <ion-row class="image-row">
+    <ion-col size="12">
+      <app-image-shell [display]="'cover'" animation="spinner" class="details-picture" [src]="details?.picture">
+        <app-aspect-ratio [ratio]="{w:64, h:40}">
+          <ion-icon class="bookmark-icon" name="heart"></ion-icon>
+        </app-aspect-ratio>
+      </app-image-shell>
+    </ion-col>
+  </ion-row>
+  <ion-row class="description-row">
+    <ion-col size="12">
+      <h4 class="details-price">
+        <span class="price-icon">$</span>
+        <app-text-shell [data]="details?.price"></app-text-shell>
+      </h4>
+      <p class="details-address">
+        <app-text-shell animation="bouncing" [data]="details?.location?.address"></app-text-shell>
+      </p>
+      <p class="details-address">
+        <app-text-shell animation="bouncing" [data]="details?.location?.city"></app-text-shell>
+      </p>
+    </ion-col>
+    <ion-col size="12">
+      <p class="details-description">
+        <app-text-shell animation="bouncing" lines="5" [data]="details?.description"></app-text-shell>
+      </p>
+    </ion-col>
+  </ion-row>
+  <div class="accommodations-wrapper">
+    <h3 class="detail-title">About the space</h3>
+    <ion-row class="accommodation-row">
+      <ion-col class="icon-wrapper">
+        <ion-icon class="accommodation-icon" src="./assets/custom-icons/real-estate/guests.svg"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <span class="accommodation-name">Guests</span>
+      </ion-col>
+      <ion-col size="2">
+        <span class="accommodation-value">
+          <app-text-shell [data]="details?.accommodations?.guests"></app-text-shell>
+        </span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="accommodation-row">
+      <ion-col class="icon-wrapper">
+        <ion-icon class="accommodation-icon" src="./assets/custom-icons/real-estate/bedrooms.svg"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <span class="accommodation-name">Bedrooms</span>
+      </ion-col>
+      <ion-col size="2">
+        <span class="accommodation-value">
+          <app-text-shell [data]="details?.accommodations?.bedrooms"></app-text-shell>
+        </span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="accommodation-row">
+      <ion-col class="icon-wrapper">
+        <ion-icon class="accommodation-icon" src="./assets/custom-icons/real-estate/bathroom.svg"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <span class="accommodation-name">Bathrooms</span>
+      </ion-col>
+      <ion-col size="2">
+        <span class="accommodation-value">
+          <app-text-shell [data]="details?.accommodations?.bathrooms"></app-text-shell>
+        </span>
+      </ion-col>
+    </ion-row>
+    <ion-row class="accommodation-row">
+      <ion-col class="icon-wrapper">
+        <ion-icon class="accommodation-icon" src="./assets/custom-icons/real-estate/patio.svg"></ion-icon>
+      </ion-col>
+      <ion-col size="4">
+        <span class="accommodation-name">Patio</span>
+      </ion-col>
+      <ion-col size="2">
+        <span class="accommodation-value">
+          <app-text-shell [data]="details?.accommodations?.patios"></app-text-shell>
+        </span>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="location-wrapper">
+    <div class="location-header">
+      <h3 class="detail-title">Location</h3>
+      <span class="location-address">
+        <app-text-shell [data]="details?.location?.address"></app-text-shell>
+      </span>
+    </div>
+    <!-- <app-aspect-ratio [ratio]="{w: 64, h: 30}">
+      <app-image-shell [src]="'https://maps.googleapis.com/maps/api/staticmap?center=' + details.location?.latlng + '&zoom=15&size=640x300&maptype=roadmap&format=png&visual_refresh=true&markers=size:mid%7Ccolor:0xd9453a%7C' + details.location?.latlng + '&key=YOUR_KEY_HERE'">
+      </app-image-shell>
+    </app-aspect-ratio> -->
+    <app-aspect-ratio [ratio]="{w:64, h:30}">
+      <app-image-shell class="location-image" animation="spinner" [src]="details?.location?.mapImage" [alt]="'location map'"></app-image-shell>
+    </app-aspect-ratio>
+  </div>
+  <div class="amenities-wrapper">
+    <h3 class="detail-title">Amenities</h3>
+    <ion-row class="amenities-tags">
+      <ion-col class="tag-wrapper" *ngFor="let amenity of details?.amenities">
+        <span class="amenity-tag">
+          <app-text-shell [data]="amenity.name"></app-text-shell>
+        </span>
+      </ion-col>
+    </ion-row>
+  </div>
+  <div class="safety-features-wrapper">
+    <h3 class="detail-title">Safety Features</h3>
+    <ul class="features-list">
+      <li class="feature-item">
+        <app-text-shell [data]="'Smoke Detector'"></app-text-shell>
+      </li>
+      <li class="feature-item">
+        <app-text-shell [data]="'Carbon Monoxide Detector'"></app-text-shell>
+      </li>
+      <li class="feature-item">
+        <app-text-shell [data]="'Security Alarm System'"></app-text-shell>
+      </li>
+    </ul>
+  </div>
+  <div class="availability-wrapper">
+    <h3 class="detail-title">Availability</h3>
+    <ion-row class="availability-row">
+      <span class="availability-description">
+        <app-text-shell [data]="'1 month minimum'"></app-text-shell>
+      </span>
+      <span class="availability-value">
+        <app-text-shell [data]="'Available from June'"></app-text-shell>
+      </span>
+    </ion-row>
+    <ion-button class="book-now-btn" color="dark" expand="block" fill="outline">BOOK NOW</ion-button>
+  </div>
+</ion-content>

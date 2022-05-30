@@ -1,0 +1,94 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories/deals"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Deals Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="deals-details-content" [ngClass]="{'ended': ((details?.expirationDate | appTimeDifference) < 0), 'imminent-end': ((details?.expirationDate | appTimeDifference) > 0 && (details?.expirationDate | appTimeDifference) <= 2), 'ends-soon': ((details?.expirationDate | appTimeDifference) > 0 && (details?.expirationDate | appTimeDifference) > 2 && (details?.expirationDate | appTimeDifference) < 10), 'distant-end': ((details?.expirationDate | appTimeDifference) >= 10)}">
+  <ion-row class="expiration-countdown" *ngIf="((details?.expirationDate | appTimeDifference) > 0 && (details?.expirationDate | appTimeDifference) <= 2)">
+    <span class="expiration-lead">Deal expires in:</span>
+    <app-countdown-timer class="item-countdown" fill="countdown" [end]="details?.expirationDate" [units]="{from: 'hour', to: 'second'}"></app-countdown-timer>
+  </ion-row>
+
+  <div class="details-wrapper">
+    <ion-row class="slider-row">
+      <ion-slides class="details-slides" pager="true" [options]="slidesOptions">
+        <ion-slide class="" *ngFor="let image of details?.showcaseImages">
+          <ion-row class="slide-inner-row">
+            <app-aspect-ratio [ratio]="{w: 56, h: 40}">
+              <app-image-shell [src]="image" [alt]="'deals details'" class="showcase-image" animation="spinner"></app-image-shell>
+            </app-aspect-ratio>
+          </ion-row>
+        </ion-slide>
+      </ion-slides>
+    </ion-row>
+    <ion-row class="description-row">
+      <ion-col class="logo-col" size="6">
+        <app-aspect-ratio [ratio]="{w: 128, h: 32}">
+          <app-image-shell [src]="details?.logo" [alt]="'deals details'" class="logo-image" animation="spinner"></app-image-shell>
+        </app-aspect-ratio>
+      </ion-col>
+      <ion-col class="info-col" size="9">
+        <h4 class="details-name">
+          <app-text-shell animation="bouncing" [data]="details?.name"></app-text-shell>
+        </h4>
+        <p class="details-description">
+          <app-text-shell animation="bouncing" lines="3" [data]="details?.description"></app-text-shell>
+        </p>
+      </ion-col>
+      <ion-col class="preview-image-col" size="3">
+        <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+          <app-image-shell [src]="details?.previewImage" [alt]="'deals details'" class="preview-image" animation="spinner"></app-image-shell>
+        </app-aspect-ratio>
+      </ion-col>
+    </ion-row>
+    <ion-row class="promo-row">
+      <h3 class="promo-title">Copy the Code</h3>
+      <ion-col size="8">
+        <p class="promo-description">
+          Paste this code at checkout to get an extra 50% off
+        </p>
+      </ion-col>
+      <ion-col size="6">
+        <ion-button class="promo-code-btn" expand="block" shape="round" fill="outline" color="claim">
+          <span class="promo-code">
+            <app-text-shell [data]="details?.code"></app-text-shell>
+          </span>
+        </ion-button>
+      </ion-col>
+      <ion-col size="8">
+        <p class="promo-instructions">
+          Go to <a class="instructions-anchor" target="_blank" href="https://google.com/search?q=chocolate">lancasternutcandy.com</a> and paste the code at checkout.
+        </p>
+      </ion-col>
+    </ion-row>
+    <div class="expiration-notice">
+      <span class="notice-message">Cupon {{ ((details?.expirationDate | appTimeDifference) < 0) ? 'expired' : 'expires' }} on:</span>
+      <span class="expiration-value">
+        <app-text-shell [data]="details?.expirationDate | date:'mediumDate'"></app-text-shell>
+      </span>
+    </div>
+  </div>
+
+  <div class="related-deals-wrapper" *ngIf="details?.relatedDeals && details.relatedDeals.length > 0">
+    <h3 class="related-deals-title">More hot deals</h3>
+    <ion-row class="related-deal" *ngFor="let deal of details?.relatedDeals">
+      <ion-col class="deal-logo-wrapper" size="4">
+        <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+          <app-image-shell [src]="deal.logo" [alt]="'deals logo'" class="related-deal-logo" animation="spinner"></app-image-shell>
+        </app-aspect-ratio>
+      </ion-col>
+      <ion-col class="deal-info-wrapper" size="8">
+        <h4 class="related-deal-title">
+          <app-text-shell [data]="deal?.name"></app-text-shell>
+        </h4>
+        <p class="related-deal-description">
+          <app-text-shell [data]="deal?.description"></app-text-shell>
+        </p>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

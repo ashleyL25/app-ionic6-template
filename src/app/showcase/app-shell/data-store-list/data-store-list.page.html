@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      DataStore - List example
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      When you fetch data from a remote API, sometimes you request a list of items. If that’s the case you would end up having an <b>Observable</b> of type <code>Observable&lt;Array&lt;YourModel&gt;&gt;</code>.
+    </p>
+    <p>
+      The <b>DataStore</b> class works by assigning a shell property to any object.
+    </p>
+<pre>
+const myObj = new YourModel();
+Object.assign(myObj, &#123;isShell: false&#125;);
+
+Object.assign([1, 2, 3], &#123;isShell: false&#125;);
+</pre>
+    <p>
+      In Javascript, everything is an object (including Arrays). That’s why you can assign properties to Arrays independently of their values.
+    </p>
+    <ion-list lines="full" class="users-list">
+      <ion-item *ngFor="let user of data">
+        <ion-thumbnail slot="start">
+          <app-aspect-ratio [ratio]="{w:1, h:1}">
+            <app-image-shell animation="spinner" [src]="user?.avatar" [alt]="'Sample Image'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-thumbnail>
+        <ion-label>
+          <h2 class="user-name">
+            <app-text-shell [data]="user?.first_name" animation="bouncing"></app-text-shell>
+          </h2>
+          <h3 class="user-lastname">
+            <app-text-shell [data]="user?.last_name" animation="bouncing"></app-text-shell>
+          </h3>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <p>
+      In this example we keep track of the current state of the data stream in a local <code>data</code> property.
+    </p>
+    <p>
+      Note how we define its type using <a href="https://www.typescriptlang.org/docs/handbook/advanced-types.html#intersection-types" target="_blank">Typescript intersection typing</a> like this <code>data: Array&lt;YourModel&gt; & ShellModel;</code>
+      to indicate it's an array that has a shell model appended (by the <b>DataStore</b>).
+    </p>
+  </section>
+</ion-content>

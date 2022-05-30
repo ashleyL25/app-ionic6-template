@@ -1,0 +1,121 @@
+<!-- This is the proper way if you have submit button outside your ion-content form (typically in the ion-header or ion-footer) -->
+<!-- (ref: https://github.com/ionic-team/ionic/issues/16661) -->
+<form class="create-user-form ion-page" [formGroup]="createUserForm" (ngSubmit)="createUser()">
+  <ion-header>
+    <ion-toolbar color="primary">
+      <ion-buttons slot="end">
+        <ion-button (click)="dismissModal()">
+          <ion-icon slot="icon-only" name="close"></ion-icon>
+        </ion-button>
+      </ion-buttons>
+      <ion-title>New User</ion-title>
+    </ion-toolbar>
+  </ion-header>
+
+  <ion-content class="create-user-content">
+    <ion-row class="select-user-image-row">
+      <ion-col class="user-image-col" size="5">
+        <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+          <app-image-shell [display]="'cover'" class="user-image" animation="spinner" [src]="userData.avatar" [alt]="'user image'"></app-image-shell>
+        </app-aspect-ratio>
+        <ion-button class="change-image-btn" color="secondary" (click)="changeUserImage()">
+          <ion-icon class="btn-icon" slot="icon-only" name="camera"></ion-icon>
+        </ion-button>
+      </ion-col>
+    </ion-row>
+
+    <section class="user-details-fields fields-section">
+      <ion-list class="inputs-list" lines="full">
+        <ion-item class="input-item">
+          <ion-label color="secondary" position="floating">Name</ion-label>
+          <ion-input type="text" formControlName="name" required></ion-input>
+        </ion-item>
+        <ion-item class="input-item">
+          <ion-label color="secondary" position="floating">Last name</ion-label>
+          <ion-input type="text" formControlName="lastname" required></ion-input>
+        </ion-item>
+        <ion-item class="input-item birthdate-item" [button]="true" id="open-datetime" id="open-birthdate-modal">
+          <ion-label color="secondary" position="stacked">Date of Birth</ion-label>
+          <ion-text class="placeholder" *ngIf="!formattedDate">Select a date</ion-text>
+          <ion-text *ngIf="formattedDate">{{ formattedDate }}</ion-text>
+          <ion-modal trigger="open-birthdate-modal" class="datetime-modal">
+            <ng-template>
+              <ion-content>
+                <ion-datetime
+                formControlName="birthdate"
+                presentation="date"
+                (ionChange)="formatDate()"
+                [showDefaultButtons]="true">
+              </ion-datetime>
+              </ion-content>
+            </ng-template>
+          </ion-modal>
+        </ion-item>
+
+        <ion-item class="input-item">
+          <ion-label color="secondary" position="floating">Phone number</ion-label>
+          <ion-input type="tel" formControlName="phone" required></ion-input>
+        </ion-item>
+        <ion-item class="input-item">
+          <ion-label color="secondary" position="floating">Email</ion-label>
+          <ion-input type="email" formControlName="email" required></ion-input>
+        </ion-item>
+      </ion-list>
+    </section>
+
+    <section class="user-experience-fields fields-section">
+      <h5 class="section-header">Experience in</h5>
+      <ion-row class="checkbox-tags rounded-checkbox-tags">
+        <ion-item formArrayName="skills" lines="none" class="checkbox-tag rounded-tag" *ngFor="let skill of skillsFormArray.controls; let i = index;">
+          <ion-label class="tag-label">{{skills[i].name}}</ion-label>
+          <ion-checkbox [formControlName]="i"></ion-checkbox>
+        </ion-item>
+      </ion-row>
+    </section>
+
+    <section class="user-languages-fields fields-section">
+      <h5 class="section-header">Languages</h5>
+      <ion-row class="range-item-row">
+        <ion-col size="12">
+          <div class="range-header">
+            <span class="range-label">English</span>
+            <span class="range-value">{{ changeLangValue(createUserForm.controls.english.value) }}</span>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <ion-range class="range-control" formControlName="english" color="secondary" min="1" max="10" step="1"></ion-range>
+        </ion-col>
+      </ion-row>
+      <ion-row class="range-item-row">
+        <ion-col size="12">
+          <div class="range-header">
+            <span class="range-label">Spanish</span>
+            <span class="range-value">{{ changeLangValue(createUserForm.controls.spanish.value) }}</span>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <ion-range class="range-control" formControlName="spanish" color="secondary" min="1" max="10" step="1"></ion-range>
+        </ion-col>
+      </ion-row>
+      <ion-row class="range-item-row">
+        <ion-col size="12">
+          <div class="range-header">
+            <span class="range-label">French</span>
+            <span class="range-value">{{ changeLangValue(createUserForm.controls.french.value) }}</span>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <ion-range class="range-control" formControlName="french" color="secondary" min="1" max="10" step="1"></ion-range>
+        </ion-col>
+      </ion-row>
+    </section>
+  </ion-content>
+
+  <ion-footer>
+    <ion-row class="form-actions-wrapper">
+      <ion-col>
+        <ion-button class="submit-btn" expand="block" color="secondary" type="submit" fill="solid" [disabled]="!createUserForm.valid">CREATE</ion-button>
+      </ion-col>
+    </ion-row>
+  </ion-footer>
+</form>

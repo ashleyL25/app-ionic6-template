@@ -1,0 +1,595 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+
+  --page-tags-vertical-gutter: calc(var(--page-margin) / 4);
+  --page-tags-horizontal-gutter: calc(var(--page-margin) / 2);
+  --page-users-pictures-gutter: calc(var(--page-margin) / 4);
+  --page-dish-score-height: 6px;
+
+  --page-rating-5-color: #7ce198;
+  --page-rating-4-color: #a8e07c;
+  --page-rating-3-color: #cee07c;
+  --page-rating-2-color: #e0c77c;
+  --page-rating-1-color: #e07c7c;
+
+  --page-color: #ebbb00;
+  --page-color-rgb: 235,187,0;
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.food-details-content {
+  --background: var(--page-background);
+
+  .details-scores {
+    .score-item {
+      display: flex;
+      align-items: center;
+
+      .score-icon {
+        color: var(--ion-color-medium-tint);
+        font-size: 24px;
+      }
+
+      .score-value {
+        color: var(--ion-color-medium-tint);
+        font-size: 14px;
+        margin-left: 4px;
+      }
+    }
+  }
+
+  .image-row {
+    --ion-grid-column-padding: 0px;
+
+    .icon-wrapper {
+      margin: 0px 15%;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .description-row {
+    --ion-grid-column-padding: 0px;
+
+    padding: var(--page-margin);
+    padding-bottom: calc(var(--page-margin) * 2);
+
+    .details-name {
+      margin: 0px;
+      font-size: 18px;
+    }
+
+    .details-style {
+      margin-top: 5px;
+      margin-bottom: var(--page-margin);
+      font-size: 16px;
+      color: var(--ion-color-dark-tint);
+    }
+
+    .details-price-range {
+      font-size: 16px;
+      letter-spacing: 1px;
+      font-weight: 500;
+      text-align: right;
+
+      .price {
+        color: var(--page-color);
+      }
+
+      .no-price {
+        color: rgba(var(--ion-color-light-shade-rgb), .50);
+      }
+    }
+
+    .restaurant-scores {
+      .restaurant-score {
+        justify-content: center;
+
+        &:not(:first-child) {
+          padding-left: calc(var(--page-margin) / 2);
+        }
+
+        &:not(:last-child) {
+          padding-right: calc(var(--page-margin) / 2);
+          border-right: 1px solid var(--ion-color-light-shade);
+        }
+
+        &.reviews-count {
+          flex: 0 1 15%;
+          justify-content: flex-end;
+        }
+      }
+
+      .restaurant-rating {
+				color: var(--ion-color-lightest);
+				border-radius: var(--app-narrow-radius);
+				padding: calc(var(--page-margin) / 4) calc(var(--page-margin) / 2);
+			  font-size: 12px;
+			  font-weight: 600;
+			  text-align: center;
+        min-width: 30px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        // Default color
+        background-color: var(--ion-color-medium-tint);
+
+				&[ratingBase="1"] {
+					background-color: var(--page-rating-1-color);
+				}
+				&[ratingBase="2"] {
+					background-color: var(--page-rating-2-color);
+				}
+				&[ratingBase="3"] {
+					background-color: var(--page-rating-3-color);
+				}
+				&[ratingBase="4"] {
+					background-color: var(--page-rating-4-color);
+				}
+				&[ratingBase="5"] {
+					background-color: var(--page-rating-5-color);
+				}
+      }
+    }
+  }
+
+  .detail-title {
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ion-color-dark-tint);
+    margin: 0px;
+    margin-bottom: var(--page-margin);
+  }
+
+  .open-hours-wrapper {
+    padding: 0px var(--page-margin) var(--page-margin);
+
+    .schedules-list {
+      list-style: none;
+      margin: 0px;
+      padding: 0px;
+
+      .open-hour-item {
+        font-size: 14px;
+        color: var(--ion-color-medium-tint);
+
+        & + .open-hour-item {
+          margin-top: calc(var(--page-margin) / 2);
+        }
+
+        .schedule-outer {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 75%;
+
+          .schedule-day {
+            display: block;
+            padding-right: var(--page-margin);
+            width: 40%;
+            font-size: 14px;
+          }
+
+          .schedule-hours {
+            flex: 1;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+
+            .schedule-separator {
+              margin: 0px var(--page-margin);
+              line-height: 1;
+            }
+
+            .schedule-value {
+              flex: 0 1 25%;
+              font-weight: 500;
+
+              &:first-child {
+                text-align: start;
+              }
+              &:last-child {
+                text-align: end;
+              }
+            }
+
+            .schedule-closed {
+              text-transform: uppercase;
+              font-size: 12px;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .location-wrapper {
+    padding: 0px 0px var(--page-margin);
+
+    .location-header {
+      padding: 0px var(--page-margin) 0px;
+      margin-bottom: calc(var(--page-margin) / 2);
+    }
+
+    .detail-title {
+      margin-bottom: 5px;
+    }
+
+    .location-address {
+      display: block;
+      font-size: 14px;
+      color: var(--ion-color-medium-tint);
+    }
+  }
+
+  .details-tags {
+    --ion-grid-column-padding: 0px;
+
+    padding: 0px var(--page-margin) var(--page-margin);
+    justify-content: center;
+    margin-top: calc(var(--page-tags-vertical-gutter) * 2 * -1);
+
+    .tag-wrapper {
+      padding: calc(var(--page-tags-vertical-gutter) * 2) var(--page-tags-horizontal-gutter) 0px 0px;
+      flex-grow: 0;
+      min-width: fit-content;
+
+      &:last-child {
+        padding-right: 0px;
+      }
+    }
+
+    .item-tag {
+      display: block;
+      border-radius: var(--app-narrow-radius);
+      border: 1px solid var(--ion-color-medium-tint);
+      padding: var(--page-tags-vertical-gutter) var(--page-tags-horizontal-gutter);
+      font-size: 14px;
+      color: var(--ion-color-medium-tint);
+    }
+  }
+
+  .details-divider {
+    margin: 0px var(--page-margin) calc(var(--page-margin) * 2);
+    border-top: 2px solid rgba(var(--ion-color-light-shade-rgb), .4);
+  }
+
+  .users-pictures-wrapper {
+    padding: 0px var(--page-margin) var(--page-margin);
+
+    .pictures-row {
+      --ion-grid-columns: 10;
+      --ion-grid-column-padding: 0px;
+
+      margin: 0px calc(var(--page-users-pictures-gutter) * -1);
+
+      .picture-wrapper {
+        --col-item-width: 2;
+        // SSR fix: Override ion-col styles
+        flex: 0 0 calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+        width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+        max-width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+
+        padding: 0px var(--page-users-pictures-gutter);
+
+        .has-more-pictures {
+  				position: absolute;
+  				top: 0px;
+  				bottom: 0px;
+  				left: 0px;
+  				right: 0px;
+          margin: 0px var(--page-users-pictures-gutter);
+  				background-color: rgba(var(--page-color-rgb), .70);
+  				display: flex;
+  				align-items: center;
+  				justify-content: center;
+          text-decoration: none;
+          z-index: 2;
+
+  				.pictures-count {
+  					font-size: 22px;
+  					color: var(--ion-color-lightest);
+  					font-weight: 600;
+
+  					&::before {
+  						content: '+';
+  						font-size: 26px;
+  						color: var(--ion-color-lightest);
+  						font-weight: 600;
+  					}
+  				}
+  			}
+      }
+    }
+
+    .upload-picture-btn {
+      margin: calc(var(--page-margin) / 2) 0px 0px;
+    }
+  }
+
+  .popular-dishes-wrapper {
+    padding: 0px var(--page-margin) var(--page-margin);
+
+    .popular-dish {
+      --ion-grid-column-padding: 0px;
+
+      &:not(:last-child) {
+        padding-bottom: var(--page-margin);
+      }
+
+      .dish-name {
+        display: block;
+        margin-bottom: 5px;
+        font-size: 14px;
+        color: var(--ion-color-medium-tint);
+      }
+
+      .dish-score {
+        --buffer-background: rgba(var(--page-color-rgb), .20);
+        --progress-background: rgba(var(--page-color-rgb), 1);
+
+        height: var(--page-dish-score-height);
+        border-radius: calc(var(--page-dish-score-height) / 2);
+      }
+
+      .dish-votes-count {
+        display: flex;
+        align-items: flex-end;
+        justify-content: flex-end;
+
+        .dish-votes-icon {
+          color: var(--ion-color-medium-tint);
+        }
+
+        .dish-votes-value {
+          color: var(--ion-color-medium-tint);
+          font-size: 14px;
+          margin-right: 4px;
+        }
+      }
+    }
+  }
+
+  .reviews-wrapper {
+    padding: 0px var(--page-margin) var(--page-margin);
+
+    .reviews-list {
+      margin-bottom: calc(var(--page-margin) / 2);
+
+      .review-item {
+        &:not(:last-child) {
+          padding-bottom: var(--page-margin);
+
+          &::after {
+            content: '';
+            display: block;
+            margin: 5px var(--page-margin);
+            border-top: 2px solid rgba(var(--ion-color-light-shade-rgb), .4);
+          }
+        }
+
+        .review-user {
+          --ion-grid-columns: 10;
+          --ion-grid-column-padding: 0px;
+
+          .user-image-wrapper {
+            --col-item-width: 2;
+            // SSR fix: Override ion-col styles
+            flex: 0 0 calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+            width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+            max-width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+
+            padding-right: calc(var(--page-margin) / 2);
+          }
+
+          .user-brief-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+
+            padding-right: calc(var(--page-margin) / 2);
+
+            .review-user-name {
+              font-size: 16px;
+              margin: 0px;
+              font-weight: 400;
+            }
+
+            .user-scores {
+              .user-score {
+                .score-title {
+                  color: var(--ion-color-medium-tint);
+                  font-size: 12px;
+                  margin-left: 4px;
+                }
+              }
+            }
+          }
+
+          .review-info-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: flex-end;
+            min-width: 20%;
+            min-width: fit-content;
+            flex-grow: 0;
+
+            .review-date {
+              color: var(--ion-color-medium-tint);
+              font-size: 11px;
+              display: block;
+              width: 100%;
+              text-align: right;
+            }
+
+            .review-rating {
+              width: 36px;
+              color: var(--ion-color-lightest);
+      				border-radius: var(--app-narrow-radius);
+      				padding: calc(var(--page-margin) / 4) calc(var(--page-margin) / 2);
+      			  font-size: 12px;
+      			  font-weight: 600;
+      			  display: block;
+      			  text-align: center;
+              // Default color
+              background-color: var(--ion-color-medium-tint);
+
+      				&[ratingBase="1"] {
+      					background-color: var(--page-rating-1-color);
+      				}
+      				&[ratingBase="2"] {
+      					background-color: var(--page-rating-2-color);
+      				}
+      				&[ratingBase="3"] {
+      					background-color: var(--page-rating-3-color);
+      				}
+      				&[ratingBase="4"] {
+      					background-color: var(--page-rating-4-color);
+      				}
+      				&[ratingBase="5"] {
+      					background-color: var(--page-rating-5-color);
+      				}
+            }
+          }
+        }
+
+        .review-message {
+          font-size: 14px;
+          font-weight: 300;
+          line-height: 18px;
+          margin: var(--page-margin) 0px;
+        }
+
+        .review-scores {
+          padding: 0px var(--page-margin) var(--page-margin);
+          justify-content: space-between;
+
+          .review-score {
+            justify-content: center;
+
+            &:not(:first-child) {
+              padding-left: calc(var(--page-margin) / 2);
+            }
+
+            &:not(:last-child) {
+              padding-right: calc(var(--page-margin) / 2);
+              border-right: 1px solid var(--ion-color-light-shade);
+            }
+          }
+        }
+      }
+    }
+
+    .details-divider {
+      margin: 5px 0px;
+    }
+
+    .all-reviews-btn {
+      margin: 5px 0px;
+    }
+
+    .write-reviews-btn {
+      margin: var(--page-margin) 0px 0px;
+    }
+  }
+
+  .recipes-wrapper {
+    padding: calc(var(--page-margin) * 3) 0px;
+
+    .recipes-header {
+      padding: 0px var(--page-margin) 0px;
+
+      .detail-title {
+        text-transform: capitalize;
+      }
+    }
+
+    .recipes-list {
+      .recipe-item {
+        .chef-picture-wrapper {
+          width: 20%;
+          margin: 0px auto;
+          margin-top: -10%;
+          margin-bottom: calc(var(--page-margin) / 2);
+        }
+
+        .details-divider {
+          margin-bottom: 0px;
+        }
+
+        .recipe-title {
+          text-align: center;
+          margin: 0px 0px calc(var(--page-margin) / 2);
+          font-weight: 400;
+          letter-spacing: 3px;
+          font-size: 18px;
+
+          &::before,
+          &::after {
+            content: '·';
+            color: var(--ion-color-dark-tint);
+            margin: 0px 2px;
+          }
+        }
+
+        .recipe-call-to-action {
+          text-align: center;
+          margin: var(--page-margin) calc(var(--page-margin) * 2);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          .recipe-author {
+            display: block;
+            font-size: 16px;
+            min-width: 30%;
+            color: var(--ion-color-dark-tint);
+          }
+
+          .recipe-name {
+            text-transform: uppercase;
+            font-weight: 300;
+            letter-spacing: 1px;
+            margin: calc(var(--page-margin) / 2) 0px;
+            min-width: 90%;
+          }
+
+          .recipe-chef {
+            display: block;
+            font-size: 14px;
+            min-width: 60%;
+            color: var(--ion-color-dark-tint);
+          }
+        }
+
+        .recipe-attributes {
+          padding: 0px var(--page-margin);
+          margin-top: var(--page-margin);
+          justify-content: center;
+
+          .attribute-score {
+            justify-content: center;
+
+            &:not(:first-child) {
+              padding-left: calc(var(--page-margin) / 2);
+            }
+
+            &:not(:last-child) {
+              padding-right: calc(var(--page-margin) / 2);
+            }
+
+            .score-value {
+              text-transform: capitalize;
+            }
+          }
+        }
+      }
+    }
+  }
+}

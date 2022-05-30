@@ -1,0 +1,223 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+
+  --page-pictures-gutter: calc(var(--page-margin) / 4);
+  --page-tags-gutter: 4px;
+
+  --page-rating-5-color: #7ce198;
+  --page-rating-4-color: #a8e07c;
+  --page-rating-3-color: #cee07c;
+  --page-rating-2-color: #e0c77c;
+  --page-rating-1-color: #e07c7c;
+
+  --page-color: #ebbb00;
+  --page-color-rgb: 235,187,0;
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.food-listing-content {
+  --background: var(--page-background);
+  --padding-start: var(--page-margin);
+  --padding-end: var(--page-margin);
+  --padding-top: var(--page-margin);
+  --padding-bottom: var(--page-margin);
+}
+
+.listing-item {
+  border-bottom: 2px solid var(--ion-color-medium-tint);
+  margin-bottom: calc(var(--page-margin) * 2);
+  padding-bottom: var(--page-margin);
+
+  &:last-child {
+		border-bottom: none;
+		margin-bottom: 0px;
+	}
+
+  .cover-wrapper {
+    margin-bottom: var(--page-margin);
+
+    .cover-anchor {
+      display: block;
+    }
+
+    .cover-icon-wrapper {
+      margin: 0px 20%;
+      display: flex;
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+    }
+  }
+
+  .info-row {
+    --ion-grid-columns: 10;
+    --ion-grid-column-padding: 0px;
+
+    margin: 0px calc(var(--page-pictures-gutter) * -1);
+		padding-bottom: var(--page-margin);
+
+    // To compensate negative side margins of .pictures-row (sibling of .info-row)
+    &::before,
+    &::after {
+      content: '';
+      flex: 0 0 var(--page-pictures-gutter);
+    }
+
+    .description-col {
+      .description-wrapper {
+        height: 100%;
+        justify-content: space-between;
+        flex-direction: column;
+      }
+
+      .item-name {
+        margin: 0px;
+        color: var(--ion-color-dark-tint);
+        font-size: 20px;
+
+        .name-anchor {
+          display: block;
+          text-decoration: none;
+        }
+      }
+
+      .item-address {
+        margin: 0px;
+        margin-top: 5px;
+        color: var(--ion-color-medium-tint);
+        font-size: 12px;
+      }
+
+      .item-tags {
+        margin-top: 5px;
+
+        .tag-wrapper {
+          padding-right: var(--page-tags-gutter);
+          flex-grow: 0;
+          min-width: fit-content;
+
+          &:last-child {
+            padding-right: 0px;
+          }
+        }
+
+        .item-tag {
+          display: block;
+          border-radius: var(--app-narrow-radius);
+					border: 1px solid var(--ion-color-light-shade);
+					padding: calc(var(--page-tags-gutter) / 2) var(--page-tags-gutter);
+					font-size: 10px;
+					color: var(--ion-color-medium-tint);
+        }
+      }
+    }
+
+    .stats-col {
+      --col-item-width: 2;
+      // SSR fix: Override ion-col styles
+      flex: 0 0 calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+      width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+      max-width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+
+      padding-left: calc(var(--page-margin) / 2);
+
+      .item-rating {
+        // Default background
+        background-color: rgba(var(--page-color-rgb), .35);
+				color: var(--ion-color-lightest);
+				border-radius: var(--app-narrow-radius);
+				padding-top: calc(var(--page-margin) / 3);
+				padding-bottom: calc(var(--page-margin) / 3);
+				padding-left: calc(var(--page-margin) / 2);
+				padding-right: calc(var(--page-margin) / 2);
+			  font-size: 12px;
+			  font-weight: 600;
+			  width: 100%;
+			  display: block;
+			  text-align: center;
+
+				&[ratingBase="1"] {
+					background-color: var(--page-rating-1-color);
+				}
+				&[ratingBase="2"] {
+					background-color: var(--page-rating-2-color);
+				}
+				&[ratingBase="3"] {
+					background-color: var(--page-rating-3-color);
+				}
+				&[ratingBase="4"] {
+					background-color: var(--page-rating-4-color);
+				}
+				&[ratingBase="5"] {
+					background-color: var(--page-rating-5-color);
+				}
+			}
+
+      .item-price-range {
+        margin-top: 5px;
+        font-size: 12px;
+        letter-spacing: 1px;
+        font-weight: 500;
+        text-align: center;
+
+        .price {
+          color: var(--page-color);
+        }
+
+        .no-price {
+          color: rgba(var(--ion-color-light-shade-rgb), .40);
+        }
+      }
+    }
+	}
+
+  .pictures-row {
+    --ion-grid-columns: 10;
+    --ion-grid-column-padding: 0px;
+
+    margin: 0px calc(var(--page-pictures-gutter) * -1);
+
+    .picture-wrapper {
+      --col-item-width: 2;
+      // SSR fix: Override ion-col styles
+      flex: 0 0 calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+      width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+      max-width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+
+      padding: 0px var(--page-pictures-gutter);
+
+      .has-more-pictures {
+				position: absolute;
+				top: 0px;
+				bottom: 0px;
+				left: 0px;
+				right: 0px;
+        // To compensate the .picture-wrapper padding
+        margin: 0px var(--page-pictures-gutter);
+				background-color: rgba(var(--page-color-rgb), .70);
+        border-radius: var(--app-narrow-radius);
+				display: flex;
+				align-items: center;
+				justify-content: center;
+        text-decoration: none;
+        z-index: 2;
+
+				.pictures-count {
+					font-size: 22px;
+					color: var(--ion-color-lightest);
+					font-weight: 600;
+
+					&::before {
+						content: '+';
+						font-size: 26px;
+						color: var(--ion-color-lightest);
+						font-weight: 600;
+					}
+				}
+			}
+    }
+  }
+}

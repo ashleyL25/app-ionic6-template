@@ -1,0 +1,64 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --shell-color: #ebbb00;
+  --shell-color-rgb: 235,187,0;
+}
+
+// You can also apply sheel styles to the entire page
+:host(.is-shell) {
+  // ion-content {
+  //   opacity: 0.8;
+  // }
+}
+
+app-image-shell.cover-image {
+  --image-shell-border-radius: var(--app-fair-radius);
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-overlay-background: transparent;
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+}
+
+app-image-shell.item-icon {
+  --image-shell-loading-background: transparent;
+}
+
+.item-name app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .25);
+  --text-shell-line-height: 20px;
+  max-width: 30%;
+
+  &.text-loaded {
+    max-width: unset;
+  }
+}
+
+.item-address > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+  --text-shell-line-height: 12px;
+  max-width: 50%;
+
+  &.text-loaded {
+    max-width: unset;
+  }
+}
+
+.item-tag > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 10px;
+  min-width: 30px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.item-rating > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 12px;
+}
+
+app-image-shell.picture-image {
+  --image-shell-border-radius: var(--app-narrow-radius);
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .20);
+}

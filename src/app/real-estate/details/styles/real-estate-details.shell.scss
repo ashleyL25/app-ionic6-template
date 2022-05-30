@@ -1,0 +1,112 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --shell-color: #d9453a;
+  --shell-color-rgb: 217,69,58;
+}
+
+// You can also apply sheel styles to the entire page
+:host(.is-shell) {
+  // ion-content {
+  //   opacity: 0.8;
+  // }
+}
+
+app-image-shell.details-picture {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+}
+
+.details-price app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .25);
+  --text-shell-line-height: 18px;
+  max-width: 100px;
+  min-width: 50px;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.details-address {
+  & > app-text-shell {
+    --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+    --text-shell-line-height: 14px;
+    max-width: 60%;
+
+    &.text-loaded {
+      max-width: inherit;
+    }
+  }
+
+  & + .details-address > app-text-shell {
+    max-width: 80%;
+
+    &.text-loaded {
+      max-width: inherit;
+    }
+  }
+}
+
+.details-description > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+}
+
+.accommodation-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  min-width: 30px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.location-address > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  max-width: 60%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+app-image-shell.location-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+}
+
+.amenity-tag > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+  min-width: 50px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.feature-item > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  max-width: 40%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.availability-description,
+.availability-value {
+  & > app-text-shell {
+    --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+    --text-shell-line-height: 14px;
+    min-width: 80%;
+
+    &.text-loaded {
+      min-width: 0px;
+    }
+  }
+}

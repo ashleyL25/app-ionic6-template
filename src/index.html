@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <meta name="robots" content="noindex, nofollow">
+
+  <title>Ionic Full Starter App</title>
+
+  <base href="/"/>
+
+  <meta name="viewport" content="viewport-fit=cover, width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="msapplication-tap-highlight" content="no">
+
+  <meta name="description" content="Ionic 6 Full Starter App Template - by IonicThemes">
+  <meta name="keywords" content="">
+  <!-- favicon -->
+  <!-- If you have a multi size .ico file -->
+  <link rel="shortcut icon" sizes="128x128 64x64 48x48 32x32 24x24 16x16" href="assets/icon/favicon.ico">
+  <!-- If you don't -->
+  <link rel="icon" type="image/png" sizes="128x128" href="assets/icon/favicon-128x128.png">
+  <link rel="icon" type="image/png" sizes="64x64" href="assets/icon/favicon-64x64.png">
+  <link rel="icon" type="image/png" sizes="48x48" href="assets/icon/favicon-48x48.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/icon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="24x24" href="assets/icon/favicon-24x24.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/icon/favicon-16x16.png">
+
+  <!-- add to homescreen for ios -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+
+  <!-- icons for ios pwa -->
+  <link rel="apple-touch-icon" href="assets/icon/icon-192x192.png">
+  <link rel="apple-touch-icon" sizes="152x152" href="assets/icon/icon-152x152.png">
+  <link rel="apple-touch-icon" sizes="167x167" href="assets/icon/icon-167x167.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="assets/icon/icon-180x180.png">
+
+  <!-- spalsh for ios pwa -->
+  <!-- Default@2x~iphone -->
+  <link rel="apple-touch-startup-image" href="assets/splash/splash-640x960.png">
+  <!-- Default-568h@2x~iphone.png -->
+  <link rel="apple-touch-startup-image" sizes="640x1136" href="assets/splash/splash-640x1136.png"/>
+  <!-- Default-667h -->
+  <link rel="apple-touch-startup-image" sizes="750x1334" href="assets/splash/splash-750x1334.png"/>
+  <!-- Default-736h -->
+  <link rel="apple-touch-startup-image" sizes="1242x2208" href="assets/splash/splash-1242x2208.png"/>
+  <!-- Default-Portrait~ipad -->
+  <link rel="apple-touch-startup-image" sizes="768x1024" href="assets/splash/splash-768x1024.png"/>
+  <!-- Default-Portrait@2x~ipad -->
+  <link rel="apple-touch-startup-image" sizes="1536x2048" href="assets/splash/splash-1536x2048.png"/>
+  <!-- Default-Portrait@~ipadpro -->
+  <link rel="apple-touch-startup-image" sizes="2048x2732" href="assets/splash/splash-2048x2732.png"/>
+
+  <!-- Traditional way was inconsistent, trying an approach with media attribute -->
+  <!-- (see: https://stackoverflow.com/a/51330076/1116959) -->
+  <link rel="apple-touch-startup-image" href="assets/splash/splash-640x1136.png" media="(device-width: 320px) and (device-height: 568px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <!-- 750x1294 -->
+  <link rel="apple-touch-startup-image" href="assets/splash/splash-750x1334.png" media="(device-width: 375px) and (device-height: 667px) and (-webkit-device-pixel-ratio: 2) and (orientation: portrait)">
+  <!-- 1242x2148 -->
+  <link rel="apple-touch-startup-image" href="assets/splash/splash-1242x2208.png" media="(device-width: 414px) and (device-height: 736px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)">
+  <!-- <link rel="apple-touch-startup-image" href="images/splash/launch-1125x2436.png" media="(device-width: 375px) and (device-height: 812px) and (-webkit-device-pixel-ratio: 3) and (orientation: portrait)"> -->
+  <link rel="apple-touch-startup-image" href="assets/splash/splash-1536x2048.png" media="(min-device-width: 768px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+  <!-- <link rel="apple-touch-startup-image" href="images/splash/launch-1668x2224.png" media="(min-device-width: 834px) and (max-device-width: 834px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)"> -->
+  <link rel="apple-touch-startup-image" href="assets/splash/splash-2048x2732.png" media="(min-device-width: 1024px) and (max-device-width: 1024px) and (-webkit-min-device-pixel-ratio: 2) and (orientation: portrait)">
+
+  <!-- Android uses the icon with a background-color specified in the app manifest as the splash screen -->
+  <!-- (see: https://developers.google.com/web/tools/lighthouse/audits/custom-splash-screen) -->
+
+  <link rel="manifest" href="manifest.webmanifest">
+  <meta name="theme-color" content="#000000">
+
+  <!-- Google maps script -->
+  <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAoBXuHO8PtumB1Sskinvt2FPYtKlGPCyc"></script>
+  <!-- <script src="https://maps.googleapis.com/maps/api/js?key=YOUR_GOOGLE_MAPS_KEY"></script> -->
+  <!-- Get an API key in https://developers.google.com/maps/documentation/javascript/get-api-key -->
+
+
+  <!-- SEO meta tags -->
+  <!-- Schema -->
+  <link rel="schema.DC" href="http://purl.org/dc/elements/1.1/">
+  <meta name="DC.title" content="Your App Title">
+  <meta name="DC.description" content="Your app description">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:site" content="@yourTwAccount">
+  <meta name="twitter:creator" content="@yourTwAccount">
+  <meta name="twitter:title" content="Your App Title">
+  <meta name="twitter:description" content="Your app description">
+  <meta name="twitter:image" content="">
+
+  <!-- Facebook / Open Graph -->
+  <meta property="og:title" content="Your App Title">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="">
+  <meta property="og:description" content="Your app description">
+  <meta property="og:url" content="">
+  <meta property="og:site_name" content="YourSiteName">
+</head>
+<body>
+  <!-- Ver: https://github.com/mhartington/StarTrack-ng/blob/master/src/index.html -->
+  <!-- Esto lo agregamos para llegar a 100% PWA en lighthouse (Does not provide fallback content when JavaScript is not available) -->
+  <noscript>
+    <h3 style="color: #32db64; font-family: sans-serif; font-weight: 600; margin: 2rem;">
+      Sorry, but app is not available without javascript
+    </h3>
+  </noscript>
+  <app-root></app-root>
+</body>
+</html>

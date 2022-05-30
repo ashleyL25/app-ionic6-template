@@ -1,0 +1,14 @@
+{
+  "FOLLOW": "Follow",
+  "MESSAGE": "Message",
+  "LIKES" : "Likes",
+  "FOLLOWERS" : "Followers",
+  "FOLLOWING": "Following",
+  "ABOUT": "About",
+  "FRIENDS": "Friends",
+  "PHOTOS": "Photos",
+  "SEE_ALL": "See all",
+  "OK": "OK",
+  "CANCEL": "Cancel",
+  "SELECT_LANGUAGE": "Select your language"
+}

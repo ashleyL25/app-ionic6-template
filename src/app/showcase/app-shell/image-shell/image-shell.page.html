@@ -1,0 +1,342 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Image Shell
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      This component enables to preload an image with an elegant shell.
+    </p>
+  </section>
+
+  <section class="showcase-section">
+    <h5>Set different animation options</h5>
+    <p>
+      You can choose between <b>no animation</b> (default), <b>spinner animation</b>, and <b>gradient background</b> animation
+    </p>
+    <h4>No animation (default)</h4>
+<pre>
+&lt;app-image-shell [src]="" [alt]=""&gt;&lt;/app-image-shell&gt;
+</pre>
+    <div style="width:30%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:1, h:1}">
+        <app-image-shell [src]="" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <h4>Spinner animation</h4>
+<pre>
+&lt;app-image-shell <b>animation="spinner"</b> [src]="" [alt]=""&gt;&lt;/app-image-shell&gt;
+</pre>
+    <div style="width:30%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:1, h:1}">
+        <app-image-shell animation="spinner" [src]="" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <h4>Gradient animation</h4>
+<pre>
+&lt;app-image-shell <b>animation="gradient"</b> [src]="" [alt]=""&gt;&lt;/app-image-shell&gt;
+</pre>
+    <div style="width:30%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:1, h:1}">
+        <app-image-shell animation="gradient" [src]="" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+  </section>
+
+  <section class="showcase-section">
+    <p>
+      You can add/remove the following <b>Classes</b> to adjust the shell element behavior:
+    </p>
+    <h5>Overlay</h5>
+    <p>
+      This class adds a background overlay after the image has loaded.
+    </p>
+<pre>
+&lt;app-image-shell animation="spinner" <b>class="add-overlay"</b> [src]="''./assets/sample-images/travel/Travel2-64.47.png''" [alt]=""&gt;&lt;/app-image-shell&gt;
+</pre>
+    <div style="width:30%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:1, h:1}">
+        <app-image-shell animation="spinner" class="add-overlay" [src]="'./assets/sample-images/travel/Travel2-64.47.png'" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+  </section>
+
+  <section class="showcase-section">
+    <p>
+      You can also override these <b>CSS 4 variables</b> to adjust the shell element style
+    </p>
+    <h5>Background</h5>
+<pre>
+app-image-shell &#123;
+  --image-shell-loading-background: rgba(233, 30, 99, .25);
+&#125;
+</pre>
+    <div style="width:30%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:1, h:1}">
+        <app-image-shell style="--image-shell-loading-background: rgba(233, 30, 99, .25);" [src]="" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <h5>Overlay</h5>
+<pre>
+app-image-shell &#123;
+  --image-shell-overlay-background: rgba(103, 58, 183, .40);
+&#125;
+</pre>
+    <div style="width:30%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:1, h:1}">
+        <app-image-shell style="--image-shell-overlay-background: rgba(103, 58, 183, .40);" animation="spinner" class="add-overlay" [src]="'./assets/sample-images/travel/Travel2-64.47.png'" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <h5>Spinner</h5>
+<pre>
+app-image-shell &#123;
+  --image-shell-spinner-size: 40px;
+  --image-shell-spinner-color: #000000;
+&#125;
+</pre>
+    <div style="width:30%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:1, h:1}">
+        <app-image-shell style="--image-shell-spinner-size: 40px; --image-shell-spinner-color: #000000;" animation="spinner" [src]="" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <h5>Background Animation</h5>
+    <p>
+      <b>Note:</b> These properties are only applied when using <code>animation="gradient"</code>.
+    </p>
+<pre>
+app-image-shell &#123;
+  --image-shell-loading-background: rgba(255, 3, 109, 0.6);
+  --image-shell-animation-color: rgba(156, 4, 68, 0.7);
+&#125;
+</pre>
+    <div style="width:30%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:1, h:1}">
+        <app-image-shell style="
+          --image-shell-loading-background: rgba(255, 3, 109, 0.6);
+          --image-shell-animation-color: rgba(156, 4, 68, 0.7);
+        " animation="gradient" [src]="" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <h5>Border Radius</h5>
+<pre>
+app-image-shell &#123;
+  --image-shell-border-radius: 10px;
+&#125;
+</pre>
+    <ion-row>
+      <ion-col>
+        <div style="width:80%; margin: 0px auto;">
+          <app-aspect-ratio [ratio]="{w:1, h:1}">
+            <app-image-shell style="--image-shell-border-radius: 10px;" animation="spinner" [src]="" [alt]=""></app-image-shell>
+          </app-aspect-ratio>
+        </div>
+      </ion-col>
+      <ion-col>
+        <div style="width:80%; margin: 0px auto;">
+          <app-aspect-ratio [ratio]="{w:1, h:1}">
+            <app-image-shell style="--image-shell-border-radius: 10px;" animation="gradient" [src]="" [alt]=""></app-image-shell>
+          </app-aspect-ratio>
+        </div>
+      </ion-col>
+    </ion-row>
+  </section>
+
+  <section class="showcase-section">
+    <h2>Cover Image Display</h2>
+    <p>
+      In addition to the default <code>&lt;app-image-shell&gt;</code>, you can specify a <b>cover</b> display if you want to display your image as a background-image.
+    </p>
+    <p>
+      This is different from the default display, because (although it's not mandatory) cover display is designed to contain content (for example some text)
+    </p>
+<pre>
+<b>&lt;app-image-shell [display]="'cover'" animation="spinner" class="add-overlay" [src]=""&gt;</b>
+  &lt;app-aspect-ratio [ratio]="&#123;w:3, h:2&#125;"&gt;
+    Some Text
+  &lt;/app-aspect-ratio&gt;
+<b>&lt;/app-image-shell&gt;</b>
+</pre>
+    <app-image-shell class="add-overlay" animation="spinner" [display]="'cover'" [src]="">
+      <app-aspect-ratio [ratio]="{w:3, h:2}">
+        <h4 style="margin: 10px;">Some Text on top of a background-image container</h4>
+      </app-aspect-ratio>
+    </app-image-shell>
+  </section>
+
+  <section class="showcase-section">
+    <h2>Usage</h2>
+    <p>
+      Let me explain you the differences between <b>default</b> and <b>cover</b> display and when you should use each one.
+    </p>
+    <h5>Default Mode Usage</h5>
+    <p>
+      You should use the <b>default display</b> when you are 100% confident on the aspect ratio of an image.
+    </p>
+    <p>
+      If the image ratio does not match the specified aspect ratio, the image will be stretched.
+    </p>
+    <p>
+      <b>Expected behavior:</b>
+      <br />
+      The image <b>WILL</b> be stretched.
+      <br />
+      We define an aspect ratio of <b>2:1</b> but the image has an aspect ratio of <b>1:1</b>.
+    </p>
+    <div style="width:80%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:2, h:1}">
+        <app-image-shell animation="spinner" [src]="'./assets/sample-images/getting-started/category2-1.1.png'" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <p>
+      <b>Expected behavior:</b>
+      <br />
+      The image <b>WON'T</b> be stretched.
+      <br />
+      We define an aspect ratio of <b>1:1</b> that matches the image ratio of <b>1:1</b>.
+    </p>
+    <div style="width:80%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:1, h:1}">
+        <app-image-shell animation="spinner" [src]="'./assets/sample-images/getting-started/category2-1.1.png'" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <h5>Cover Mode Usage</h5>
+    <p>
+      You should use the <b>cover display</b> when you want to fill a container with an image and you don't care if the image is shown completly or a portion of it.
+    </p>
+    <p>
+      If the image ratio does not match the specified aspect ratio, the image will be cropped to fit the available space without stretching the image.
+    </p>
+    <p>
+      <b>Expected behavior:</b>
+      <br />
+      The image will be cropped to fill the available space.
+      <br />
+      We define an aspect ratio of <b>2:1</b> but the image has an aspect ratio of <b>1:1</b>.
+    </p>
+    <div style="width:80%; margin: 0px auto;">
+      <app-image-shell animation="spinner" [display]="'cover'" [src]="'./assets/sample-images/getting-started/category2-1.1.png'">
+        <app-aspect-ratio [ratio]="{w:2, h:1}">
+        </app-aspect-ratio>
+      </app-image-shell>
+    </div>
+    <p>
+      You can also change the <b>background-position</b> property to adjust how the image is placed inside the container.
+    </p>
+    <p>
+      <b>Notice:</b> This only applies to <b>cover</b> display.
+    </p>
+<pre>
+app-image-shell[display="cover"] &#123;
+  background-position: bottom right;
+&#125;
+</pre>
+    <div style="width:80%; margin: 0px auto;">
+      <app-image-shell style="background-position: bottom right;" animation="spinner" [display]="'cover'" [src]="'./assets/sample-images/getting-started/category2-1.1.png'">
+        <app-aspect-ratio [ratio]="{w:2, h:1}">
+        </app-aspect-ratio>
+      </app-image-shell>
+    </div>
+  </section>
+
+  <section class="showcase-section">
+    <h2>Image load ERROR</h2>
+    <p>
+      In case the image url is incorrect or the server has any problem, we should show a message accordingly instead of an infinite loading animation.
+    </p>
+    <p>
+      <b>Notice:</b> Images with <b>cover</b> display may have text above them. For usability reasons we disabled the error message to avoid confusion.
+    </p>
+    <h5>Set message color</h5>
+<pre>
+app-image-shell &#123;
+  --image-shell-color: #ff0000;
+&#125;
+</pre>
+<pre>
+<b>&lt;app-aspect-ratio [ratio]="&#123;w:3, h:2&#125;"&gt;</b>
+  &lt;app-image-shell animation="spinner" [src]="'./assets/non-existent-image.jpg'" [alt]=""&gt;&lt;/app-image-shell&gt;
+<b>&lt;/app-aspect-ratio&gt;</b>
+</pre>
+    <div style="width:60%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:3, h:2}">
+        <app-image-shell animation="spinner" [src]="'./assets/non-existent-image.jpg'" [alt]="" style="--image-shell-color: #ff0000;"></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <h5>Use other properties</h5>
+<pre>
+app-image-shell &#123;
+  --image-shell-border-radius: 10px;
+&#125;
+</pre>
+<pre>
+<b>&lt;app-aspect-ratio [ratio]="&#123;w:3, h:2&#125;"&gt;</b>
+  &lt;app-image-shell animation="gradient" [src]="'./assets/non-existent-image.jpg'" [alt]=""&gt;&lt;/app-image-shell&gt;
+<b>&lt;/app-aspect-ratio&gt;</b>
+</pre>
+    <div style="width:60%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:3, h:2}">
+        <app-image-shell animation="gradient" [src]="'./assets/non-existent-image.jpg'" [alt]="" style="--image-shell-border-radius: 10px;"></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+  </section>
+
+  <section class="showcase-section">
+    <h2>Image lazy loading</h2>
+    <p>
+      By default we enabled the Image element <b>loading</b> attribute.
+    </p>
+    <p>
+      It's used to instruct the browser to defer loading of images that are off-screen until the user scrolls near them.
+    </p>
+    <p>
+      <b>Notice:</b> This does not work on images with <b>cover</b> display because we use a hidden aux image. As it's hidden, if set loading to 'lazy' it won't ever trigger the loading mechanism.
+    </p>
+  </section>
+
+  <section class="showcase-section">
+    <h2>Maintain Aspect Ratio</h2>
+    <p>
+      We use the handy <code>&lt;app-aspect-ratio&gt;</code> to ensure the image shell mantains a specified aspect ratio.
+    </p>
+    <p>
+      By doing so, we prevent content from jumping around the page while assets (images) are loading.
+    </p>
+    <h5>Default display</h5>
+    <p>
+      Just surround the <code>&lt;app-image-shell&gt;</code> with an <code>&lt;app-aspect-ratio&gt;</code> element
+    </p>
+<pre>
+<b>&lt;app-aspect-ratio [ratio]="&#123;w:3, h:2&#125;"&gt;</b>
+  &lt;app-image-shell animation="spinner" [src]="" [alt]=""&gt;&lt;/app-image-shell&gt;
+<b>&lt;/app-aspect-ratio&gt;</b>
+</pre>
+    <div style="width:60%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:3, h:2}">
+        <app-image-shell animation="spinner" [src]="" [alt]=""></app-image-shell>
+      </app-aspect-ratio>
+    </div>
+    <h5>Cover display</h5>
+    <p>
+      When using the <b>cover</b> display we need to include the <code>&lt;app-aspect-ratio&gt;</code> inside the <code>&lt;app-image-shell&gt;</code> element instead of surrounding it.
+    </p>
+<pre>
+&lt;app-image-shell [display]="'cover'" animation="spinner" class="add-overlay" [src]=""&gt;
+  <b>&lt;app-aspect-ratio [ratio]="&#123;w:3, h:2&#125;"&gt;</b>
+    Some Text
+  <b>&lt;/app-aspect-ratio&gt;</b>
+&lt;/app-image-shell&gt;
+</pre>
+    <app-image-shell animation="spinner" class="add-overlay" [display]="'cover'" [src]="">
+      <app-aspect-ratio [ratio]="{w:3, h:2}">
+        <h4 style="margin: 10px;">Some Text on top of a background-image container</h4>
+      </app-aspect-ratio>
+    </app-image-shell>
+  </section>
+</ion-content>

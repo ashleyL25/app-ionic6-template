@@ -1,0 +1,49 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --shell-color: #70DF70;
+  --shell-color-rgb: 112,223,112;
+}
+
+// You can also apply sheel styles to the entire page
+:host(.is-shell) {
+  // ion-content {
+  //   opacity: 0.8;
+  // }
+}
+
+app-image-shell.deal-logo {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .30);
+  --image-shell-spinner-size: 18px;
+}
+
+.item-name  app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .30);
+  --text-shell-line-height: 16px;
+}
+
+.item-description > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+  --text-shell-line-height: 14px;
+}
+
+.item-code > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+  min-width: 60px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.item-time-left > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  min-width: 60px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}

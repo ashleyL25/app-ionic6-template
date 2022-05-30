@@ -1,0 +1,79 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "slug": "la-olla",
+      "priceRange": 3,
+      "icon": "./assets/sample-images/food/la-olla-icon.svg",
+      "image": "./assets/sample-images/food/la-olla.jpg",
+      "name": "La Olla",
+      "rating": 4.3,
+      "tags": [
+        "vegetarian",
+        "vegan",
+        "gluten free",
+        "desserts"
+      ],
+      "pictures": [
+        "./assets/sample-images/food/Cat1Foto1-1.1.png",
+        "./assets/sample-images/food/Cat1Foto2-1.1.png",
+        "./assets/sample-images/food/Cat1Foto3-1.1.png",
+        "./assets/sample-images/food/Cat1Foto4-1.1.png",
+        "./assets/sample-images/food/Cat1Foto5-1.1.png",
+        "./assets/sample-images/food/Cat1Foto1-1.1.png",
+        "./assets/sample-images/food/Cat1Foto2-1.1.png",
+        "./assets/sample-images/food/Cat1Foto3-1.1.png"
+      ],
+      "address": "6782 Bobwhite Crossing"
+    },
+    {
+      "id": 2,
+      "slug": "salad-heaven",
+      "priceRange": 1,
+      "icon": "./assets/sample-images/food/salad-heaven-icon.svg",
+      "image": "./assets/sample-images/food/salad-heaven.jpg",
+      "name": "Salad Heaven",
+      "rating": 3.9,
+      "tags": [
+        "salads",
+        "sushi",
+        "vegetarian",
+        "desserts",
+        "tapas"
+      ],
+      "pictures": [
+        "./assets/sample-images/food/Cat2Foto1-1.1.png",
+        "./assets/sample-images/food/Cat2Foto2-1.1.png",
+        "./assets/sample-images/food/Cat2Foto3-1.1.png",
+        "./assets/sample-images/food/Cat2Foto4-1.1.png",
+        "./assets/sample-images/food/Cat2Foto5-1.1.png",
+        "./assets/sample-images/food/Cat2Foto1-1.1.png",
+        "./assets/sample-images/food/Cat2Foto2-1.1.png"
+      ],
+      "address": "1 Buhler Parkway"
+    },
+    {
+      "id": 3,
+      "slug": "les-miserables",
+      "priceRange": 2,
+      "icon": "./assets/sample-images/food/les-miserables-icon.svg",
+      "image": "./assets/sample-images/food/les-miserables.jpg",
+      "name": "Les Miserables",
+      "rating": 2.5,
+      "tags": [
+        "meats",
+        "burgers",
+        "fish",
+        "desserts"
+      ],
+      "pictures": [
+        "./assets/sample-images/food/Cat4Foto1-1.1.png",
+        "./assets/sample-images/food/Cat4Foto2-1.1.png",
+        "./assets/sample-images/food/Cat4Foto3-1.1.png",
+        "./assets/sample-images/food/Cat4Foto4-1.1.png",
+        "./assets/sample-images/food/Cat4Foto5-1.1.png"
+      ],
+      "address": "7104 Burning Wood Park"
+    }
+  ]
+}

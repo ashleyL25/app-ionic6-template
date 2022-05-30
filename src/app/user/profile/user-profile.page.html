@@ -1,0 +1,102 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="user-profile-content">
+  <ion-row class="user-details-section">
+    <ion-col class="user-image-wrapper">
+      <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+        <app-image-shell class="user-image" animation="spinner" [src]="profile?.userImage"></app-image-shell>
+      </app-aspect-ratio>
+    </ion-col>
+    <ion-col class="user-info-wrapper">
+      <ion-row class="user-data-row">
+        <ion-col size="9">
+          <h3 class="user-name">
+            <app-text-shell [data]="profile?.name"></app-text-shell>
+          </h3>
+          <h5 class="user-title">
+            <app-text-shell [data]="profile?.job"></app-text-shell>
+          </h5>
+        </ion-col>
+        <ion-col class="membership-col">
+          <span class="user-membership">
+            <app-text-shell [data]="profile?.membership"></app-text-shell>
+          </span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="actions-row">
+        <ion-col class="main-actions">
+          <ion-button class="call-to-action-btn" size="small" color="primary">{{ 'FOLLOW' | translate }}</ion-button>
+          <ion-button class="call-to-action-btn" size="small" color="medium">{{ 'MESSAGE' | translate }}</ion-button>
+        </ion-col>
+        <ion-col class="secondary-actions">
+          <ion-button class="more-btn" size="small" fill="clear" color="medium" (click)="openLanguageChooser()">
+            <ion-icon slot="icon-only" ios="ellipsis-horizontal" md="ellipsis-vertical"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-col>
+  </ion-row>
+  <ion-row class="user-stats-section">
+    <ion-col class="user-stats-wrapper" size="4">
+      <span class="stat-value">
+        <app-text-shell [data]="profile?.likes"></app-text-shell>
+      </span>
+      <span class="stat-name">{{ 'LIKES' | translate }}</span>
+    </ion-col>
+    <ion-col class="user-stats-wrapper" size="4">
+      <span class="stat-value">
+        <app-text-shell [data]="profile?.followers"></app-text-shell>
+      </span>
+      <span class="stat-name">{{ 'FOLLOWERS' | translate }}</span>
+    </ion-col>
+    <ion-col class="user-stats-wrapper" size="4">
+      <span class="stat-value">
+        <app-text-shell [data]="profile?.following"></app-text-shell>
+      </span>
+      <span class="stat-name">{{ 'FOLLOWING' | translate }}</span>
+    </ion-col>
+  </ion-row>
+  <div class="user-about-section">
+    <h3 class="details-section-title">{{ 'ABOUT' | translate }}</h3>
+    <p class="user-description">
+      <app-text-shell animation="bouncing" lines="4" [data]="profile?.about"></app-text-shell>
+    </p>
+  </div>
+  <div class="user-friends-section">
+    <ion-row class="heading-row">
+      <h3 class="details-section-title">{{ 'FRIENDS' | translate }}</h3>
+      <a class="heading-call-to-action" [routerLink]="['/app/user/friends']">{{ 'SEE_ALL' | translate }}</a>
+    </ion-row>
+    <ion-row class="friends-row">
+      <ion-col class="friend-item" *ngFor="let friend of profile?.friends">
+        <app-aspect-ratio [ratio]="{w: 1, h: 1}">
+          <app-image-shell class="friend-picture" [src]="friend.image"></app-image-shell>
+        </app-aspect-ratio>
+        <span class="friend-name">
+          <app-text-shell [data]="friend.name"></app-text-shell>
+        </span>
+      </ion-col>
+    </ion-row>
+  </div>
+
+  <div class="user-photos-section">
+    <ion-row class="heading-row">
+      <h3 class="details-section-title">{{ 'PHOTOS' | translate }}</h3>
+      <a class="heading-call-to-action">{{ 'SEE_ALL' | translate }}</a>
+    </ion-row>
+    <ion-row class="pictures-row">
+      <ion-col class="picture-item" *ngFor="let photo of profile?.photos">
+        <app-image-shell [display]="'cover'" [src]="photo.image" class="user-photo-image">
+          <app-aspect-ratio [ratio]="{w:1, h:1}">
+          </app-aspect-ratio>
+        </app-image-shell>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

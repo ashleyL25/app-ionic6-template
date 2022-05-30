@@ -1,0 +1,65 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      DataStore - Multiple DataStores example
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      Sometimes your view displays different types of data, each of them with a different model and data source.
+    </p>
+    <p>
+      If this is your use case, then you can use multiple data stores to fetch each data stream.
+    </p>
+    <p>
+      <b>Note:</b> This use case is different from the <a [routerLink]="['/showcase/app-shell/data-store-combined']">Combined Data Sources</a> because in this case you have two data streams that will change independently one from the other updating different parts of the view without causing a full view 're-loading'.
+    </p>
+    <h6>Data Source A</h6>
+    <h5>What to do nearby</h5>
+    <ion-list lines="full">
+      <ion-item *ngFor="let item of dataA?.items | slice:0:3">
+        <ion-thumbnail slot="start">
+          <app-aspect-ratio [ratio]="{w:1, h:1}">
+            <app-image-shell animation="spinner" [src]="item?.image" [alt]="'Sample Image'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-thumbnail>
+        <ion-label>
+          <h2 class="item-name">
+            <app-text-shell [data]="item?.name" animation="gradient"></app-text-shell>
+          </h2>
+          <h4>
+            <app-text-shell style="--text-shell-line-height:14px;" [data]="item?.category" animation="gradient"></app-text-shell>
+          </h4>
+          <p>
+            <app-text-shell style="--text-shell-line-height:14px;" [data]="item?.address" animation="gradient"></app-text-shell>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <h6>Data Source B</h6>
+    <h5>Shop what's trending</h5>
+    <ion-list lines="full">
+      <ion-item *ngFor="let item of dataB?.items | slice:0:5">
+        <ion-thumbnail slot="start">
+          <app-aspect-ratio [ratio]="{w:1, h:1}">
+            <app-image-shell animation="spinner" [src]="item?.image" [alt]="'Sample Image'"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-thumbnail>
+        <ion-label>
+          <h2 class="item-name">
+            <app-text-shell [data]="item?.name" animation="gradient"></app-text-shell>
+          </h2>
+          <p class="item-price">
+            <app-text-shell [data]="(item?.salePrice) ? '$'.concat('', item.salePrice) : null" animation="gradient"></app-text-shell>
+          </p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+  </section>
+</ion-content>

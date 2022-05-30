@@ -1,0 +1,182 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --shell-color: #ebbb00;
+  --shell-color-rgb: 235,187,0;
+}
+
+// You can also apply sheel styles to the entire page
+:host(.is-shell) {
+  // ion-content {
+  //   opacity: 0.8;
+  // }
+}
+
+.details-scores {
+  .score-value > app-text-shell {
+    --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+    --text-shell-line-height: 14px;
+    min-width: 30px;
+
+    &.text-loaded {
+      min-width: 0px;
+    }
+  }
+}
+
+app-image-shell.showcase-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+  --image-shell-overlay-background: rgba(var(--ion-color-dark-rgb), .60);
+}
+
+app-image-shell.icon-image {
+  --image-shell-loading-background: transparent;
+}
+
+.details-name > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+  --text-shell-line-height: 18px;
+  max-width: 30%;
+
+  &.text-loaded {
+    max-width: unset;
+  }
+}
+
+.details-style > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 16px;
+  max-width: 50%;
+
+  &.text-loaded {
+    max-width: unset;
+  }
+}
+
+.restaurant-rating > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 12px;
+  min-width: 20px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.schedule-day > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  max-width: 90%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.schedule-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  max-width: 100%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.location-address > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  max-width: 60%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+app-image-shell.location-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+}
+
+.item-tag > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+  min-width: 50px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+app-image-shell.user-picture-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+}
+
+.dish-name > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+}
+
+.dish-votes-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+  min-width: 30px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+app-image-shell.review-user-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+}
+
+.review-user-name > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 16px;
+  max-width: 50%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.review-date > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .05);
+  --text-shell-line-height: 11px;
+}
+
+.review-rating > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 12px;
+}
+
+.review-message > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+}
+
+app-image-shell.recipe-cover-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .20);
+}
+
+app-image-shell.chef-picture-image {
+  --image-shell-loading-background: var(--shell-color);
+  --image-shell-border-radius: 50%;
+  z-index: 3;
+}
+
+.recipe-author > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 16px;
+}
+
+.recipe-name > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+}
+
+.recipe-chef > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+}

@@ -1,0 +1,56 @@
+@mixin radio-tag() {
+  // Default values
+  --radio-tag-color: #000;
+  --radio-tag-background: #FFF;
+  --radio-tag-active-color: #FFF;
+  --radio-tag-active-background: #000;
+
+	.radio-tag {
+    // Reset values from Ionic (ion-item) styles
+    --padding-start: 0px;
+    --inner-padding-end: 8px;
+		--inner-padding-start: 8px;
+    --min-height: 38px;
+
+		--border-radius: 8px;
+    --border-width: 1px;
+		--border-style: solid;
+		--border-color: var(--radio-tag-color);
+		--ion-item-background: var(--radio-tag-background);
+		--ion-item-color: var(--radio-tag-color);
+
+    flex: 1;
+
+		&.item-radio-checked {
+      --ion-item-background: var(--radio-tag-active-background);
+      --ion-item-color: var(--radio-tag-active-color);
+		}
+
+    &.item-interactive-disabled {
+      opacity: 0.5;
+
+      .tag-label {
+        // Override Ionic default style
+        opacity: 1;
+      }
+    }
+
+    .tag-label {
+			margin: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      text-align: center;
+		}
+
+		ion-radio {
+			margin: 0px;
+			// To hide the .radio-icon
+			width: 0px;
+			--border-width: 0px;
+			height: 0px;
+			// We cant set width and height for .radio-icon .radio-inner, so lets hide it changing its color
+			--color-checked: transparent;
+		}
+	}
+}

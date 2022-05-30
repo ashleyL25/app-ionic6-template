@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      DataStore - Subset example
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      Sometimes the data coming from the remote API does not match 100% the model you defined for your view.
+    </p>
+<pre>
+export class YourModel extends ShellModel &#123;
+  cover: string;
+  image: string;
+  title: string;
+  description: string;
+&#125;
+
+// Data coming from the remote API with the following format
+const jsonResponse = &#123;
+  name: 'extra-data',
+  fields: &#123;
+    cover: 'some-image';
+    image: 'some-other-image';
+    title: 'a-title';
+    description: 'a-description';
+  &#125;
+&#125;;
+</pre>
+    <p>
+      Hopefully, we can use some <b>RxJs operators</b> to mold the data and fit our needs.
+    </p>
+    <p>
+      If that’s not enough, you can use the handy <a href="https://dev.to/napoleon039/how-to-use-the-spread-and-rest-operator-4jbb" target="_blank"><b>spread</b> and <b>rest</b> operators</a> to mold your data even deeper.
+    </p>
+<pre>
+public getListDataSource(): Observable&lt;YourModel&gt; &#123;
+  const dataObservable = this.http.get('https://reqres.in/api/users');
+
+  return dataObservable.pipe(
+    map((jsonResponse) => &#123;
+      const filteredData: YourModel = &#123;
+        ...data.fields
+      &#125;;
+      return filteredData;
+    &#125;)
+  );
+&#125;
+</pre>
+  </section>
+  <div class="company">
+    <h4>Company</h4>
+    <p>
+      <app-text-shell style="--text-shell-line-color: #FFF" [data]="company.name" animation="bouncing"></app-text-shell>
+    </p>
+    <p>
+      <app-text-shell style="--text-shell-line-color: #FFF" [data]="company.catchPhrase" animation="bouncing"></app-text-shell>
+    </p>
+    <p>
+      <app-text-shell style="--text-shell-line-color: #FFF" [data]="company.bs" animation="bouncing"></app-text-shell>
+    </p>
+  </div>
+</ion-content>

@@ -1,0 +1,59 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Video Playlist</ion-title>
+    <ion-buttons slot="end">
+      <ion-button (click)="shareMedia()">
+        <ion-icon slot="icon-only" name="share"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="video-playlist-content">
+  <app-aspect-ratio [ratio]="{w: 16, h: 9}">
+    <!-- SSR placeholder -->
+    <video *ngIf="ssr" class="ssr-video" controls preload="auto">
+      <source *ngFor="let video of video_playlist_model?.selected_video?.sources" [src]="video.src" [type]="video.type">
+    </video>
+    <!-- In the Browser, show the <vg-player> -->
+    <vg-player *ngIf="!ssr" class="video-player" (onPlayerReady)="onPlayerReady($event)">
+			<video controls #player_video [vgMedia]="player_video" id="player-video" preload="auto">
+	      <source *ngFor="let video of video_playlist_model?.selected_video?.sources" [src]="video.src" [type]="video.type">
+	    </video>
+    </vg-player>
+  </app-aspect-ratio>
+
+  <section class="video-data-section">
+    <h3 class="video-title">
+      <app-text-shell animation="gradient" [data]="video_playlist_model?.selected_video?.title"></app-text-shell>
+    </h3>
+    <p class="video-description">
+      <app-text-shell lines="5" animation="gradient" [data]="video_playlist_model?.selected_video?.description"></app-text-shell>
+    </p>
+  </section>
+
+  <section class="video-playlist-section">
+    <ion-row class="playlist-item-row" *ngFor="let video of video_playlist_model?.video_playlist">
+      <ion-col size="4">
+        <app-image-shell [display]="'cover'" class="video-image" animation="spinner" [src]="video.thumbnail" [alt]="'video thumbnail'" (click)="playMedia(video)">
+          <app-aspect-ratio [ratio]="{w:3, h: 2}">
+            <a class="play-icon-wrapper" (click)="playMedia(video)">
+              <ion-icon class="play-icon" name="play"></ion-icon>
+            </a>
+          </app-aspect-ratio>
+        </app-image-shell>
+      </ion-col>
+      <ion-col size="8" class="video-info-wrapper">
+        <h4 class="image-title">
+          <app-text-shell animation="gradient" [data]="video.title"></app-text-shell>
+        </h4>
+        <p class="image-description">
+          <app-text-shell lines="3" animation="gradient" [data]="video.description"></app-text-shell>
+        </p>
+      </ion-col>
+    </ion-row>
+  </section>
+</ion-content>

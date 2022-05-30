@@ -1,0 +1,332 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Filters</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="filters-content">
+  <ion-item-group class="filters-group">
+    <ion-item-divider>
+      <ion-label>Range</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="rangeForm" class="range-list">
+      <ion-row class="range-item">
+        <ion-col size="12">
+          <div class="range-header">
+            <span class="range-value">{{ rangeForm.controls.dual.value.lower }}</span>
+            <span class="range-label">Quantity</span>
+            <span class="range-value">{{ rangeForm.controls.dual.value.upper }}</span>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <ion-range class="range-control" formControlName="dual" color="secondary" dualKnobs="true" (ionChange)="rangeChange($event)" min="1" max="40" step="1"></ion-range>
+        </ion-col>
+      </ion-row>
+      <ion-row class="range-item">
+        <ion-col size="12">
+          <div class="range-header">
+            <span class="range-label">Amount</span>
+            <span class="range-value">{{ rangeForm.controls.single.value }}</span>
+          </div>
+        </ion-col>
+        <ion-col size="12">
+          <ion-range class="range-control" formControlName="single" color="secondary" (ionChange)="rangeChange($event)" min="0" max="50" step="1"></ion-range>
+        </ion-col>
+      </ion-row>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Multiple Items</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="checkboxForm">
+      <ion-list class="checkbox-list" lines="full">
+        <ion-item class="checkbox-item">
+          <ion-label class="checkbox-label">Sophia Martin</ion-label>
+          <ion-checkbox color="secondary" formControlName="person_1"></ion-checkbox>
+        </ion-item>
+        <ion-item class="checkbox-item">
+          <ion-label class="checkbox-label">Mattie Abbott</ion-label>
+          <ion-checkbox color="secondary" formControlName="person_2"></ion-checkbox>
+        </ion-item>
+        <ion-item class="checkbox-item">
+          <ion-label class="checkbox-label">Marguerite Alvarez</ion-label>
+          <ion-checkbox color="secondary" formControlName="person_3"></ion-checkbox>
+        </ion-item>
+        <ion-item class="checkbox-item">
+          <ion-label class="checkbox-label">Lewis Padilla</ion-label>
+          <ion-checkbox color="secondary" formControlName="person_4"></ion-checkbox>
+        </ion-item>
+        <ion-item class="checkbox-item">
+          <ion-label class="checkbox-label">Nannie Willis</ion-label>
+          <ion-checkbox color="secondary" formControlName="person_5"></ion-checkbox>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Pick One</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="radioForm">
+      <ion-list class="radio-list" lines="full">
+        <ion-radio-group class="radio-group" formControlName="selected_option">
+          <ion-item class="radio-item">
+            <ion-label class="radio-label">Apple</ion-label>
+            <ion-radio slot="start" color="secondary" value="apple"></ion-radio>
+          </ion-item>
+          <ion-item class="radio-item">
+            <ion-label class="radio-label">Banana</ion-label>
+            <ion-radio slot="start" color="secondary" value="banana"></ion-radio>
+          </ion-item>
+          <ion-item class="radio-item">
+            <ion-label class="radio-label">Orange</ion-label>
+            <ion-radio slot="start" color="secondary" value="orange" disabled="true"></ion-radio>
+          </ion-item>
+          <ion-item class="radio-item">
+            <ion-label class="radio-label">Kiwi</ion-label>
+            <ion-radio slot="start" color="secondary" value="kiwi"></ion-radio>
+          </ion-item>
+        </ion-radio-group>
+      </ion-list>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Multiple Tags</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="checkboxTagsForm">
+      <ion-row class="checkbox-tags square-checkbox-tags">
+        <ion-item lines="none" class="checkbox-tag">
+          <ion-label class="tag-label">Indonesia</ion-label>
+          <ion-checkbox formControlName="tag_1"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag">
+          <ion-label class="tag-label">Pitcairn Islands</ion-label>
+          <ion-checkbox formControlName="tag_2"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag">
+          <ion-label class="tag-label">Malta</ion-label>
+          <ion-checkbox formControlName="tag_3"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag">
+          <ion-label class="tag-label">Sierra Leone</ion-label>
+          <ion-checkbox formControlName="tag_4"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag">
+          <ion-label class="tag-label">Dominican Republic</ion-label>
+          <ion-checkbox formControlName="tag_5"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag">
+          <ion-label class="tag-label">Antigua and Barbuda</ion-label>
+          <ion-checkbox formControlName="tag_6"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag">
+          <ion-label class="tag-label">Macedonia</ion-label>
+          <ion-checkbox formControlName="tag_7"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag">
+          <ion-label class="tag-label">Vietnam</ion-label>
+          <ion-checkbox formControlName="tag_8"></ion-checkbox>
+        </ion-item>
+      </ion-row>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Multiple Tags (rounded)</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="checkboxTagsForm">
+      <ion-row class="checkbox-tags rounded-checkbox-tags">
+        <ion-item lines="none" class="checkbox-tag rounded-tag">
+          <ion-label class="tag-label">Indonesia</ion-label>
+          <ion-checkbox formControlName="tag_1"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag rounded-tag">
+          <ion-label class="tag-label">Pitcairn Islands</ion-label>
+          <ion-checkbox formControlName="tag_2"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag rounded-tag">
+          <ion-label class="tag-label">Malta</ion-label>
+          <ion-checkbox formControlName="tag_3"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag rounded-tag">
+          <ion-label class="tag-label">Sierra Leone</ion-label>
+          <ion-checkbox formControlName="tag_4"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag rounded-tag">
+          <ion-label class="tag-label">Dominican Republic</ion-label>
+          <ion-checkbox formControlName="tag_5"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag rounded-tag">
+          <ion-label class="tag-label">Antigua and Barbuda</ion-label>
+          <ion-checkbox formControlName="tag_6"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag rounded-tag">
+          <ion-label class="tag-label">Macedonia</ion-label>
+          <ion-checkbox formControlName="tag_7"></ion-checkbox>
+        </ion-item>
+        <ion-item lines="none" class="checkbox-tag rounded-tag">
+          <ion-label class="tag-label">Vietnam</ion-label>
+          <ion-checkbox formControlName="tag_8"></ion-checkbox>
+        </ion-item>
+      </ion-row>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Budget (Radio Tags)</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="radioTagsForm">
+      <ion-radio-group formControlName="selected_option">
+        <ion-row class="radio-tags">
+          <ion-item class="radio-tag" lines="none">
+            <ion-label class="tag-label">Any</ion-label>
+            <ion-radio value="any"></ion-radio>
+          </ion-item>
+          <ion-item class="radio-tag" lines="none">
+            <ion-label class="tag-label">
+              <span>&#36;</span>
+            </ion-label>
+            <ion-radio value="1"></ion-radio>
+          </ion-item>
+          <ion-item class="radio-tag" lines="none">
+            <ion-label class="tag-label">
+              <span>&#36;&#36;</span>
+            </ion-label>
+            <ion-radio value="2" disabled="true"></ion-radio>
+          </ion-item>
+          <ion-item class="radio-tag" lines="none">
+            <ion-label class="tag-label">
+              <span>&#36;&#36;&#36;</span>
+            </ion-label>
+            <ion-radio value="3"></ion-radio>
+          </ion-item>
+        </ion-row>
+      </ion-radio-group>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Toggle</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="switchersForm">
+      <ion-list class="toggle-list" lines="full">
+        <ion-item class="toggle-item">
+          <ion-label class="toggle-label">Notifications</ion-label>
+          <ion-toggle color="secondary" formControlName="notifications"></ion-toggle>
+        </ion-item>
+        <ion-item class="toggle-item">
+          <ion-label class="toggle-label">Email notifications</ion-label>
+          <ion-toggle color="secondary" formControlName="email_notifications"></ion-toggle>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Add & Subtract</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="counterForm">
+      <ion-list class="counter-list" lines="full">
+        <ion-item class="counter-item">
+          <ion-label class="counter-label">Amount</ion-label>
+          <app-counter-input formControlName="counter"></app-counter-input>
+        </ion-item>
+        <ion-item class="counter-item">
+          <ion-label class="counter-label">Bedrooms</ion-label>
+          <ion-label class="counter-value">{{counterForm.controls.counter2.value}}</ion-label>
+          <app-counter-input formControlName="counter2" basic></app-counter-input>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Rating Component</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="ratingForm">
+      <ion-list class="ratings-list" lines="full">
+        <ion-item class="rating-item">
+          <ion-label class="rating-label">Rate</ion-label>
+          <app-rating-input formControlName="rate" max="5"></app-rating-input>
+        </ion-item>
+        <ion-item class="rating-item">
+          <ion-label class="rating-label">Read Only</ion-label>
+          <app-rating-input formControlName="rate2" max="3" readOnly="true"></app-rating-input>
+        </ion-item>
+      </ion-list>
+    </form>
+
+    <ion-item-divider>
+      <ion-label>Color chooser</ion-label>
+    </ion-item-divider>
+    <form [formGroup]="radioColorForm">
+      <ion-radio-group formControlName="selected_color">
+        <ion-row class="color-radio-group">
+          <ion-item class="color-radio" style="--color-radio-background: #fc6161;">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              <div class="color-radio-inner-wrapper">
+                <ion-label class="color-label">Red</ion-label>
+                <ion-radio value="#fc6161"></ion-radio>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item class="color-radio" style="--color-radio-background: #fc9961;">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              <div class="color-radio-inner-wrapper">
+                <ion-radio value="#fc9961"></ion-radio>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item class="color-radio" style="--color-radio-background: #fcea61;">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              <div class="color-radio-inner-wrapper">
+                <ion-radio value="#fcea61" disabled="true"></ion-radio>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item class="color-radio" style="--color-radio-background: #affc61;">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              <div class="color-radio-inner-wrapper">
+                <ion-radio value="#affc61"></ion-radio>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item class="color-radio" style="--color-radio-background: #61fcc5;">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              <div class="color-radio-inner-wrapper">
+                <ion-radio value="#61fcc5"></ion-radio>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item class="color-radio" style="--color-radio-background: #fc61ad;">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              <div class="color-radio-inner-wrapper">
+                <ion-radio value="#fc61ad"></ion-radio>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item class="color-radio" style="--color-radio-background: #b561fc;">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              <div class="color-radio-inner-wrapper">
+                <ion-label class="color-label">Purple</ion-label>
+                <ion-radio value="#b561fc"></ion-radio>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item class="color-radio" style="--color-radio-background: #6182fc;">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              <div class="color-radio-inner-wrapper">
+                <ion-label class="color-label">Blue</ion-label>
+                <ion-radio value="#6182fc"></ion-radio>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+          <ion-item class="color-radio" style="--color-radio-background: #61d1fc;">
+            <app-aspect-ratio [ratio]="{w:1, h:1}">
+              <div class="color-radio-inner-wrapper">
+                <ion-radio value="#61d1fc"></ion-radio>
+              </div>
+            </app-aspect-ratio>
+          </ion-item>
+        </ion-row>
+      </ion-radio-group>
+    </form>
+  </ion-item-group>
+</ion-content>

@@ -1,0 +1,37 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/route-resolvers-ux"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Progressive Shell Showcase
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <ion-row style="background-color: #FFF; padding: 10px;">
+      <ion-col size="12">
+        <app-image-shell class="add-overlay" animation="spinner" [display]="'cover'" [src]="routeResolveData?.cover" [alt]="'Sample Image Cover'">
+          <app-aspect-ratio [ratio]="{w:2, h:1}">
+            <h4 style="margin: 10px; text-align: center; color: #FFF;">Heading on top of a cover image</h4>
+          </app-aspect-ratio>
+        </app-image-shell>
+      </ion-col>
+      <ion-col size="4">
+        <app-aspect-ratio [ratio]="{w:1, h:1}">
+          <app-image-shell animation="spinner" [src]="routeResolveData?.image" [alt]="'Sample Image'"></app-image-shell>
+        </app-aspect-ratio>
+      </ion-col>
+      <ion-col size="8">
+        <h3 style="margin-top: 0px;">
+          <app-text-shell [data]="routeResolveData?.title"></app-text-shell>
+        </h3>
+        <p>
+          <app-text-shell animation="bouncing" lines="3" [data]="routeResolveData?.description"></app-text-shell>
+        </p>
+      </ion-col>
+    </ion-row>
+  </section>
+</ion-content>

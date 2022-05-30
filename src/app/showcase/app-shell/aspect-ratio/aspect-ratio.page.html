@@ -1,0 +1,39 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      Aspect Ratio
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      The <code>&lt;app-aspect-ratio&gt;</code> is a simple component that ensures a block will maintain the specified aspect ratio.
+    </p>
+    <p>
+      It uses an <a href="http://stackoverflow.com/a/10441480/1116959" target="_blank">old CSS technique</a> to adjust the height of the element based on its width (using padding-bottom).
+    </p>
+    <p>
+      This is a very handy component to prevent content from jumping around while the page is loading.
+    </p>
+    <p>
+      <b>Note:</b> The <code>&lt;app-aspect-ratio&gt;</code> component must be surrounded by a container element with a defined width, as this component will fill the parent width.
+    </p>
+<pre>
+<b>&lt;div style="width:80%; margin: 0px auto;"&gt;</b>
+  &lt;app-aspect-ratio [ratio]="&#123;w:2, h:1&#125;"&gt;
+    &lt;span&gt;This container will always have a 2:1 aspect ratio&lt;/span&gt;
+  &lt;/app-aspect-ratio&gt;
+<b>&lt;/div&gt;</b>
+</pre>
+    <div style="width:80%; margin: 0px auto;">
+      <app-aspect-ratio [ratio]="{w:2, h:1}" style="background-color: #00AFFF;">
+        <span style="margin: 10px; display: block;">This container will always have a <b>2:1</b> aspect ratio</span>
+      </app-aspect-ratio>
+    </div>
+  </section>
+</ion-content>

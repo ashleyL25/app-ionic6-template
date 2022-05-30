@@ -1,0 +1,23 @@
+@import "../app-shell.page";
+
+.users-list {
+  ion-item {
+    --padding-start: 0px;
+  }
+}
+
+.user-name > app-text-shell {
+  --text-shell-line-height: 17px;
+  max-width: 120px;
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.user-lastname > app-text-shell {
+  --text-shell-line-height: 14px;
+  max-width: 120px;
+  &.text-loaded {
+    max-width: inherit;
+  }
+}

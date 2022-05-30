@@ -1,0 +1,104 @@
+@import "theme/mixins/inputs/select-alert";
+
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background-shade);
+}
+
+// Use a colored border-top to fix weird transitions between toolbars that have different background colors
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+  }
+}
+ion-content {
+  position: absolute;
+  top: 0;
+  border-top: calc(var(--app-header-height) + var(--ion-safe-area-top));
+  border-top-style: solid;
+  border-top-color: var(--ion-color-primary);
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.forms-validations-content {
+  --background: var(--page-background);
+
+  .validations-form {
+    margin-bottom: calc(var(--page-margin) * 2);
+
+    .inputs-list {
+      --ion-item-background: var(--page-background);
+
+      padding: var(--page-margin) var(--page-margin) calc(var(--page-margin) * 2);
+
+      ion-list-header {
+        padding-inline-start: 0px;
+
+        .header-title {
+          text-transform: uppercase;
+      		font-size: 16px;
+      		color: var(--ion-color-secondary);
+        }
+      }
+
+      .input-item {
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --inner-padding-end: 0px;
+      }
+
+      .terms-item {
+        --border-width: 0px;
+        --inner-padding-end: 0px;
+      }
+
+      .error-container {
+        .error-message {
+          margin: calc(var(--page-margin) / 2) 0px;
+          display: flex;
+          align-items: center;
+          color: var(--ion-color-danger);
+          font-size: 14px;
+
+          ion-icon {
+            padding-inline-end: calc(var(--page-margin) / 2);
+            flex-shrink: 0;
+          }
+        }
+    	}
+
+      .counter-item {
+        app-counter-input {
+          --counter-background: transparent;
+          --counter-color: var(--ion-color-primary);
+          --counter-border-color: var(--ion-color-primary);
+        }
+
+        .counter-value {
+          text-align: center;
+        }
+      }
+    }
+
+    .submit-btn {
+      margin: var(--page-margin);
+    }
+  }
+}
+
+// Alerts and in general all overlays are attached to the body or ion-app directly
+// We need to use ::ng-deep to access it from here
+::ng-deep .select-alert {
+  @include select-alert();
+
+  // Variables should be in a deeper selector or after the mixin include to override default values
+  --select-alert-color: var(--ion-color-lightest);
+  --select-alert-background: var(--ion-color-primary);
+  --select-alert-margin: 16px;
+
+  .alert-message {
+    display: none;
+  }
+}

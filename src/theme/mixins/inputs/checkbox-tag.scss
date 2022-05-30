@@ -1,0 +1,52 @@
+@mixin checkbox-tag() {
+  // Default values
+  --checkbox-tag-color: #000;
+  --checkbox-tag-background: #FFF;
+  --checkbox-tag-active-color: #FFF;
+  --checkbox-tag-active-background: #000;
+
+	.checkbox-tag {
+    // Reset values from Ionic (ion-item) styles
+		--padding-start: 0px;
+    --inner-padding-end: 8px;
+		--inner-padding-start: 8px;
+		--ion-item-background: var(--checkbox-tag-background);
+    --ion-item-color: var(--checkbox-tag-color);
+
+    &.rounded-tag {
+			--border-radius: 2.2rem;
+		}
+
+		&.item-checkbox-checked {
+      --ion-item-background: var(--checkbox-tag-active-background);
+      --ion-item-color: var(--checkbox-tag-active-color);
+		}
+
+    &.item-interactive-disabled {
+      opacity: 0.5;
+
+      .tag-label {
+        // Override Ionic default style
+        opacity: 1;
+      }
+    }
+
+		.tag-label {
+			margin: 5px;
+      font-size: 14px;
+      font-weight: 500;
+      letter-spacing: 0.2px;
+      text-align: center;
+		}
+
+		ion-checkbox {
+			margin: 0px;
+			// To hide the .checkbox-icon
+			width: 0px;
+			--border-width: 0px;
+			height: 0px;
+			// We cant set width and height for .checkbox-icon .checkbox-inner, so lets hide it changing its color
+			--color-checked: transparent;
+		}
+	}
+}

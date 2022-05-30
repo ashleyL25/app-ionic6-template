@@ -1,0 +1,43 @@
+{
+  "videos": [
+    {
+      "title": "Big Buck Bunny",
+      "description": "Big Buck Bunny tells the story of a giant rabbit with a heart bigger than himself. When one sunny day three rodents rudely harass him, something snaps... and the rabbit is not a bunny anymore! In the typical cartoon tradition he prepares the nasty rodents a comical revenge.",
+      "thumbnail": "./assets/sample-images/video-playlist/big_buck_bunny.png",
+      "sources": [{
+        "src": "./assets/videos/big_buck_bunny.mp4",
+        "type": "video/mp4"
+      }]
+    },
+    {
+      "title": "EARTH: Seen From ISS Expedition 29",
+      "description": "Expedition 29 was the 29th long-duration expedition to the International Space Station (ISS). The expedition formally began on 16 September 2011, with the departure from the ISS of the Soyuz TMA-21 spacecraft.",
+      "thumbnail": "./assets/sample-images/video-playlist/earth_seen_from_iss.png",
+      "sources": [
+				{
+					"src": "http://static.videogular.com/assets/videos/videogular.mp4",
+					"type": "video/mp4"
+				},
+				{
+					"src": "http://static.videogular.com/assets/videos/videogular.ogg",
+					"type": "video/ogg"
+				},
+				{
+					"src": "http://static.videogular.com/assets/videos/videogular.webm",
+					"type": "video/webm"
+				}
+			]
+    },
+    {
+      "title": "Elephant Dream",
+      "description": "Elephants Dream is the world's first open movie, made entirely with open source graphics software such as Blender, and with all production files freely available to use however you please, under a Creative Commons license.",
+      "thumbnail": "./assets/sample-images/video-playlist/elephants_dream.png",
+      "sources": [
+				{
+          "src": "./assets/videos/elephants_dream.mp4",
+					"type": "video/mp4"
+				}
+			]
+    }
+  ]
+}

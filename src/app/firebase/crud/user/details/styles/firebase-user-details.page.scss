@@ -1,0 +1,172 @@
+@import "theme/mixins/scrollbars";
+
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+
+  --page-related-users-gutter: calc(var(--page-margin) / 2);
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.user-content {
+  --background: var(--page-background);
+
+  .user-info-row {
+    --ion-grid-column-padding: 0px;
+
+    padding: var(--page-margin);
+
+    .user-image-col {
+      margin: 0px auto;
+      margin-bottom: calc(var(--page-margin) / 2);
+
+      .user-image {
+        border-radius: 50%;
+      }
+    }
+
+    .user-details-col {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+
+      .user-name {
+        margin: 0px;
+        margin-bottom: calc(var(--page-margin) / 2);
+        min-width: 40%;
+      }
+
+      .user-age {
+        font-size: 14px;
+        font-weight: 300;
+        min-width: 60%;
+      }
+    }
+
+    .actions-col {
+      text-align: center;
+      margin-top: var(--page-margin);
+
+      .action-btn {
+        --border-radius: 50%;
+        --padding-start: 0px;
+        --padding-end: 0px;
+
+        width: 4ch;
+        height: 4ch;
+
+        .btn-icon {
+          font-size: 24px;
+        }
+      }
+    }
+  }
+
+  .content-section {
+    padding: var(--page-margin);
+    border-top: solid 1px var(--ion-color-light-shade);
+
+    .section-header {
+      margin-top: 0px;
+      margin-bottom: var(--page-margin);
+    }
+  }
+
+  .user-languages-wrapper {
+    .language-item-row {
+      --ion-grid-column-padding: 0px;
+
+      margin-bottom: calc(var(--page-margin) / 2);
+
+      .language-item {
+        padding-inline-start: 0px;
+        padding-inline-end: 0px;
+
+        .language-name {
+          display: block;
+          font-size: 16px;
+          font-weight: 300;
+          margin-bottom: calc(var(--page-margin) / 3);
+        }
+
+        .language-score {
+          --buffer-background: rgba(var(--ion-color-secondary-rgb), .20);
+          --progress-background: rgba(var(--ion-color-secondary-rgb), 1);
+
+          height: var(--page-margin);
+          border-radius: calc(var(--page-margin) / 2);
+        }
+      }
+    }
+  }
+
+  .user-experience-wrapper {
+    .experience-list {
+      margin: 0px;
+      padding: 0px;
+
+      .experience-item {
+        --min-height: initial;
+        --padding-start: 0px;
+        --padding-end: 0px;
+        --inner-padding-start: 0px;
+        --inner-padding-end: 0px;
+
+        &:not(:last-child) {
+          padding-bottom: calc(var(--page-margin) / 2);
+        }
+
+        .experience-list-icon {
+          margin: 0px;
+          margin-right: calc(var(--page-margin) / 2);
+        }
+
+        .experience-label {
+          font-size: 16px;
+          font-weight: 300;
+          width: 100%;
+        }
+      }
+    }
+  }
+
+  .related-users-wrapper {
+    .related-users-row {
+      --ion-grid-columns: 7; // We want to show three users and a half. Each user fills 2 cols => (3.5 * 2 = 7 cols)
+      --ion-grid-column-padding: 0px;
+
+      flex-wrap: nowrap;
+      overflow-x: scroll;
+      will-change: scroll-position;
+      margin-left: calc(var(--page-margin) * -1);
+      margin-right: calc(var(--page-margin) * -1);
+
+      @include hide-scrollbars();
+
+      &::before,
+      &::after {
+        content: '';
+        flex: 0 0 calc(var(--page-margin) - var(--page-related-users-gutter));
+      }
+
+      .related-user-item {
+        padding: 0px var(--page-related-users-gutter);
+        --col-item-width: 2;
+        // SSR fix: Override ion-col styles
+        flex: 0 0 calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+        width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+        max-width: calc(calc(var(--col-item-width) / var(--ion-grid-columns, 12)) * 100%);
+
+        .related-user-name {
+          display: block;
+          text-align: center;
+          margin-top: calc(var(--page-margin) / 2);
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

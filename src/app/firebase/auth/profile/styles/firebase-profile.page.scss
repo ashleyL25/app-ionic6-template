@@ -1,0 +1,126 @@
+@import "theme/mixins/ion-color";
+
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-broad-margin);
+  --page-background: var(--app-background-shade);
+
+  // Add custom colors to use with [color] property
+  @include ion-color('bright-blue') {
+    --ion-color-bright-blue: #001CFF;
+    --ion-color-bright-blue-rgb: 0,28,255;
+    --ion-color-bright-blue-contrast: #ffffff;
+    --ion-color-bright-blue-contrast-rgb: 255,255,255;
+    --ion-color-bright-blue-shade: #0019e0;
+    --ion-color-bright-blue-tint: #1a33ff;
+  }
+
+  @include ion-color('bright-pink') {
+    --ion-color-bright-pink: #FF0DCB;
+    --ion-color-bright-pink-rgb: 255,13,203;
+    --ion-color-bright-pink-contrast: #ffffff;
+    --ion-color-bright-pink-contrast-rgb: 255,255,255;
+    --ion-color-bright-pink-shade: #e00bb3;
+    --ion-color-bright-pink-tint: #ff25d0;
+  }
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+ion-header {
+  ion-toolbar {
+    --ion-toolbar-background: transparent;
+    --ion-toolbar-color: var(--ion-color-lightest);
+  }
+}
+
+ion-content {
+  // To get the ion-content behind the ion-header
+  position: absolute;
+  top: 0;
+}
+
+.user-content {
+  --background: var(--page-background);
+
+  .user-details {
+    position: relative;
+    z-index: 2;
+    margin-inline-start: var(--page-margin);
+    margin-inline-end: var(--page-margin);
+    padding: var(--page-margin);
+    background-color: var(--ion-color-lightest);
+    border-radius: calc(var(--app-broad-radius) * 2);
+    text-align: center;
+    margin-top: calc(var(--page-margin) * -4);
+    // z-3
+    box-shadow: 0px 10px 20px rgba(var(--ion-color-dark-rgb), 0.15),
+                0px 3px 6px rgba(var(--ion-color-dark-rgb), 0.10);
+    // z-4
+    // box-shadow: 0px 15px 25px rgba(var(--ion-color-dark-rgb), 0.15),
+    //             0px 5px 10px rgba(var(--ion-color-dark-rgb), 0.05);
+
+    .details-wrapper {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .user-name {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 22px;
+      margin-top: 0px;
+      margin-bottom: calc(var(--page-margin) / 2);
+      color: var(--ion-color-bright-blue);
+
+      ion-icon {
+        margin-inline-start: calc(var(--page-margin) / 2);
+        font-size: 18px;
+      }
+    }
+
+    .user-role {
+      display: block;
+      min-width: 40%;
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--ion-color-medium-shade);
+    }
+
+    .user-description {
+      min-width: 100%;
+      margin-top: var(--page-margin);
+      margin-bottom: 0px;
+      font-size: 14px;
+      color: var(--ion-color-medium-tint);
+    }
+  }
+
+  .user-preferences-wrapper {
+    --ion-grid-column-padding: 0px;
+
+    padding: var(--page-margin);
+
+    .preference-name {
+      margin: 0px 0px 5px;
+      font-size: 16px;
+      color: var(--ion-color-bright-pink);
+    }
+
+    .preference-value {
+      margin: 0px 0px calc(var(--page-margin) / 2);
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--ion-color-dark-tint);
+    }
+  }
+
+  .sign-out-btn {
+    margin: 0px;
+    margin-top: calc(var(--page-margin) * 4);
+    color: #001CFF;
+  }
+}

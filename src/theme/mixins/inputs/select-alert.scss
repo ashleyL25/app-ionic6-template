@@ -1,0 +1,48 @@
+@mixin select-alert() {
+  // Default values
+  --select-alert-color: #000;
+  --select-alert-background: #FFF;
+  --select-alert-margin: 16px;
+
+  .alert-head {
+    padding-top: calc((var(--select-alert-margin) / 4) * 3);
+    padding-bottom: calc((var(--select-alert-margin) / 4) * 3);
+    padding-inline-start: var(--select-alert-margin);
+    padding-inline-end: var(--select-alert-margin);
+  }
+
+  .alert-title {
+    color: var(--select-alert-color);
+  }
+
+  .alert-head,
+  .alert-message {
+    background-color: var(--select-alert-background);
+  }
+
+  // iOS styles
+  .alert-wrapper.sc-ion-alert-ios {
+    .alert-title {
+      margin: 0px;
+    }
+  }
+
+  // Material styles
+  .alert-wrapper.sc-ion-alert-md {
+    .alert-title {
+      font-size: 18px;
+      font-weight: 400;
+    }
+
+    .alert-button {
+      // Values taken from Ionic small button preset
+      --padding-top: 0;
+      --padding-start: 0.9em;
+      --padding-end: 0.9em;
+      --padding-bottom: 0;
+
+      height: 2.1em;
+      font-size: 13px;
+    }
+  }
+}

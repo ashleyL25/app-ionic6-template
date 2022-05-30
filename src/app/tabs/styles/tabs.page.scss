@@ -1,0 +1,5 @@
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+ion-tab-button {
+  --color: var(--ion-color-medium-shade);
+  --color-selected: var(--ion-color-dark);
+}

@@ -1,0 +1,174 @@
+@import "theme/mixins/inputs/checkbox-tag";
+
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+
+  --page-background-shade: var(--app-background-shade);
+  --page-tags-gutter: 5px;
+}
+
+ ion-modal.datetime-modal {
+  --width: 290px;
+  --height: 382px;
+  --border-radius: 8px;
+
+  ion-datetime {
+    height: 382px;
+  }
+}
+
+.update-user-content {
+  --background: var(--page-background);
+
+  .select-user-image-row {
+    --ion-grid-column-padding: 0px;
+
+    padding: var(--page-margin);
+    background-color: var(--page-background-shade);
+
+    .user-image-col {
+      margin: 0px auto;
+      position: relative;
+
+      .user-image {
+        border-radius: 50%;
+        border: solid 3px var(--ion-color-lightest);
+      }
+    }
+
+    .change-image-btn {
+      --border-radius: 50%;
+      --padding-start: 0px;
+      --padding-end: 0px;
+
+      position: absolute;
+      right: 0px;
+      bottom: var(--page-margin);
+      z-index: 3;
+      width: 4ch;
+      height: 4ch;
+      margin: 0px;
+
+      .btn-icon {
+        font-size: 26px;
+      }
+    }
+  }
+
+  .fields-section {
+    padding: var(--page-margin) 0px;
+    border-bottom: calc(var(--page-margin) * 2) solid var(--page-background-shade);
+
+    .section-header {
+      padding: 0px var(--page-margin);
+      margin-top: 0px;
+      margin-bottom: var(--page-margin);
+    }
+  }
+
+  .user-details-fields {
+    .inputs-list {
+      padding: 0px var(--page-margin);
+    }
+
+    .input-item {
+      --padding-start: 0px;
+      --padding-end: 0px;
+      --inner-padding-start: 0px;
+      --inner-padding-end: 0px;
+    }
+
+    ion-item.birthdate-item::part(detail-icon) {
+      margin: auto;
+    }
+  }
+
+  .user-experience-fields {
+    .checkbox-tags {
+      padding: 0px calc(var(--page-margin) - var(--page-tags-gutter));
+
+      @include checkbox-tag();
+
+      .checkbox-tag {
+        padding: 0px var(--page-tags-gutter);
+        margin: var(--page-tags-gutter) 0px;
+      }
+
+      // Add a deeper selector to override default colors
+      &.rounded-checkbox-tags {
+        background-color: var(--ion-color-lightest);
+
+        .checkbox-tag {
+          --border-width: 2px;
+          --border-style: solid;
+          --border-color: var(--ion-color-medium-shade);
+          --checkbox-tag-color: var(--ion-color-medium-shade);
+          --checkbox-tag-background: var(--ion-color-lightest);
+          --checkbox-tag-active-color: var(--ion-color-lightest);
+          --checkbox-tag-active-background: var(--ion-color-darkest);
+
+          &.item-checkbox-checked {
+            --border-color: var(--ion-color-darkest);
+          }
+        }
+      }
+    }
+  }
+
+  .user-languages-fields {
+    padding-bottom: 0px;
+
+    .range-item-row {
+      --ion-grid-column-padding: 0px;
+
+      padding-top: var(--page-margin);
+      padding-inline-start: var(--page-margin);
+      padding-inline-end: var(--page-margin);
+      // box-shadow at the top
+      box-shadow: inset 0 6px 3px -8px  var(--ion-color-darkest);
+
+      .range-header {
+        display: flex;
+        justify-content: space-between;
+        padding-bottom: calc(var(--page-margin) / 2);
+
+        .range-value {
+          font-size: 12px;
+          font-weight: 600;
+          letter-spacing: 0.2px;
+          color: var(--ion-color-medium-shade);
+        }
+
+        .range-label {
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 0.2px;
+          color: var(--ion-color-medium-shade);
+        }
+      }
+
+      .range-control {
+        // override the pin color
+        --ion-text-color: var(--ion-color-medium-shade);
+
+        padding-top: 0px;
+        padding-bottom: 0px;
+      }
+    }
+  }
+}
+
+.form-actions-wrapper {
+  --ion-grid-column-padding: calc(var(--page-margin) / 2);
+
+  padding: calc(var(--page-margin) / 2);
+
+  .submit-btn {
+    margin: 0px;
+  }
+
+  .delete-btn {
+    margin: 0px;
+  }
+}

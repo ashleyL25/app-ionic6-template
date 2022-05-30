@@ -1,0 +1,109 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+
+  --page-items-gutter: calc(var(--page-margin) / 2);
+  --page-color: #cb328f;
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.fashion-listing-content {
+  --background: var(--page-background);
+  --padding-start: var(--page-margin);
+  --padding-end: var(--page-margin);
+  --padding-top: var(--page-margin);
+  --padding-bottom: var(--page-margin);
+}
+
+.items-row {
+  --ion-grid-column-padding: 0;
+
+  .listing-item {
+    margin-bottom: calc(var(--page-margin) * 2);
+
+    &:nth-child(odd) {
+      padding-right: var(--page-items-gutter);
+    }
+
+    &:nth-child(even) {
+      padding-left: var(--page-items-gutter);
+    }
+
+    .item-image-wrapper {
+      border: 1px solid var(--ion-color-light-shade);
+
+      .image-anchor {
+        display: block;
+      }
+    }
+
+    .item-body {
+      --ion-grid-column-padding: 0px;
+
+      padding: 5px 5px 0px;
+      text-align: center;
+
+      .main-info {
+        margin-bottom: calc(var(--page-margin) / 2);
+
+        .item-name {
+          margin: 0px;
+          font-size: 14px;
+          font-weight: 400;
+
+          text-overflow: ellipsis;
+          white-space: nowrap;
+          overflow: hidden;
+
+          .name-anchor {
+            color: var(--ion-color-primary);
+            display: block;
+            text-decoration: none;
+          }
+        }
+      }
+
+      .secondary-info {
+        align-items: center;
+
+        .price-col {
+          &:first-child {
+            padding-right: calc(var(--page-margin) / 2);
+            text-align: right;
+
+            &:last-child {
+              text-align: center;
+            }
+          }
+
+          &:last-child {
+            padding-left: calc(var(--page-margin) / 2);
+            text-align: left;
+          }
+        }
+
+        .separator {
+          max-width: 0px;
+          border-right: solid 2px var(--ion-color-light-shade);
+          align-self: stretch;
+        }
+
+        .item-sale-price {
+          display: block;
+          font-weight: 400;
+          color: var(--page-color);
+          font-size: 16px;
+        }
+
+        .item-original-price {
+          display: block;
+          text-decoration: line-through;
+          color: var(--ion-color-medium-shade);
+          font-size: 14px;
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,51 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Fashion Listing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="fashion-listing-content">
+  <ng-container *ngIf="listing?.items">
+    <ion-row class="items-row">
+      <ion-col size="6" class="listing-item" *ngFor="let item of listing?.items">
+        <div class="item-image-wrapper">
+          <a class="image-anchor" [routerLink]="['/app/categories/fashion/', item.slug]">
+            <app-aspect-ratio [ratio]="{w: 3, h: 4}">
+              <app-image-shell class="item-image" animation="spinner" [src]="item.image" [alt]="'product image'"></app-image-shell>
+            </app-aspect-ratio>
+          </a>
+        </div>
+        <ion-row class="item-body">
+          <ion-col size="12" class="main-info">
+            <h4 class="item-name">
+              <a class="name-anchor" [routerLink]="['/app/categories/fashion/', item.slug]">
+                <app-text-shell animation="gradient" [data]="item.name"></app-text-shell>
+              </a>
+            </h4>
+          </ion-col>
+          <ion-col size="12">
+            <ion-row class="secondary-info">
+              <ion-col class="price-col">
+                <span class="item-sale-price">
+                  <app-text-shell animation="gradient" [data]="item.salePrice | currency"></app-text-shell>
+                </span>
+              </ion-col>
+              <ng-container *ngIf="item.price !== '0'">
+                <ion-col class="separator">
+                </ion-col>
+                <ion-col class="price-col">
+                  <span class="item-original-price">
+                    <app-text-shell animation="gradient" [data]="item.price | currency"></app-text-shell>
+                  </span>
+                </ion-col>
+              </ng-container>
+            </ion-row>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </ng-container>
+</ion-content>

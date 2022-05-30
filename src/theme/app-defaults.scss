@@ -1,0 +1,15 @@
+ion-title {
+  // Adding !important to force precedence in SSR
+  font-weight: 400 !important;
+  letter-spacing: 0.4px !important;
+}
+
+// Override Ionic styles
+.input-clear-icon {
+  // Change these properties so the Ionic close icon aligns with show/hide password
+  &.sc-ion-input-ios,
+  &.sc-ion-input-md {
+    width: calc(1.2rem);
+    margin-inline-start: .5rem;
+  }
+}

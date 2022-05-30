@@ -1,0 +1,41 @@
+app-image-shell.user-image {
+  --image-shell-loading-background: rgba(var(--ion-color-bright-blue-rgb), 0.25);
+  --image-shell-spinner-color: var(--ion-color-bright-blue-tint);
+  --image-shell-border-radius: 0px 0px calc(var(--app-broad-radius) * 2) calc(var(--app-broad-radius) * 2);
+  --image-shell-overlay-background: linear-gradient(180deg, rgba(var(--ion-color-dark-rgb), 1) 0%, rgba(var(--ion-color-dark-rgb), 0.40) 25%, rgba(var(--ion-color-dark-rgb), 0.15) 100%);
+}
+
+.user-name > app-text-shell {
+  --text-shell-line-height: 22px;
+  --text-shell-line-color: rgba(var(--ion-color-bright-blue-rgb), 0.20);
+  min-width: 180px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.user-role > app-text-shell {
+  --text-shell-line-height: 14px;
+  --text-shell-line-color: rgba(var(--ion-color-bright-blue-rgb), 0.15);
+  max-width: 40%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.user-description > app-text-shell {
+  --text-shell-line-height: 14px;
+  --text-shell-line-color: rgba(var(--ion-color-bright-blue-rgb), 0.10);
+}
+
+.preference-value > app-text-shell {
+  --text-shell-line-height: 14px;
+  --text-shell-line-color: rgba(var(--ion-color-bright-pink-rgb), 0.10);
+  max-width: 40%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}

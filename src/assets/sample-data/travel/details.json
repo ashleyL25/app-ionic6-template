@@ -1,0 +1,116 @@
+{
+  "id": 1,
+  "image": "./assets/sample-images/travel/travel-details-image.png",
+  "icon": "./assets/sample-images/travel/travel-details-icon.png",
+  "name": "Tristán Narvaja ",
+  "category": "Flea Market",
+  "shortDescription": "A neat little market on Sunday morning.",
+  "rating": 4.8,
+  "reviewsCount": 17,
+  "tags": [
+    "Flea market",
+    "Antiques",
+    "Secondhand Goods",
+    "Street performance",
+    "Greengrocery"
+  ],
+  "fullDescription": "La Feria de Tristán Narvaja is the famous Montevideo street market. Sometimes it’s called “flea market”, but I would refrain from this description simply because it is so much more than just a place to sell secondhand goods. When the day is just about to start, the area transforms into a strange universe. Greengrocers screaming at the top of their lungs vying for potential customers attention. Exotic birds chirping not from the trees, but from cages stacked in multiple layers. Puppies yapping or impatiently waiting for some kid to convince an unlucky parent to get a pet right away. Foreigners and some Uruguayans come there in search of rare objects sometimes hidden among less prized old knickknacks. Flocks of tourists wondering around antiques and books stalls. The market is a fantastic motley of myriad things not expected to be found next to each other. Old newspapers and posters, coins and stamps, pets and antiques rub shoulders with new clothes, counterfeit “luxuries” and fruits and vegetables. It is easy to lose track of time browsing the market. The crowd gets thicker closer to noon, there are so many fascinating objects to admire and too many stall rows to check. After a couple hours everything starting to blur into an endless kaleidoscope of colors and sounds. Time to leave and come back next Sunday for another excursion into the world of curiosities.",
+  "openHours": [
+    {
+      "day": "Monday",
+      "open": true,
+      "hourFrom": "12:00",
+      "hourTo": "22:00"
+    },
+    {
+      "day": "Tuesday",
+      "open": true,
+      "hourFrom": "12:00",
+      "hourTo": "22:00"
+    },
+    {
+      "day": "Wednesday",
+      "open": true,
+      "hourFrom": "12:00",
+      "hourTo": "22:00"
+    },
+    {
+      "day": "Thursday",
+      "open": true,
+      "hourFrom": "12:00",
+      "hourTo": "24:00"
+    },
+    {
+      "day": "Friday",
+      "open": true,
+      "hourFrom": "12:00",
+      "hourTo": "24:00"
+    },
+    {
+      "day": "Saturday",
+      "open": true,
+      "hourFrom": "12:00",
+      "hourTo": "24:00"
+    },
+    {
+      "day": "Sunday",
+      "open": false,
+      "hourFrom": "00:00",
+      "hourTo": "00:00"
+    }
+  ],
+  "location": {
+    "address": "Tristán Narvaja st, from Av. 18 de Julio to La Paz",
+    "city": "Montevideo, Uruguay",
+    "latlng": "-34.9026348,-56.1814708",
+    "mapImage": "./assets/sample-images/travel/travel-map.png"
+  },
+  "whereToStay": [
+    {
+      "picture": "./assets/sample-images/travel/travel-details-place-1.png",
+      "name": "FOUR POINTS by Sheraton",
+      "rating": 4.1
+    },
+    {
+      "picture": "./assets/sample-images/travel/travel-details-place-2.png",
+      "name": "IBIS Palermo",
+      "rating": 3.8
+    },
+    {
+      "picture": "./assets/sample-images/travel/travel-details-place-3.png",
+      "name": "CONTRA LUZ Hostel",
+      "rating": 4.6
+    }
+  ],
+  "whereToEat": [
+    {
+      "picture": "./assets/sample-images/travel/travel-details-eat-1.png",
+      "name": "EL VERDE Resopub",
+      "rating": 4.1
+    },
+    {
+      "picture": "./assets/sample-images/travel/travel-details-eat-2.png",
+      "name": "LA TORTUGUITA Bar",
+      "rating": 4.5
+    },
+    {
+      "picture": "./assets/sample-images/travel/travel-details-eat-3.png",
+      "name": "QUO Pide House",
+      "rating": 4.8
+    }
+  ],
+  "relatedActivities": [
+    {
+      "picture": "./assets/sample-images/travel/travel-details-activity-1.png",
+      "name": "MAM",
+      "category": "Greengrocer’s Market",
+      "rating": 4.1
+    },
+    {
+      "picture": "./assets/sample-images/travel/travel-details-activity-2.png",
+      "name": "Parque Rodó",
+      "category": "Attractions Park",
+      "rating": 3.6
+    }
+  ]
+}

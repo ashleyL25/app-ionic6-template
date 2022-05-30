@@ -1,0 +1,102 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-fair-margin);
+  --page-background: var(--app-background);
+}
+
+.video-playlist-content {
+  --background: var(--page-background);
+
+  .ssr-video {
+    width: 100%;
+    height: 100%;
+  }
+
+	.video-data-section {
+		padding: var(--page-margin);
+
+		.video-title {
+			margin-top: 0px;
+      margin-bottom: calc(var(--page-margin) / 2);
+			color: var(--ion-color-secondary);
+		}
+
+		.video-description {
+      margin: 0px;
+    	font-size: 13px;
+  		line-height: 1.3;
+			letter-spacing: 0.3px;
+			color: var(--ion-color-dark);
+		}
+	}
+
+  .video-playlist-section	{
+    padding: 0px var(--page-margin);
+    padding-bottom: var(--page-margin);
+
+    .playlist-item-row {
+      --ion-grid-column-padding: 0px;
+
+      &:not(:first-child) {
+        padding-top: calc(var(--page-margin) / 2);
+      }
+
+      &:not(:last-child) {
+        padding-bottom: calc(var(--page-margin) / 2);
+        // box-shadow at the bottom
+        box-shadow: inset 0 -7px 3px -8px var(--ion-color-darkest);
+      }
+    }
+
+    .play-icon-wrapper {
+      height: 100%;
+      text-decoration: none;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+
+      .play-icon {
+        color: var(--ion-color-secondary);
+        background: rgba(var(--ion-color-lightest-rgb), .7);
+        font-size: 20px;
+        padding: 8px;
+        border-radius: 50%;
+      }
+    }
+
+    .video-info-wrapper {
+      padding-inline-start: var(--page-margin);
+      align-self: center;
+
+      .image-title {
+        margin: 0px;
+        margin-bottom: calc(var(--page-margin) / 4);
+        color: var(--ion-color-secondary);
+        font-size: 14px;
+
+        app-text-shell {
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+        }
+      }
+
+      .image-description {
+        margin: 0px;
+        color: var(--ion-color-dark);
+        font-size: 13px;
+        line-height: 1.3;
+        letter-spacing: 0.3px;
+
+        // line clamp https://css-tricks.com/line-clampin/#article-header-id-0
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        overflow: hidden;
+        // we need autoprefixer off for next line https://github.com/postcss/autoprefixer/issues/776#issuecomment-445249174
+        /* autoprefixer: ignore next */
+        -webkit-box-orient: vertical;
+      }
+    }
+  }
+}

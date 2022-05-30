@@ -1,0 +1,86 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --shell-color: #70DF70;
+  --shell-color-rgb: 112,223,112;
+}
+
+// You can also apply sheel styles to the entire page
+:host(.is-shell) {
+  // ion-content {
+  //   opacity: 0.8;
+  // }
+}
+
+app-image-shell.showcase-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+}
+
+app-image-shell.logo-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .30);
+  --image-shell-spinner-size: 18px;
+}
+
+.details-name > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .30);
+  --text-shell-line-height: 16px;
+}
+
+.details-description > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+  --text-shell-line-height: 14px;
+}
+
+app-image-shell.preview-image {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .30);
+  --image-shell-spinner-size: 18px;
+}
+
+.promo-code > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .15);
+  --text-shell-line-height: 14px;
+  min-width: 80px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.expiration-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--ion-color-lightest-rgb), .20);
+  --text-shell-line-height: 18px;
+  min-width: 60px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+app-image-shell.related-deal-logo {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .30);
+  --image-shell-spinner-size: 18px;
+}
+
+.related-deal-title > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .30);
+  --text-shell-line-height: 20px;
+  max-width: 30%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.related-deal-description > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+  --text-shell-line-height: 16px;
+  max-width: 50%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}

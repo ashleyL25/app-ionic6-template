@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Real Estate Listing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="real-estate-listing-content">
+  <div class="listing-item" *ngFor="let item of listing?.items">
+    <ion-row class="image-row">
+      <ion-col size="12">
+        <a class="image-anchor" [routerLink]="['/app/categories/real-estate/', item.slug]">
+          <app-image-shell [display]="'cover'" animation="spinner" class="item-picture" [src]="item.picture">
+            <app-aspect-ratio [ratio]="{w:365, h:125}">
+            </app-aspect-ratio>
+          </app-image-shell>
+        </a>
+      </ion-col>
+    </ion-row>
+    <ion-row class="description-row">
+      <ion-col size="12" class="details-col">
+        <ion-row class="details-wrapper">
+          <ion-col>
+            <h4 class="item-price">
+              <span class="price-icon">$</span>
+              <app-text-shell [data]="item.price"></app-text-shell>
+            </h4>
+            <p class="item-address">
+              <app-text-shell [data]="item.address"></app-text-shell>
+            </p>
+          </ion-col>
+          <ion-col class="bookmark-col" size="2">
+            <ion-icon *ngIf="item.liked" class="like-icon" name="heart"></ion-icon>
+            <ion-icon *ngIf="!item.liked" class="like-icon" name="heart-outline"></ion-icon>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col class="accommodations-col" size="12">
+        <ion-row class="accommodations-wrapper">
+          <ion-col class="item-accommodation">
+            <ion-icon class="accommodation-icon" src="./assets/custom-icons/real-estate/guests.svg"></ion-icon>
+            <span class="accommodation-property">Guests</span>
+            <span class="accommodation-value">
+              <app-text-shell [data]="item.accommodations?.guests"></app-text-shell>
+            </span>
+          </ion-col>
+          <ion-col class="item-accommodation">
+            <ion-icon class="accommodation-icon" src="./assets/custom-icons/real-estate/bedrooms.svg"></ion-icon>
+            <span class="accommodation-property">Bedrooms</span>
+            <span class="accommodation-value">
+              <app-text-shell [data]="item.accommodations?.bedrooms"></app-text-shell>
+            </span>
+          </ion-col>
+          <ion-col class="item-accommodation">
+            <ion-icon class="accommodation-icon" src="./assets/custom-icons/real-estate/bathroom.svg"></ion-icon>
+            <span class="accommodation-property">Bathrooms</span>
+            <span class="accommodation-value">
+              <app-text-shell [data]="item.accommodations?.bathrooms"></app-text-shell>
+            </span>
+          </ion-col>
+          <ion-col class="item-accommodation">
+            <ion-icon class="accommodation-icon" src="./assets/custom-icons/real-estate/patio.svg"></ion-icon>
+            <span class="accommodation-property">Patios</span>
+            <span class="accommodation-value">
+              <app-text-shell [data]="item.accommodations?.patios"></app-text-shell>
+            </span>
+          </ion-col>
+        </ion-row>
+      </ion-col>
+
+      <ion-col size="12" class="amenities-col" *ngIf="item.amenities">
+        <h5 class="amenities-title">Amenities</h5>
+        <ion-row class="amenities-wrapper">
+          <ng-container>
+            <ion-col class="item-amenity" size="4" *ngFor="let amenity of item.amenities.slice(0, 4); let i = index">
+              <ion-icon *ngIf="amenity.icon" class="amenity-icon" [src]="amenity.icon"></ion-icon>
+              <span class="amenity-value">
+                <app-text-shell [data]="amenity.name"></app-text-shell>
+              </span>
+            </ion-col>
+            <ion-col class="has-more-amenities" *ngIf="i === 3 && item.amenities.length > 4">
+              <span class="amenities-count">+{{ item.amenities.length - 4 }}</span>
+            </ion-col>
+          </ng-container>
+        </ion-row>
+      </ion-col>
+    </ion-row>
+  </div>
+</ion-content>

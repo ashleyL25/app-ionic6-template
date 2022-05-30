@@ -1,0 +1,207 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>Forms & Validations</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="forms-validations-content">
+  <form class="validations-form" [formGroup]="validationsForm" (ngSubmit)="onSubmit(validationsForm.value)">
+    <ion-list class="inputs-list" lines="full">
+      <ion-list-header>
+        <ion-label class="header-title">Basic Validations</ion-label>
+      </ion-list-header>
+
+      <!-- When this bug (https://github.com/ionic-team/ionic-framework/issues/22117) gets fixed, remove .item-label-floating class -->
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Username</ion-label>
+        <ion-input type="text" formControlName="username" clearInput required></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.username">
+          <div class="error-message" *ngIf="validationsForm.get('username').hasError(validation.type) && (validationsForm.get('username').dirty || validationsForm.get('username').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- When this bug (https://github.com/ionic-team/ionic-framework/issues/22117) gets fixed, remove .item-label-floating class -->
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Name</ion-label>
+        <ion-input type="text" formControlName="name" clearInput></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.name">
+          <div class="error-message" *ngIf="validationsForm.get('name').hasError(validation.type) && (validationsForm.get('name').dirty || validationsForm.get('name').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- When this bug (https://github.com/ionic-team/ionic-framework/issues/22117) gets fixed, remove .item-label-floating class -->
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Last Name</ion-label>
+        <ion-input type="text" formControlName="lastname" clearInput></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.lastname">
+          <div class="error-message" *ngIf="validationsForm.get('lastname').hasError(validation.type) && (validationsForm.get('lastname').dirty || validationsForm.get('lastname').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- When this bug (https://github.com/ionic-team/ionic-framework/issues/22117) gets fixed, remove .item-label-floating class -->
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Email</ion-label>
+        <ion-input type="text" formControlName="email" clearInput inputmode="email"></ion-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.email">
+          <div class="error-message" *ngIf="validationsForm.get('email').hasError(validation.type) && (validationsForm.get('email').dirty || validationsForm.get('email').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+
+      <!-- When this bug (https://github.com/ionic-team/ionic-framework/issues/22117) gets fixed, remove .item-label-floating class -->
+      <ion-item class="input-item item-label-floating">
+        <ion-label position="floating">Gender</ion-label>
+        <ion-select formControlName="gender" cancelText="Cancel" okText="OK">
+          <ion-select-option *ngFor="let gender of genders" [value]="gender" >{{ gender }}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+
+    <ion-list class="inputs-list" lines="full">
+      <ion-list-header>
+        <ion-label class="header-title">Phone Validations</ion-label>
+      </ion-list-header>
+
+      <div formGroupName="country_phone">
+        <!-- When this bug (https://github.com/ionic-team/ionic-framework/issues/22117) gets fixed, remove .item-label-floating class -->
+        <ion-item class="input-item item-label-floating">
+          <ion-label position="floating">Country</ion-label>
+          <ion-select formControlName="country" cancelText="Cancel" okText="OK">
+            <ion-select-option *ngFor="let item of countries" [value]="item" >{{item.name}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+        <!-- When this bug (https://github.com/ionic-team/ionic-framework/issues/22117) gets fixed, remove .item-label-floating class -->
+        <ion-item class="input-item item-label-floating">
+          <ion-label position="floating">Phone</ion-label>
+          <ion-input clearInput placeholder="{{ validationsForm.value.country_phone.country.sample_phone }}" type="text" formControlName="phone"></ion-input>
+        </ion-item>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validations.phone">
+            <div class="error-message" *ngIf="validationsForm.get('country_phone').get('phone').hasError(validation.type) && (validationsForm.get('country_phone').get('phone').dirty || validationsForm.get('country_phone').get('phone').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon>
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </ion-list>
+
+    <ion-list class="inputs-list" lines="full">
+      <ion-list-header>
+        <ion-label class="header-title">Password Validations</ion-label>
+      </ion-list-header>
+
+      <div formGroupName="matching_passwords">
+        <!-- When this bug (https://github.com/ionic-team/ionic-framework/issues/22117) gets fixed, remove .item-label-floating class -->
+        <ion-item class="input-item item-label-floating">
+          <ion-label position="floating">Password</ion-label>
+          <ion-input type="password" formControlName="password"></ion-input>
+        </ion-item>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validations.password">
+            <div class="error-message" *ngIf="validationsForm.get('matching_passwords').get('password').hasError(validation.type) && (validationsForm.get('matching_passwords').get('password').dirty || validationsForm.get('matching_passwords').get('password').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon>
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
+
+        <!-- When this bug (https://github.com/ionic-team/ionic-framework/issues/22117) gets fixed, remove .item-label-floating class -->
+        <ion-item class="input-item item-label-floating">
+          <ion-label position="floating">Confirm Password</ion-label>
+          <ion-input type="password" formControlName="confirm_password"></ion-input>
+        </ion-item>
+        <div class="error-container">
+          <ng-container *ngFor="let validation of validations.confirm_password">
+            <div class="error-message" *ngIf="validationsForm.get('matching_passwords').get('confirm_password').hasError(validation.type) && (validationsForm.get('matching_passwords').get('confirm_password').dirty || validationsForm.get('matching_passwords').get('confirm_password').touched)">
+              <ion-icon name="information-circle-outline"></ion-icon>
+              <span>{{ validation.message }}</span>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.matching_passwords">
+          <div class="error-message" *ngIf="validationsForm.get('matching_passwords').hasError(validation.type) && (validationsForm.get('matching_passwords').get('confirm_password').dirty || validationsForm.get('matching_passwords').get('confirm_password').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+
+    <ion-list class="inputs-list" lines="full">
+      <ion-list-header>
+        <ion-label class="header-title">Counter Validations</ion-label>
+      </ion-list-header>
+      <ion-item class="counter-item input-item">
+        <ion-label>Guests</ion-label>
+        <app-counter-input formControlName="guests"></app-counter-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.guests">
+          <div class="error-message" *ngIf="validationsForm.get('guests').hasError(validation.type) && (validationsForm.get('guests').dirty || validationsForm.get('guests').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }} {{ validationsForm.get('guests').getError(validation.type).min }} and {{ validationsForm.get('guests').getError(validation.type).max }}</span>
+          </div>
+        </ng-container>
+      </div>
+      <ion-item class="counter-item input-item">
+        <ion-label class="counter-label">Bedrooms</ion-label>
+        <ion-label class="counter-value">{{validationsForm.controls.bedrooms.value}}</ion-label>
+        <app-counter-input formControlName="bedrooms" basic></app-counter-input>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.bedrooms">
+          <div class="error-message" *ngIf="validationsForm.get('bedrooms').hasError(validation.type) && (validationsForm.get('bedrooms').dirty || validationsForm.get('bedrooms').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }} {{ validationsForm.get('bedrooms').getError(validation.type).min }} and {{ validationsForm.get('bedrooms').getError(validation.type).max }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+
+    <ion-list class="inputs-list" lines="full">
+      <ion-list-header>
+        <ion-label class="header-title">Terms and Conditions</ion-label>
+      </ion-list-header>
+
+      <ion-item class="input-item terms-item">
+        <ion-label>I accept terms and conditions</ion-label>
+        <ion-checkbox formControlName="terms"></ion-checkbox>
+      </ion-item>
+      <div class="error-container">
+        <ng-container *ngFor="let validation of validations.terms">
+          <div class="error-message" *ngIf="validationsForm.get('terms').hasError(validation.type) && (validationsForm.get('terms').dirty || validationsForm.get('terms').touched)">
+            <ion-icon name="information-circle-outline"></ion-icon>
+            <span>{{ validation.message }}</span>
+          </div>
+        </ng-container>
+      </div>
+    </ion-list>
+
+    <ion-button class="submit-btn" type="submit" expand="block" fill="outline" [disabled]="!validationsForm.valid">Submit</ion-button>
+  </form>
+</ion-content>

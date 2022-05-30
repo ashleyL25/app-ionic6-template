@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="app/categories"></ion-back-button>
+    </ion-buttons>
+    <ion-title>Deals Listing</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="deals-listing-content">
+  <ng-container *ngIf="listing?.items">
+    <div class="listing-item" *ngFor="let item of listing?.items" [ngClass]="{'ended': ((item.expirationDate | appTimeDifference) < 0), 'imminent-end': ((item.expirationDate | appTimeDifference) > 0 && (item.expirationDate | appTimeDifference) <= 2), 'ends-soon': ((item.expirationDate | appTimeDifference) > 0 && (item.expirationDate | appTimeDifference) > 2 && (item.expirationDate | appTimeDifference) < 10), 'distant-end': ((item.expirationDate | appTimeDifference) >= 10)}">
+      <ion-row class="top-row">
+        <ion-col class="logo-col" size="6">
+          <app-aspect-ratio [ratio]="{w: 128, h: 32}">
+            <app-image-shell [src]="item.logo" [alt]="'deals logo'" class="deal-logo" animation="spinner"></app-image-shell>
+          </app-aspect-ratio>
+        </ion-col>
+        <ion-col *ngIf="((item.expirationDate | appTimeDifference) > 0)" class="call-to-action-col">
+          <ion-button class="claim-button" expand="block" color="claim" [routerLink]="['/app/categories/deals/', item.slug]">
+            <span class="button-cta">CLAIM</span>
+            <ion-icon slot="end" name="arrow-forward"></ion-icon>
+          </ion-button>
+        </ion-col>
+        <ion-col *ngIf="((item.expirationDate | appTimeDifference) < 0)" class="call-to-action-col">
+          <span class="expired-cta">EXPIRED</span>
+        </ion-col>
+      </ion-row>
+      <ion-row class="middle-row">
+        <ion-col class="info-col">
+          <h4 class="item-name">
+            <a class="name-anchor" [routerLink]="['/app/categories/deals/', item.slug]">
+              <app-text-shell animation="bouncing" [data]="item.name"></app-text-shell>
+            </a>
+          </h4>
+          <p class="item-description">
+            <app-text-shell animation="bouncing" lines="3" [data]="item.description"></app-text-shell>
+          </p>
+        </ion-col>
+        <ion-col size="2">
+          <ion-button class="bookmark-button" expand="block" fill="clear" color="claim">
+            <ion-icon slot="icon-only" name="pricetag"></ion-icon>
+          </ion-button>
+        </ion-col>
+      </ion-row>
+      <ion-row class="bottom-row">
+        <ion-col class="code-wrapper">
+          <span class="code-cta">Use this code:</span>
+          <span class="item-code" [ngClass]="{'expired': ((item.expirationDate | appTimeDifference) < 0)}">
+            <app-text-shell [data]="item.code"></app-text-shell>
+          </span>
+        </ion-col>
+        <ion-col class="time-left-wrapper" size="5" [ngClass]="{'countdown-active': ((item.expirationDate | appTimeDifference) > 0 && (item.expirationDate | appTimeDifference) <= 2)}">
+          <span class="expiration-cta">DEAL {{ ((item.expirationDate | appTimeDifference) < 0) ? 'EXPIRED' : 'EXPIRES IN' }}:</span>
+          <ng-container *ngIf="((item.expirationDate | appTimeDifference) < 0 || (item.expirationDate | appTimeDifference) > 2)">
+            <span class="item-time-left">
+              <app-text-shell [data]="(item.expirationDate | appTimeAgo)"></app-text-shell>
+            </span>
+          </ng-container>
+          <ng-container *ngIf="((item.expirationDate | appTimeDifference) > 0 && (item.expirationDate | appTimeDifference) <= 2)">
+            <ion-row class="countdown-wrapper">
+              <app-countdown-timer class="item-countdown" fill="inner-time" [end]="item.expirationDate" [units]="{from: 'hour', to: 'second'}"></app-countdown-timer>
+            </ion-row>
+          </ng-container>
+        </ion-col>
+      </ion-row>
+    </div>
+  </ng-container>
+</ion-content>

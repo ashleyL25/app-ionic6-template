@@ -1,0 +1,248 @@
+@import "theme/mixins/ion-color";
+
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-broad-margin);
+  --page-background: var(--app-background-shade);
+
+  --page-countdown-fill-shadow-color: rgba(var(--ion-color-darkest-rgb), 0.2);
+  --page-item-shadow-color: rgba(var(--ion-color-dark-rgb), .1);
+  --page-deal-code-height: 30px;
+  --page-countdown-gutter: 3px;
+
+  --page-expired-color: var(--ion-color-medium-tint);
+  --page-ends-soon-color: #FFAB6B;
+  --page-distant-end-color: #70DF70;
+
+  --page-deal-color: var(--ion-color-medium);
+  --page-deal-border-color: var(--ion-color-light-shade);
+
+  --page-color: #70DF70;
+
+  // Add custom colors to use with [color] property
+  @include ion-color('claim') {
+    --ion-color-claim: #70DF70;
+    --ion-color-claim-rgb: 112,223,112;
+    --ion-color-claim-contrast: #FFFFFF;
+    --ion-color-claim-contrast-rgb: 255,255,255;
+    --ion-color-claim-shade: #63C463;
+    --ion-color-claim-tint: #7EE27E;
+  }
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+.deals-listing-content {
+  --background: var(--page-background);
+}
+
+.listing-item {
+  &.ended {
+    --page-deal-color: var(--page-expired-color);
+    --page-deal-border-color: var(--page-expired-color);
+    border-bottom-style: none;
+  }
+  &.imminent-end {
+    --page-deal-color: var(--page-ends-soon-color);
+    --page-deal-border-color: var(--page-distant-end-color);
+  }
+  &.ends-soon {
+    --page-deal-color: var(--page-ends-soon-color);
+    --page-deal-border-color: var(--page-ends-soon-color);
+    border-bottom-style: none;
+  }
+  &.distant-end {
+    --page-deal-color: var(--page-distant-end-color);
+    --page-deal-border-color: var(--page-distant-end-color);
+    border-bottom-style: none;
+  }
+
+  background-color: var(--ion-color-lightest);
+  margin: var(--page-margin);
+  border-radius: var(--app-fair-radius);
+  box-shadow: 1px 1px 4px 1px var(--page-item-shadow-color);
+  border-bottom-style: solid;
+  border-bottom-width: calc((var(--page-margin) / 2) * 3);
+  border-bottom-color: var(--page-deal-border-color);
+
+  .top-row {
+    --ion-grid-column-padding: 0px;
+
+    border-bottom: 2px dashed rgba(var(--ion-color-dark-rgb), .1);
+    padding: calc(var(--page-margin) / 2);
+    justify-content: space-between;
+    align-items: center;
+
+    .logo-col {
+      align-self: center;
+    }
+
+    .call-to-action-col {
+      flex-grow: 0;
+
+      .expired-cta {
+        color: var(--page-expired-color);
+        font-size: 16px;
+        font-weight: 600;
+        letter-spacing: 0.8px;
+      }
+
+      .claim-button {
+        --box-shadow: none;
+        --border-radius: var(--app-fair-radius);
+
+        margin: 0px;
+
+        &:focus {
+          outline: none;
+        }
+
+        .button-cta {
+          display: block;
+          line-height: 18px;
+          font-size: 16px;
+          font-weight: 600;
+        }
+
+        ion-icon {
+          font-size: 18px;
+        }
+      }
+    }
+  }
+
+  .middle-row {
+    --ion-grid-column-padding: 0px;
+
+    padding: calc(var(--page-margin) / 2);
+    padding-bottom: var(--page-margin);
+
+    .info-col {
+      padding-right: calc(var(--page-margin) / 2);
+    }
+
+    .item-name {
+      margin: 0px;
+			margin-bottom: calc(var(--page-margin) / 2);
+      color: var(--ion-color-dark-tint);
+      font-size: 16px;
+
+      .name-anchor {
+        display: block;
+        text-decoration: none;
+      }
+    }
+
+    .item-description {
+      margin: 0px;
+      color: var(--ion-color-medium-tint);
+      font-size: 14px;
+    }
+
+    .bookmark-button {
+      --padding-start: 5px;
+      --padding-end: 5px;
+
+      margin: 0px;
+      font-size: 16px;
+    }
+  }
+
+  .bottom-row {
+    --ion-grid-column-padding: 0px;
+
+    padding: 0px calc(var(--page-margin) / 2) calc(var(--page-margin) / 2);
+    justify-content: space-between;
+
+    .code-wrapper {
+      max-width: fit-content;
+
+      .code-cta {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        display: block;
+      }
+
+      .item-code {
+        height: var(--page-deal-code-height);
+        text-transform: uppercase;
+        padding: calc(var(--page-margin) / 4) calc(var(--page-margin) / 2);
+        border: 2px solid var(--page-color);
+        font-size: 12px;
+        font-weight: 500;
+        line-height: 1;
+        border-radius: calc(var(--page-deal-code-height) / 2);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        &.expired {
+          border-color: var(--page-expired-color);
+          color: var(--page-expired-color);
+          opacity: 0.6;
+        }
+      }
+    }
+
+    .time-left-wrapper {
+      flex-shrink: 0;
+      max-width: fit-content;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      align-items: flex-end;
+
+      .expiration-cta {
+        font-size: 12px;
+        font-weight: 500;
+        margin-bottom: 5px;
+        display: block;
+        text-transform: uppercase;
+        text-align: end;
+      }
+
+      &:not(.countdown-active) {
+        .item-time-left {
+          color: var(--page-deal-color);
+          font-size: 14px;
+          font-weight: 500;
+          display: block;
+          text-align: end;
+        }
+      }
+
+      &.countdown-active {
+        display: block;
+        position: relative;
+
+        .countdown-wrapper {
+          width: 100%;
+          display: flex;
+          justify-content: flex-end;
+          // Set position absolute so that the parent doen't count the height of this element.
+          position: absolute;
+          right: 0px;
+
+          app-countdown-timer.item-countdown {
+            --countdown-time-margin: 0px;
+            --countdown-time-padding: 0px;
+            --countdown-inner-time-margin: var(--page-countdown-gutter) var(--page-countdown-gutter) 0px;
+            --countdown-inner-time-padding: calc(var(--page-margin) / 2) calc(var(--page-margin) / 4);
+            --countdown-fill-border: none;
+            --countdown-fill-border-radius: var(--app-narrow-radius);
+            --countdown-fill-background: var(--ion-color-lightest);
+            --countdown-fill-shadow: 0px 0px 5px 0px var(--page-countdown-fill-shadow-color);
+            --countdown-value-color: var(--ion-color-darkest);
+            --countdown-unit-color: var(--ion-color-medium-shade);
+            --countdown-time-flex-direction: column;
+
+            font-weight: 500;
+            font-size: 14px;
+            margin-right: calc(var(--page-countdown-gutter) * -1);
+          }
+        }
+      }
+    }
+  }
+}

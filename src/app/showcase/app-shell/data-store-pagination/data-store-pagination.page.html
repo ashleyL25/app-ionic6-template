@@ -1,0 +1,47 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-back-button defaultHref="showcase/app-shell"></ion-back-button>
+    </ion-buttons>
+    <ion-title>
+      DataStore - Pagination example
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      This example is useful for use cases that require the data stream to be updated based on user actions. <i>Pagination</i> and <i>filtering</i> are the clear use cases that come to my mind.
+    </p>
+    <p>
+      For these use cases you get the initial data stream and then, upon user interaction, you request an update for that stream. For example requesting your remote API for the next page of results or a filtered set of results.
+    </p>
+    <p>
+      This example shows you how to merge the initial data stream with future data streams that may arise from user interaction.
+    </p>
+    <p>
+      <b>Current page: {{ currentPage }}</b>
+      <span *ngIf="!loadMorePages" style="margin-inline-start: 10px;"><small>(No more pages available)</small></span>
+    </p>
+    <p>
+      <small>Each time you click the button we fetch users from the next page.</small>
+    </p>
+    <ion-row style="background-color: #FFF; padding: 10px;" *ngFor="let user of pagedUsers">
+      <ion-col size="4">
+        <app-aspect-ratio [ratio]="{w:1, h:1}">
+          <app-image-shell animation="spinner" [src]="user?.avatar" [alt]="'Sample Image'"></app-image-shell>
+        </app-aspect-ratio>
+      </ion-col>
+      <ion-col size="8">
+        <h3 style="margin-top: 0px;">
+          <app-text-shell [data]="user?.first_name"></app-text-shell>
+        </h3>
+        <p>
+          <app-text-shell [data]="user?.last_name" lines="3"></app-text-shell>
+        </p>
+      </ion-col>
+    </ion-row>
+    <ion-button (click)="getNextPageUsers()" [disabled]="!loadMorePages || pagedUsers.isShell">Fetch next page</ion-button>
+  </section>
+</ion-content>

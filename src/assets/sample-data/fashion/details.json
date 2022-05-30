@@ -1,0 +1,84 @@
+{
+  "id": 7,
+  "showcaseImages": [
+    {
+      "type": "square",
+      "source": "./assets/sample-images/fashion/Fashion7-1.1.png"
+    },
+    {
+      "type": "fill",
+      "source": "./assets/sample-images/fashion/Fashion7_2-3.4.png"
+    },
+    {
+      "type": "fill",
+      "source": "./assets/sample-images/fashion/Fashion7_3-3.4.png"
+    }
+  ],
+  "name": "Badass Leather Jacket",
+  "brand": "Topshop",
+  "price": 200,
+  "salePrice": 145,
+  "colorVariants": [
+    {
+      "name": "White",
+      "value": "white"
+    },
+    {
+      "name": "Navy",
+      "value": "navy"
+    },
+    {
+      "name": "Coral",
+      "value": "coral",
+      "default": true
+    },
+    {
+      "name": "Lime",
+      "value": "lime"
+    }
+  ],
+  "sizeVariants": [
+    {
+      "name": "XS",
+      "value": "xs"
+    },
+    {
+      "name": "S - Out of stock",
+      "value": "xs"
+    },
+    {
+      "name": "M",
+      "value": "m",
+      "default": true
+    },
+    {
+      "name": "L - Only 3 left",
+      "value": "l"
+    },
+    {
+      "name": "XL",
+      "value": "xl"
+    }
+  ],
+  "description": "Give basics a romantic update with styles like this lace poet top. Cut with a high neckline it comes with an intricate lace detail to the bust and flowing hemline. Perfect worn with jeans for casual chic.",
+  "careInstructions": "100% Viscose. Machine wash according to instructions on care label",
+  "upc": "8726543D",
+  "relatedProducts": [
+    {
+      "id": 6,
+      "slug": "feather-dark-shoes",
+      "price": 130.55,
+      "salePrice": 95.99,
+      "image": "./assets/sample-images/fashion/Fashion6-3.4.png",
+      "name": "Feather Dark Shoes"
+    },
+    {
+      "id": 2,
+      "slug": "washed-skinny-jeans",
+      "price": 45.95,
+      "salePrice": 35.15,
+      "image": "./assets/sample-images/fashion/Fashion5-3.4.png",
+      "name": "Washed Skinny Jeans"
+    }
+  ]
+}

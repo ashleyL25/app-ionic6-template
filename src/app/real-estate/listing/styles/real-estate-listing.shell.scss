@@ -1,0 +1,58 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --shell-color: #d9453a;
+  --shell-color-rgb: 217,69,58;
+}
+
+// You can also apply sheel styles to the entire page
+:host(.is-shell) {
+  // ion-content {
+  //   opacity: 0.8;
+  // }
+}
+
+app-image-shell.item-picture {
+  --image-shell-loading-background: rgba(var(--shell-color-rgb), .10);
+  --image-shell-spinner-color: rgba(var(--shell-color-rgb), .25);
+}
+
+.item-price app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .25);
+  min-width: 50px;
+  max-width: 100px;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.item-address > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .20);
+  --text-shell-line-height: 14px;
+  max-width: 60%;
+
+  &.text-loaded {
+    max-width: inherit;
+  }
+}
+
+.accommodation-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .10);
+  --text-shell-line-height: 14px;
+  min-width: 30px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}
+
+.amenity-value > app-text-shell {
+  --text-shell-line-color: rgba(var(--shell-color-rgb), .05);
+  --text-shell-line-height: 12px;
+  min-width: 50px;
+
+  &.text-loaded {
+    min-width: 0px;
+  }
+}

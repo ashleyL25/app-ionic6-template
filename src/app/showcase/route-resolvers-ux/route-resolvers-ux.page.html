@@ -1,0 +1,52 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Improve Route Resolvers UX
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="showcase-content">
+  <section class="showcase-section">
+    <p>
+      Lets see the difference between the different implementations of Route Resolvers.
+    </p>
+    <h5>Blocking Route Resolvers</h5>
+    <p>
+      By default, Angular Route Resolvers won't transition to the page until the Resolver Observable completes.
+    </p>
+    <p>
+      Let's suppose the backend is slow and takes 5 seconds to fetch data and return it to the client, this is what's going to happen.
+    </p>
+    <p>
+      <b>Expected behavior:</b> Page transition will be delayed 5 seconds until the server sends data back to the client.
+    </p>
+    <ion-button expand="block" [routerLink]="['/showcase/route-resolvers-ux/blocking-resolvers']">Blocking Resolvers</ion-button>
+  </section>
+  <section class="showcase-section">
+    <h5>NON-Blocking Route Resolvers</h5>
+    <p>
+      To avoid waiting for the Observable to complete, we can wrap the base Observable (the one we are getting data from) with a dummy Observable, Subject or Promise that emits the base Observable and immediately completes.
+    </p>
+    <p>
+      <b>Expected behavior:</b> Page transition will be instant and the transitioned page will show a blank state while the server sends data back to the client.
+    </p>
+    <ion-button expand="block" [routerLink]="['/showcase/route-resolvers-ux/non-blocking-resolvers']">Non-Blocking Resolvers</ion-button>
+  </section>
+  <section class="showcase-section">
+    <h5>Progressive Shell Resolvers</h5>
+    <p>
+      By using the <code>DataStore</code> utility in conjunction with Angular Route Resolvers, we can solve this UX problem and make page transitions immediate.
+    </p>
+    <p>
+      This approach uses a non-blocking Resolver in conjunction with the <code>DataStore</code> utility.
+    </p>
+    <p>
+      <b>Expected behavior:</b> Page transition will be instant and the transitioned page will show some shell elements while the server sends data back to the client.
+    </p>
+    <ion-button expand="block" [routerLink]="['/showcase/route-resolvers-ux/progressive-shell-resolvers']">Progressive Shell Resolvers</ion-button>
+  </section>
+</ion-content>

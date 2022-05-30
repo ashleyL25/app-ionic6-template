@@ -1,0 +1,68 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "slug": "badass-leather-jacket",
+      "price": 200,
+      "salePrice": 145,
+      "image": "./assets/sample-images/fashion/Fashion7-3.4.png",
+      "name": "Badass Leather Jacket"
+    },
+    {
+      "id": 2,
+      "slug": "washed-skinny-jeans",
+      "price": 45.95,
+      "salePrice": 35.15,
+      "image": "./assets/sample-images/fashion/Fashion5-3.4.png",
+      "name": "Washed Skinny Jeans"
+    },
+    {
+      "id": 3,
+      "slug": "army-green-shirt",
+      "price": 0,
+      "salePrice": 15.00,
+      "image": "./assets/sample-images/fashion/Fashion3-3.4.png",
+      "name": "Army Green Shirt"
+    },
+    {
+      "id": 4,
+      "slug": "silk-blouse",
+      "price": 15.55,
+      "salePrice": 13.99,
+      "image": "./assets/sample-images/fashion/Fashion4-3.4.png",
+      "name": "Silk Blouse"
+    },
+    {
+      "id": 5,
+      "slug": "dark-red-blouse",
+      "price": 0,
+      "salePrice": 14.22,
+      "image": "./assets/sample-images/fashion/Fashion2-3.4.png",
+      "name": "Dark Red Blouse"
+    },
+    {
+      "id": 6,
+      "slug": "feather-dark-shoes",
+      "price": 130.55,
+      "salePrice": 95.99,
+      "image": "./assets/sample-images/fashion/Fashion6-3.4.png",
+      "name": "Feather Dark Shoes"
+    },
+    {
+      "id": 7,
+      "slug": "cute-jean-shirt",
+      "price": 0,
+      "salePrice": 16.35,
+      "image": "./assets/sample-images/fashion/Fashion1-3.4.png",
+      "name": "Cute Jean Shirt"
+    },
+    {
+      "id": 8,
+      "slug": "summer-black-dress",
+      "price": 50.45,
+      "salePrice": 35,
+      "image": "./assets/sample-images/fashion/Fashion8-3.4.png",
+      "name": "Summer Black Dress"
+    }
+  ]
+}

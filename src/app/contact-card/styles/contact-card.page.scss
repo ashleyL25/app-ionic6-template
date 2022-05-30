@@ -1,0 +1,95 @@
+// Custom variables
+// Note:  These ones were added by us and have nothing to do with Ionic CSS Custom Properties
+:host {
+  --page-margin: var(--app-broad-margin);
+  --page-background: var(--app-background-shade);
+
+  --page-highlighted-background: var(--ion-color-secondary-tint);
+}
+
+// Note:  All the CSS variables defined below are overrides of Ionic elements CSS Custom Properties
+
+// Use a colored border-top to fix weird transitions between toolbars that have different background colors
+ion-header {
+  ion-toolbar {
+    --background: transparent;
+  }
+}
+ion-content {
+  position: absolute;
+  top: 0;
+  border-top: calc(var(--app-header-height) + var(--ion-safe-area-top));
+  border-top-style: solid;
+  border-top-color: var(--page-highlighted-background);
+}
+
+.contact-card-content {
+  --background: var(--page-background);
+  // To fix half pixel line between ion-header and  ion-content
+  transform: translateZ(0);
+
+  .user-details-wrapper {
+    --ion-grid-column-padding: 0px;
+
+    padding: 0px var(--page-margin) var(--page-margin);
+    background-color: var(--page-highlighted-background);
+    color: var(--ion-color-light);
+    align-items: center;
+
+    .user-avatar {
+      border: solid 3px var(--ion-color-light);
+    }
+
+    .user-info-wrapper {
+      padding-left: calc(var(--page-margin) / 2);
+
+      .user-name {
+        margin: 0px 0px 5px;
+      }
+
+      .user-handle {
+        margin: 0px;
+        font-weight: 400;
+      }
+    }
+
+    .user-stats-wrapper {
+      text-align: center;
+      padding-top: calc(var(--page-margin) / 2);
+
+      .user-stat-value {
+        margin-right: 5px;
+        font-weight: 500;
+        font-size: 18px;
+      }
+
+      .user-stat-name {
+        font-size: 16px;
+      }
+    }
+
+    .user-bio {
+      margin: var(--page-margin) 0px 0px;
+      line-height: 1.2;
+      font-size: 14px;
+    }
+  }
+
+  .user-preferences-wrapper {
+    --ion-grid-column-padding: 0px;
+
+    padding: var(--page-margin);
+
+    .preference-name {
+      margin: 0px 0px 5px;
+      font-size: 16px;
+    }
+
+    .preference-value {
+      margin: 0px 0px calc(var(--page-margin) / 2);
+      font-size: 14px;
+      line-height: 1.4;
+      color: var(--ion-color-dark-tint);
+    }
+  }
+}

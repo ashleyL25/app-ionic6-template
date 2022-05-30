@@ -1,0 +1,64 @@
+{
+  "items": [
+    {
+      "id": 1,
+      "slug": "tristan-narvaja",
+      "image": "./assets/sample-images/travel/Travel1-64.47.png",
+      "icon": "./assets/sample-images/travel/TravelIcon1.png",
+      "name": "Tristán Narvaja",
+      "category": "Flea Market",
+      "description": "Every Sunday from early morning until three in the afternoon enjoy the biggest market in Montevideo.",
+      "rating": 4.8,
+      "address": "Cordón, Montevideo, Uruguay",
+      "reviewsCount": 17
+    },
+    {
+      "id": 2,
+      "slug": "rambla-montevideo",
+      "image": "./assets/sample-images/travel/Travel2-64.47.png",
+      "icon": "./assets/sample-images/travel/TravelIcon2.png",
+      "name": "Rambla Montevideo",
+      "category": "Seaside Avenue",
+      "description": "22 kilometers long avenue along the coast of Rio de la Plata stretching throughout all of Montevideo.",
+      "rating": 4.7,
+      "address": "Montevideo, Uruguay",
+      "reviewsCount": 5
+    },
+    {
+      "id": 3,
+      "slug": "legislative-palace-bistro",
+      "image": "./assets/sample-images/travel/Travel3-64.47.png",
+      "icon": "./assets/sample-images/travel/TravelIcon3.png",
+      "name": "Legislative Palace Bistro",
+      "category": "Restaurant",
+      "description": "It's warm and relaxed atmosphere, making it a favorite haunt for tourists, businessmen and cultural figures.",
+      "rating": 3.5,
+      "address": "Aguada, Montevideo, Uruguay",
+      "reviewsCount": 8
+    },
+    {
+      "id": 4,
+      "slug": "colonia",
+      "image": "./assets/sample-images/travel/Travel4-64.47.png",
+      "icon": "./assets/sample-images/travel/TravelIcon4.png",
+      "name": "Colonia",
+      "category": "Historic Pier",
+      "description": "Cobbled and irregular streets straight from history, and a unique landscape with spectacular view of the river.",
+      "rating": 5.0,
+      "address": "Barrio Sur, Colonia, Uruguay",
+      "reviewsCount": 108
+    },
+    {
+      "id": 5,
+      "slug": "casapueblo",
+      "image": "./assets/sample-images/travel/Travel5-64.47.png",
+      "icon": "./assets/sample-images/travel/TravelIcon5.png",
+      "name": "Casapueblo",
+      "category": "Art Gallery",
+      "description": "Casapueblo is the former summer home of Uruguayan artist Carlos Paez Vilaró and is now an art gallery, museum and hotel",
+      "rating": 4.9,
+      "address": "Punta Ballena, Maldonado, Uruguay",
+      "reviewsCount": 87
+    }
+  ]
+}
