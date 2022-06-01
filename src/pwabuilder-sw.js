@@ -4,22 +4,44 @@ const QUEUE_NAME = "bgSyncQueue";
 
 importScripts('https://storage.googleapis.com/workbox-cdn/releases/5.1.2/workbox-sw.js');
 
-self.addEventListener("message", (event) => {
-  if (event.data && event.data.type === "SKIP_WAITING") {
-    self.skipWaiting();
-  }
+// Cache name
+
+// Files required to make this app work offline
+var REQUIRED_FILES = [
+    'index.html'
+];
+
+self.addEventListener('install', function(event) {
+  // Perform install step:  loading each required file into cache
+  event.waitUntil(
+    caches.open(CACHE_NAME)
+      .then(function(cache) {
+        // Add all offline dependencies to the cache
+        return cache.addAll(REQUIRED_FILES);
+      })
+      .then(function() {
+        return self.skipWaiting();
+      })
+  );
 });
 
-const bgSyncPlugin = new workbox.backgroundSync.BackgroundSyncPlugin(QUEUE_NAME, {
-  maxRetentionTime: 24 * 60 // Retry for max of 24 Hours (specified in minutes)
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request)
+      .then(function(response) {
+        // Cache hit - return the response from the cached version
+        if (response) {
+          return response;
+        }
+        // Not in cache - return the result from the live server
+        // `fetch` is essentially a "fallback"
+        return fetch(event.request);
+      }
+    )
+  );
 });
 
-workbox.routing.registerRoute(
-  new RegExp('/*'),
-  new workbox.strategies.StaleWhileRevalidate({
-    cacheName: CACHE,
-    plugins: [
-      bgSyncPlugin
-    ]
-  })
-);
+self.addEventListener('activate', function(event) {
+  // Calling claim() to force a "controllerchange" event on navigator.serviceWorker
+  event.waitUntil(self.clients.claim());
+});
