@@ -5,11 +5,11 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: 'AIzaSyC5QK355uuknu0_ldVxFqqNqgp9oJi_eLc',
-    authDomain: 'ion4fullpwa.firebaseapp.com',
-    databaseURL: 'https://ion4fullpwa.firebaseio.com',
-    projectId: 'ion4fullpwa',
-    storageBucket: 'ion4fullpwa.appspot.com'
+    apiKey: 'AIzaSyCi1Qrn16ulVL0SSYTKJlf_7TOIXtAJQCk',
+    authDomain: 'iif-app-a0c6b.firebaseapp.com',
+    databaseURL: 'https://iif-app-a0c6b.firebaseio.com',
+    projectId: 'iif-app-a0c6b',
+    storageBucket: 'iif-app-a0c6b.appspot.com'
   },
   appShellConfig: {
     debug: false,
