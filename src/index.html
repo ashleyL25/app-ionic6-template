@@ -116,6 +116,29 @@
   const el = document.createElement('pwa-update');
   document.body.appendChild(el);
 </script>
+<script type="module">
+  // Import the functions you need from the SDKs you need
+  import { initializeApp } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-app.js";
+  import { getAnalytics } from "https://www.gstatic.com/firebasejs/9.8.2/firebase-analytics.js";
+  // TODO: Add SDKs for Firebase products that you want to use
+  // https://firebase.google.com/docs/web/setup#available-libraries
+
+  // Your web app's Firebase configuration
+  // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+  const firebaseConfig = {
+    apiKey: "AIzaSyCi1Qrn16ulVL0SSYTKJlf_7TOIXtAJQCk",
+    authDomain: "iif-app-a0c6b.firebaseapp.com",
+    projectId: "iif-app-a0c6b",
+    storageBucket: "iif-app-a0c6b.appspot.com",
+    messagingSenderId: "538260254105",
+    appId: "1:538260254105:web:cd79c82d8dded922457708",
+    measurementId: "G-WKTD9M6JVY"
+  };
+
+  // Initialize Firebase
+  const app = initializeApp(firebaseConfig);
+  const analytics = getAnalytics(app);
+</script>
 
 </body>
 </html>
