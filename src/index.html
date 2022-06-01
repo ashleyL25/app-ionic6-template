@@ -97,12 +97,8 @@
   <meta property="og:description" content="Your app description">
   <meta property="og:url" content="">
   <meta property="og:site_name" content="YourSiteName">
+  <script type="module" src="/src/pwabuilder-sw.ts"></script>
 
-  <script type="module">
-     import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
-     const el = document.createElement('pwa-update');
-     document.body.appendChild(el);
-  </script>
 </head>
 <body>
   <!-- Ver: https://github.com/mhartington/StarTrack-ng/blob/master/src/index.html -->
@@ -113,6 +109,13 @@
     </h3>
   </noscript>
   <app-root></app-root>
+
+<script type="module">
+  import 'https://cdn.jsdelivr.net/npm/@pwabuilder/pwaupdate';
+
+  const el = document.createElement('pwa-update');
+  document.body.appendChild(el);
+</script>
 
 </body>
 </html>
